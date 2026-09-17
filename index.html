@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servidor da Galera — Minecraft</title>
+<meta name="description" content="Página oficial do nosso servidor de Minecraft. Veja como entrar e quais mods instalar.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="topo">
+  <div class="header-inner">
+    <a href="#topo" class="logo">
+      <span class="logo-block" aria-hidden="true"></span>
+      <span class="logo-text" data-config="serverName">Servidor da Galera</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav">
+      <a href="#inicio">Início</a>
+      <a href="#servidor">Servidor</a>
+      <a href="#mods">Mods</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="inicio">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <p class="eyebrow">// bem-vindo(a) //</p>
+        <h1 class="mc-title">SERVIDOR<br>DA GALERA</h1>
+        <p class="hero-sub">Um mundo de Minecraft feito pra jogar com os amigos. Sobrevivência, construção e muita zoeira — falta só você entrar.</p>
+        <div class="hero-actions">
+          <a href="#servidor" class="btn btn-primary">Como entrar</a>
+          <a href="#mods" class="btn btn-secondary">Baixar mods</a>
+        </div>
+      </div>
+
+      <div class="hero-photo reveal">
+        <div class="photo-frame">
+          <img src="assets/img/server-photo.jpg" alt="Screenshot do servidor" class="server-photo" id="serverPhoto">
+          <div class="photo-placeholder" id="photoPlaceholder">
+            <div class="placeholder-icon" aria-hidden="true">
+              <div></div><div></div><div></div><div></div>
+            </div>
+            <p><strong>Screenshot do servidor</strong></p>
+            <p class="placeholder-hint">em breve</p>
+          </div>
+          <span class="frame-tag">📸 base da galera</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-ground" aria-hidden="true"></div>
+  </section>
+
+  <!-- ================= SERVIDOR / STATUS ================= -->
+  <section class="server-info" id="servidor">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Como entrar</h2>
+      <p class="section-lead reveal">Ainda estamos preparando tudo. Por enquanto o servidor roda localmente — assim que tivermos um endereço público, ele aparece bem aqui embaixo.</p>
+
+      <div class="server-card reveal">
+        <div class="server-card-topbar">Edit Server Info</div>
+        <div class="server-card-body">
+
+          <div class="field">
+            <label>Nome do Servidor</label>
+            <div class="field-box" data-config="serverName">Servidor da Galera</div>
+          </div>
+
+          <div class="field">
+            <label>Endereço do Servidor</label>
+            <div class="field-box field-box--pending">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span data-config="serverIP">em breve</span>
+              <button class="copy-btn" id="copyIpBtn" type="button" disabled title="Endereço ainda não disponível">copiar</button>
+            </div>
+          </div>
+
+          <div class="server-meta">
+            <div class="meta-chip">
+              <span class="meta-label">Versão</span>
+              <span class="meta-value" data-config="version">1.21.x</span>
+            </div>
+            <div class="meta-chip">
+              <span class="meta-label">Modpack</span>
+              <span class="meta-value" data-config="modpackName">Personalizado</span>
+            </div>
+            <div class="meta-chip">
+              <span class="meta-label">Status</span>
+              <span class="meta-value meta-value--pending">Em preparação</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MODS ================= -->
+  <section class="mods-guide" id="mods">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Baixe os mods</h2>
+      <p class="section-lead reveal">Pra jogar no servidor, sua instalação do Minecraft precisa dos mesmos mods. Siga o passo a passo abaixo — é rapidinho.</p>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="step-slot">1</div>
+          <div class="step-content">
+            <h3>Instale um launcher com suporte a mods</h3>
+            <p>Baixe e instale o <strong>Prism Launcher</strong>, <strong>CurseForge</strong> ou <strong>ATLauncher</strong> — qualquer um deles gerencia versões e mods para você.</p>
+          </div>
+        </li>
+
+        <li class="step reveal">
+          <div class="step-slot">2</div>
+          <div class="step-content">
+            <h3>Baixe o modpack do servidor</h3>
+            <p>Pegue o pacote com todos os mods já organizados no botão abaixo.</p>
+            <a href="#" class="btn btn-small" id="modpackBtn" data-config="modpackLink">Baixar modpack (.zip)</a>
+          </div>
+        </li>
+
+        <li class="step reveal">
+          <div class="step-slot">3</div>
+          <div class="step-content">
+            <h3>Instale a mesma versão do jogo e do mod loader</h3>
+            <p>Confira a versão do Minecraft e do Forge/Fabric indicada na seção <a href="#servidor">Servidor</a> e crie um perfil igual no seu launcher.</p>
+          </div>
+        </li>
+
+        <li class="step reveal">
+          <div class="step-slot">4</div>
+          <div class="step-content">
+            <h3>Coloque os mods na pasta certa</h3>
+            <p>Extraia os arquivos <code>.jar</code> dentro da pasta <code>mods</code> do seu perfil. Se o modpack já vier pronto pelo launcher, esse passo é automático.</p>
+          </div>
+        </li>
+
+        <li class="step reveal">
+          <div class="step-slot">5</div>
+          <div class="step-content">
+            <h3>Conecte no servidor</h3>
+            <p>Abra o Minecraft com o perfil certo, vá em <em>Multiplayer</em> → <em>Add Server</em> e cole o endereço assim que ele for divulgado aqui na página.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="section-inner footer-inner">
+    <p>Feito pela galera, para a galera. 🛠️</p>
+    <p class="footer-disclaimer">Este site é um projeto de fã e não é afiliado à Mojang Studios ou Microsoft. Minecraft é marca registrada da Mojang Studios.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
