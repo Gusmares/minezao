@@ -495,6 +495,51 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .step-content p{ font-size: 17px; }
 .step-content a{ text-decoration: underline; font-weight: 700; }
 
+/* ---------- GALERIA ---------- */
+.gallery{ position: relative; }
+.gallery::before{
+  content: "";
+  display: block;
+  height: 10px;
+  background-color: var(--ink);
+}
+
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 18px;
+}
+.gallery-loading{ color: var(--paper); font-size: 14px; }
+
+.gallery-card{
+  display: block;
+  background: var(--wood);
+  border: 4px solid var(--ink);
+  box-shadow:
+    inset 3px 3px 0 0 rgba(255,255,255,.3),
+    inset -3px -3px 0 0 rgba(0,0,0,.4);
+  padding: 8px;
+  color: var(--cream);
+  transition: transform .12s ease;
+}
+.gallery-card:hover{ transform: translateY(-4px); }
+.gallery-thumb{
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+}
+.gallery-caption{
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-shadow: 2px 2px 0 rgba(0,0,0,.4);
+}
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */

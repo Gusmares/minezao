@@ -145,6 +145,33 @@ const NOSTALGIA_TRACKS = [
   // Rede de segurança: se a API já estava pronta antes mesmo desse ponto.
   if (window.YT && window.YT.Player) initPlayer();
 
+  function renderGallery() {
+    const grid = document.getElementById("galleryGrid");
+    if (!grid) return;
+    grid.innerHTML = "";
+    NOSTALGIA_TRACKS.forEach((track) => {
+      const card = document.createElement("a");
+      card.className = "gallery-card";
+      card.href = `https://www.youtube.com/watch?v=${track.id}`;
+      card.target = "_blank";
+      card.rel = "noopener";
+
+      const img = document.createElement("img");
+      img.className = "gallery-thumb";
+      img.src = `https://i.ytimg.com/vi/${track.id}/hqdefault.jpg`;
+      img.alt = track.title;
+      img.loading = "lazy";
+
+      const caption = document.createElement("span");
+      caption.className = "gallery-caption";
+      caption.textContent = track.title;
+
+      card.appendChild(img);
+      card.appendChild(caption);
+      grid.appendChild(card);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     els.root = document.getElementById("nostalgia");
     els.tick = document.getElementById("nostalgiaTick");
@@ -156,5 +183,6 @@ const NOSTALGIA_TRACKS = [
 
     setupControls();
     setupInteractionUnlock();
+    renderGallery();
   });
 })();
