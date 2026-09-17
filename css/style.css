@@ -5,11 +5,14 @@
              "Pixelify Sans"    -> textos corridos (pixelado, legível)
    Padrão:   painéis com bisel 3D (claro no topo-esquerda, escuro embaixo-direita,
              borda preta externa) imitando a UI clássica de jogos 16-bit/Minecraft.
-   Texturas: geradas 100% em CSS (gradientes com paradas duras), sem usar
-             nenhum asset extraído do jogo.
+   Texturas: padrão pixelado licenciado (Freepik/Layerace — ver crédito no rodapé),
+             tingido nas cores da paleta via background-blend-mode. Nenhum asset
+             extraído do jogo é usado.
    ========================================================================== */
 
 :root{
+  --tex-pattern: url("../assets/img/textures/pixel-pattern.jpg");
+
   --dirt:        #7b5233;
   --dirt-dark:   #5a3c22;
   --dirt-fleck:  #6b4423;
@@ -46,7 +49,10 @@ body{
   font-size: 19px;
   font-weight: 500;
   color: var(--cream);
-  background: var(--dirt);
+  background-color: var(--dirt);
+  background-image: var(--tex-pattern);
+  background-blend-mode: multiply;
+  background-size: 140px 140px;
   line-height: 1.65;
   overflow-x: hidden;
   text-wrap: pretty;
@@ -63,38 +69,35 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   text-shadow: 3px 3px 0 var(--shadow-soft);
 }
 
-/* ---------- texturas (100% CSS, sem imagens do jogo) ---------- */
+/* ---------- texturas (padrão licenciado tingido via blend-mode) ---------- */
 .tex-dirt{
   background-color: var(--dirt);
-  background-image:
-    radial-gradient(circle at 20% 30%, var(--dirt-fleck) 0 3px, transparent 4px),
-    radial-gradient(circle at 70% 65%, var(--dirt-dark) 0 3px, transparent 4px),
-    radial-gradient(circle at 45% 80%, var(--dirt-fleck) 0 2px, transparent 3px),
-    radial-gradient(circle at 85% 20%, var(--dirt-dark) 0 2px, transparent 3px),
-    linear-gradient(45deg, var(--dirt-dark) 25%, transparent 25%, transparent 75%, var(--dirt-dark) 75%);
-  background-size: 40px 40px, 40px 40px, 32px 32px, 32px 32px, 16px 16px;
-  background-position: 0 0, 20px 20px, 8px 24px, 28px 6px, 0 0;
-  image-rendering: pixelated;
+  background-image: var(--tex-pattern);
+  background-blend-mode: multiply;
+  background-size: 150px 150px;
 }
 
 .tex-stone{
   background-color: var(--stone);
-  background-image:
-    radial-gradient(circle at 25% 25%, var(--stone-fleck) 0 3px, transparent 4px),
-    radial-gradient(circle at 70% 60%, var(--stone-dark) 0 3px, transparent 4px),
-    radial-gradient(circle at 50% 85%, var(--stone-fleck) 0 2px, transparent 3px),
-    linear-gradient(45deg, var(--stone-dark) 25%, transparent 25%, transparent 75%, var(--stone-dark) 75%);
-  background-size: 36px 36px, 36px 36px, 28px 28px, 14px 14px;
-  background-position: 0 0, 18px 18px, 6px 20px, 0 0;
-  image-rendering: pixelated;
+  background-image: var(--tex-pattern);
+  background-blend-mode: multiply;
+  background-size: 150px 150px;
 }
 
 .tex-wood{
   background-color: var(--wood);
   background-image:
-    repeating-linear-gradient(90deg, var(--wood-seam) 0 4px, transparent 4px 64px),
-    repeating-linear-gradient(0deg, var(--wood-dark) 0 3px, transparent 3px 22px);
-  image-rendering: pixelated;
+    repeating-linear-gradient(90deg, rgba(0,0,0,.22) 0 4px, transparent 4px 64px),
+    var(--tex-pattern);
+  background-blend-mode: normal, multiply;
+  background-size: auto, 150px 150px;
+}
+
+.tex-grass{
+  background-color: var(--grass);
+  background-image: var(--tex-pattern);
+  background-blend-mode: multiply;
+  background-size: 70px 70px;
 }
 
 .tex-grass-edge{
@@ -125,7 +128,10 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   padding: 16px 22px;
   border: none;
   cursor: pointer;
-  background: var(--stone);
+  background-color: var(--stone);
+  background-image: var(--tex-pattern);
+  background-blend-mode: multiply;
+  background-size: 60px 60px;
   box-shadow:
     inset 3px 3px 0 0 rgba(255,255,255,.3),
     inset -3px -3px 0 0 rgba(0,0,0,.4),
@@ -142,8 +148,8 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
     inset 3px 3px 0 0 rgba(0,0,0,.4),
     0 0 0 4px var(--ink);
 }
-.btn-primary{ background: var(--grass); }
-.btn-secondary{ background: var(--wood); }
+.btn-primary{ background-color: var(--grass); }
+.btn-secondary{ background-color: var(--wood); }
 .btn-small{ font-size: 11px; padding: 12px 16px; margin-top: 8px; }
 
 .btn[disabled], .btn[aria-disabled="true"]{
@@ -158,7 +164,12 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--wood);
+  background-color: var(--wood);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.22) 0 4px, transparent 4px 64px),
+    var(--tex-pattern);
+  background-blend-mode: normal, multiply;
+  background-size: auto, 110px 110px;
   border-bottom: 4px solid var(--ink);
   box-shadow: inset 0 -4px 0 0 rgba(0,0,0,.25);
 }
@@ -248,7 +259,6 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .photo-frame{
   position: relative;
   aspect-ratio: 4 / 3;
-  background: var(--wood);
   border: 6px solid var(--ink);
   box-shadow:
     inset 5px 5px 0 0 rgba(255,255,255,.3),
@@ -269,7 +279,6 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   justify-content: center;
   gap: 8px;
   text-align: center;
-  background: var(--stone);
   border: 3px solid var(--ink);
   color: var(--paper);
 }
@@ -300,9 +309,6 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 
 .hero-ground{
   height: 46px;
-  background-color: var(--grass);
-  background-image: linear-gradient(45deg, var(--grass-dark) 25%, transparent 25%, transparent 75%, var(--grass-dark) 75%);
-  background-size: 12px 12px;
   border-top: 4px solid var(--ink);
   box-shadow: inset 0 8px 0 0 rgba(255,255,255,.15);
 }
@@ -325,7 +331,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 
 /* ---------- SERVIDOR ---------- */
-.server-info{ background: var(--dirt); position: relative; }
+.server-info{ position: relative; }
 .server-info::before{
   content: "";
   display: block;
@@ -405,7 +411,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .meta-value--pending{ color: var(--wood-dark); }
 
 /* ---------- MODS ---------- */
-.mods-guide{ background: var(--stone); position: relative; }
+.mods-guide{ position: relative; }
 .mods-guide::before{
   content: "";
   display: block;
@@ -434,6 +440,77 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   justify-content: center;
   box-shadow: inset 0 0 0 3px #000, inset 3px 3px 0 0 rgba(255,255,255,.1);
 }
+.trust-note{
+  display: inline-flex;
+  gap: 8px;
+  align-items: flex-start;
+  background: var(--wood-dark);
+  color: var(--cream);
+  border: 3px solid var(--ink);
+  box-shadow: inset 2px 2px 0 0 rgba(255,255,255,.15);
+  padding: 12px 16px;
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.trust-note a{ color: var(--yellow); font-weight: 700; text-decoration: underline; }
+
+.mod-list-wrap{ margin-top: 56px; }
+.mod-list-title{
+  font-size: 20px;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.mod-list-lead{
+  font-size: 16px;
+  color: var(--paper);
+  text-shadow: 2px 2px 0 rgba(0,0,0,.35);
+  max-width: 62ch;
+  margin-bottom: 22px;
+}
+.mod-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+.mod-card{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--stone-light);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: inset 2px 2px 0 0 rgba(255,255,255,.35);
+  padding: 10px 12px;
+}
+.mod-icon{
+  flex-shrink: 0;
+  width: 38px; height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  font-size: 10px;
+  color: var(--cream);
+  border: 2px solid var(--ink);
+  box-shadow: inset -2px -2px 0 0 rgba(0,0,0,.3), inset 2px 2px 0 0 rgba(255,255,255,.25);
+}
+.mod-icon--light{ color: var(--ink); }
+.mod-info{ flex: 1; min-width: 0; }
+.mod-name{ font-weight: 700; font-size: 15px; line-height: 1.3; }
+.mod-author{ font-size: 13px; color: #5a5a5a; }
+.mod-link{
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--cream);
+  background: var(--ink);
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+.mod-link:hover{ background: var(--wood-dark); color: var(--yellow); }
+
 .step-content h3{
   font-family: var(--font-body);
   font-weight: 700;
@@ -460,6 +537,12 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   max-width: 60ch;
   margin-inline: auto;
 }
+.footer-credit{
+  margin-top: 8px;
+  font-size: 12px;
+  color: #6f6f6f;
+}
+.footer-credit a{ color: #9a9a9a; text-decoration: underline; }
 
 /* ==========================================================================
    REVEAL ON SCROLL

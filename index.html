@@ -50,9 +50,9 @@
       </div>
 
       <div class="hero-photo reveal">
-        <div class="photo-frame">
+        <div class="photo-frame tex-wood">
           <img src="assets/img/server-photo.jpg" alt="Screenshot do servidor" class="server-photo" id="serverPhoto">
-          <div class="photo-placeholder" id="photoPlaceholder">
+          <div class="photo-placeholder tex-stone" id="photoPlaceholder">
             <div class="placeholder-icon" aria-hidden="true">
               <div></div><div></div><div></div><div></div>
             </div>
@@ -63,11 +63,11 @@
         </div>
       </div>
     </div>
-    <div class="hero-ground" aria-hidden="true"></div>
+    <div class="hero-ground tex-grass" aria-hidden="true"></div>
   </section>
 
   <!-- ================= SERVIDOR / STATUS ================= -->
-  <section class="server-info" id="servidor">
+  <section class="server-info tex-dirt" id="servidor">
     <div class="section-inner">
       <h2 class="section-title reveal">Como entrar</h2>
       <p class="section-lead reveal">Ainda estamos preparando tudo. Por enquanto o servidor roda localmente — assim que tivermos um endereço público, ele aparece bem aqui embaixo.</p>
@@ -111,7 +111,7 @@
   </section>
 
   <!-- ================= MODS ================= -->
-  <section class="mods-guide" id="mods">
+  <section class="mods-guide tex-stone" id="mods">
     <div class="section-inner">
       <h2 class="section-title reveal">Baixe os mods</h2>
       <p class="section-lead reveal">Pra jogar no servidor, sua instalação do Minecraft precisa dos mesmos mods. Siga o passo a passo abaixo — é rapidinho.</p>
@@ -131,6 +131,7 @@
             <h3>Baixe o modpack do servidor</h3>
             <p>Pegue o pacote com todos os mods já organizados no botão abaixo.</p>
             <a href="#" class="btn btn-small" id="modpackBtn" data-config="modpackLink">Baixar modpack (.zip)</a>
+            <p class="trust-note">🛡️ Tá desconfiado de baixar um .zip de estranho? Sem problema — <a href="#mod-list">veja a lista completa de mods</a> aqui embaixo e baixe cada um direto da fonte oficial (Modrinth ou CurseForge) pelo seu launcher favorito.</p>
           </div>
         </li>
 
@@ -158,6 +159,74 @@
           </div>
         </li>
       </ol>
+
+      <div class="mod-list-wrap reveal" id="mod-list">
+        <h3 class="mod-list-title">Mods inclusos nessa versão</h3>
+        <p class="mod-list-lead">Prefere conferir cada mod na fonte oficial antes de instalar? Sem problema — aqui está a lista completa, com link direto pra página de cada um.</p>
+
+        <ul class="mod-grid">
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#6b4fa0">BC</span>
+            <div class="mod-info"><p class="mod-name">BCLib</p><p class="mod-author">por Quiqueck</p></div>
+            <a href="https://modrinth.com/mod/bclib" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#3d6fa8">BD</span>
+            <div class="mod-info"><p class="mod-name">Better Days</p><p class="mod-author">por wendall911</p></div>
+            <a href="https://modrinth.com/mod/betterdays" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#9c4fae">BE</span>
+            <div class="mod-info"><p class="mod-name">BetterEnd</p><p class="mod-author">por Quiqueck</p></div>
+            <a href="https://modrinth.com/mod/betterend" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#b3453f">BN</span>
+            <div class="mod-info"><p class="mod-name">BetterNether</p><p class="mod-author">por Quiqueck</p></div>
+            <a href="https://modrinth.com/mod/betternether" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#3f8fa3">CR</span>
+            <div class="mod-info"><p class="mod-name">Croptopia</p><p class="mod-author">por thethonk</p></div>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/croptopia" target="_blank" rel="noopener" class="mod-link">CurseForge ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#8a6a2f">EC</span>
+            <div class="mod-info"><p class="mod-name">Ecologics</p><p class="mod-author">por SameDifferent</p></div>
+            <a href="https://modrinth.com/mod/ecologics" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#2f8a7a">EL</span>
+            <div class="mod-info"><p class="mod-name">EpheroLib</p><p class="mod-author">por thethonk</p></div>
+            <a href="https://modrinth.com/mod/epherolib" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon mod-icon--light" style="background:#c7cdd6">FA</span>
+            <div class="mod-info"><p class="mod-name">Fabric API</p><p class="mod-author">por modmuss50</p></div>
+            <a href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#b5652f">FF</span>
+            <div class="mod-info"><p class="mod-name">Friends&amp;Foes</p><p class="mod-author">por Faboslav</p></div>
+            <a href="https://modrinth.com/mod/friends-and-foes" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#b3618a">PR</span>
+            <div class="mod-info"><p class="mod-name">Promenade</p><p class="mod-author">por Hugman_76</p></div>
+            <a href="https://modrinth.com/mod/promenade" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#a8842f">RL</span>
+            <div class="mod-info"><p class="mod-name">Resourceful Lib</p><p class="mod-author">por ThatGravyBoat</p></div>
+            <a href="https://modrinth.com/mod/resourceful-lib" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#4f5aa8">WW</span>
+            <div class="mod-info"><p class="mod-name">WorldWeaver</p><p class="mod-author">por Quiqueck</p></div>
+            <a href="https://modrinth.com/mod/worldweaver" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -168,6 +237,7 @@
   <div class="section-inner footer-inner">
     <p>Feito pela galera, para a galera. 🛠️</p>
     <p class="footer-disclaimer">Este site é um projeto de fã e não é afiliado à Mojang Studios ou Microsoft. Minecraft é marca registrada da Mojang Studios.</p>
+    <p class="footer-credit">Padrão de textura <a href="http://www.freepik.com">Designed by Layerace / Freepik</a></p>
   </div>
 </footer>
 
