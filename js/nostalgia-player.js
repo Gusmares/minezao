@@ -5,10 +5,8 @@
  * real liga no primeiro clique/tecla do usuário em qualquer lugar da página.
  * ========================================================================== */
 const NOSTALGIA_TRACKS = [
-  { id: "ey1kyI19x5g", title: "Transformer — Young Squage" },
   { id: "jVwn1xZEgJ4", title: "SIM, EU VOU!! — AuthenticGames" },
   { id: "LVMHYzVS9Y4", title: "Rap do Minecraft (RapGame 06) — Tauz" },
-  { id: "ALZHF5UqnU4", title: "Alone — Marshmello" },
   { id: "cPJUBQd-PNM", title: "Revenge (Minecraft Parody) — CaptainSparklez" },
   { id: "CU1c3fZ7dSM", title: "Intro do TazerCraft — Tron!" },
   { id: "rQzSiiRe6YM", title: "RAP DO MINECRAFT — BngOficial" },
@@ -16,6 +14,15 @@ const NOSTALGIA_TRACKS = [
   { id: "w4utAyKFrZY", title: "SOU STEVE (Paródia Believer) — jvnq" },
   { id: "M2GYZhz7B34", title: "RAVINA (Paródia Havana) — jvnq" },
   { id: "WwIvxSWR_B8", title: "Intro do Rezendeevil — Tron!" },
+];
+
+const GALLERY_PHOTOS = [
+  { src: "assets/img/gallery/foto-01.jpg", alt: "Steve enfrentando um esqueleto na beira de um penhasco" },
+  { src: "assets/img/gallery/foto-02.jpg", alt: "Ilha com templo na selva, vista de uma base com cama e baú" },
+  { src: "assets/img/gallery/foto-03.jpg", alt: "Corte do mundo, da superfície até o Nether" },
+  { src: "assets/img/gallery/foto-04.jpg", alt: "Steve sentado ao lado de um Creeper em frente a uma selva" },
+  { src: "assets/img/gallery/foto-05.jpg", alt: "Steve correndo pela grama com os mobs do jogo" },
+  { src: "assets/img/gallery/foto-06.png", alt: "Steve enfrentando um esqueleto ao entardecer" },
 ];
 
 (function () {
@@ -152,6 +159,24 @@ const NOSTALGIA_TRACKS = [
     const grid = document.getElementById("galleryGrid");
     if (!grid) return;
     grid.innerHTML = "";
+
+    GALLERY_PHOTOS.forEach((photo) => {
+      const card = document.createElement("a");
+      card.className = "gallery-card";
+      card.href = photo.src;
+      card.target = "_blank";
+      card.rel = "noopener";
+
+      const img = document.createElement("img");
+      img.className = "gallery-thumb";
+      img.src = photo.src;
+      img.alt = photo.alt;
+      img.loading = "lazy";
+
+      card.appendChild(img);
+      grid.appendChild(card);
+    });
+
     NOSTALGIA_TRACKS.forEach((track) => {
       const card = document.createElement("a");
       card.className = "gallery-card";
@@ -175,6 +200,28 @@ const NOSTALGIA_TRACKS = [
     });
   }
 
+  function setupGalleryCarousel() {
+    const viewport = document.getElementById("galleryViewport");
+    const prevBtn = document.getElementById("galleryPrev");
+    const nextBtn = document.getElementById("galleryNext");
+    if (!viewport || !prevBtn || !nextBtn) return;
+
+    function cardStep() {
+      const card = viewport.querySelector(".gallery-card");
+      if (!card) return viewport.clientWidth;
+      const style = getComputedStyle(viewport.querySelector(".carousel-track"));
+      const gap = parseFloat(style.columnGap || style.gap || "0") || 0;
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      viewport.scrollBy({ left: -cardStep(), behavior: "smooth" });
+    });
+    nextBtn.addEventListener("click", () => {
+      viewport.scrollBy({ left: cardStep(), behavior: "smooth" });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     els.root = document.getElementById("nostalgia");
     els.tick = document.getElementById("nostalgiaTick");
@@ -187,5 +234,6 @@ const NOSTALGIA_TRACKS = [
     setupControls();
     setupInteractionUnlock();
     renderGallery();
+    setupGalleryCarousel();
   });
 })();

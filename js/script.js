@@ -4,8 +4,8 @@
  * serverIP: null -> mostra "em breve"; preencha com o endereço quando existir.
  * ========================================================================== */
 const CONFIG = {
-  serverName: "Servidor da Galera",
-  serverIP: null,
+  serverName: "wGusmares",
+  serverIP: "enx-cirion-97.enx.host:10073",
   version: "1.21.x",
   modpackName: "Personalizado",
   modpackLink: null, // ex: "https://exemplo.com/modpack.zip"

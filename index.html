@@ -272,8 +272,14 @@
       <h2 class="section-title reveal">Galeria Nostalgia</h2>
       <p class="section-lead reveal">As capas dos clássicos que tocam no rádio aí embaixo. Clique numa foto pra assistir ao vídeo original — todo o crédito é de quem fez.</p>
 
-      <div class="gallery-grid reveal" id="galleryGrid">
-        <p class="gallery-loading">Carregando galeria…</p>
+      <div class="carousel reveal" id="galleryCarousel">
+        <button type="button" class="carousel-arrow carousel-arrow--prev" id="galleryPrev" aria-label="Foto anterior">‹</button>
+        <div class="carousel-viewport" id="galleryViewport">
+          <div class="carousel-track" id="galleryGrid">
+            <p class="gallery-loading">Carregando galeria…</p>
+          </div>
+        </div>
+        <button type="button" class="carousel-arrow carousel-arrow--next" id="galleryNext" aria-label="Próxima foto">›</button>
       </div>
     </div>
   </section>
