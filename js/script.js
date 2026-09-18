@@ -6,7 +6,7 @@
 const CONFIG = {
   serverName: "wGusmares",
   serverIP: "enx-cirion-97.enx.host:10073",
-  version: "1.21.x",
+  version: "1.21.1",
   modpackName: "Personalizado",
   modpackLink: null, // ex: "https://exemplo.com/modpack.zip"
 };

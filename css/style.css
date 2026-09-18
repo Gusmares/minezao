@@ -544,6 +544,45 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 .trust-note a{ color: var(--yellow); font-weight: 700; text-decoration: underline; }
 
+.mod-type-legend{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 28px 0 44px;
+}
+.mod-type-card{
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--stone-light);
+  color: var(--ink);
+  border: var(--border-px) solid var(--ink);
+  box-shadow: inset 3px 3px 0 0 rgba(255,255,255,.25), inset -3px -3px 0 0 rgba(0,0,0,.2);
+  padding: 20px 22px;
+}
+.mod-type-icon{
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  background: var(--grass-dark);
+  box-shadow: inset 0 0 0 3px #000;
+}
+.mod-type-title{
+  font-family: var(--font-title);
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+.mod-type-card p:last-child{ font-size: 15px; margin: 0; }
+.mod-type-card--optional{ background: var(--wood); }
+.mod-type-card--optional .mod-type-icon{ background: var(--wood-dark); }
+@media (max-width: 720px){
+  .mod-type-legend{ grid-template-columns: 1fr; }
+}
+
 .mod-list-wrap{ margin-top: 56px; }
 .mod-list-title{
   font-size: 20px;
@@ -606,6 +645,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 .mod-link:hover{ filter: brightness(1.15); }
 .mod-link--cf{ background: #d5652b; }
+.mod-link--gh{ background: #333; }
 
 .step-content h3{
   font-family: var(--font-body);
@@ -650,6 +690,28 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .faq-item[open] summary::before{ content: "▾ "; }
 .faq-item p{ margin: 10px 0 0; font-size: 15px; }
 .faq-item a{ text-decoration: underline; font-weight: 700; }
+
+/* ---------- HISTÓRIA ---------- */
+.historia{ position: relative; }
+.historia::before{
+  content: "";
+  display: block;
+  height: 10px;
+  background-color: var(--ink);
+}
+.historia-era{ max-width: 72ch; }
+.historia-era:not(:first-of-type){ margin-top: 44px; }
+.historia-era-title{
+  font-size: 18px;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+.historia-era-text{
+  font-size: 16px;
+  color: var(--paper);
+  text-shadow: 2px 2px 0 rgba(0,0,0,.35);
+}
+.historia .carousel{ margin-top: 22px; }
 
 /* ---------- GALERIA ---------- */
 .gallery{ position: relative; }
@@ -965,6 +1027,12 @@ body.lightbox-open{ overflow: hidden; }
   text-align: center;
 }
 .footer-inner{ padding: 48px 24px; }
+.footer-credit{
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--paper);
+}
+.footer-credit a{ color: var(--yellow); font-weight: 700; text-decoration: underline; }
 .footer-disclaimer{
   margin-top: 12px;
   font-size: 14px;

@@ -25,6 +25,37 @@ const GALLERY_PHOTOS = [
   { src: "assets/img/gallery/foto-06.png", alt: "Steve enfrentando um esqueleto ao entardecer", caption: "Emboscada ao entardecer" },
 ];
 
+/* ---------- Fotos de servidores antigos (seção "Nossa História") ---------- */
+const HISTORIA_PHOTOS_2023 = [
+  { src: "assets/img/historia/historia-2023-01.jpg", alt: "Print granulado e antigo de uma área de mineração com dois jogadores perto de um baú", caption: "O primeiro print que sobrou" },
+  { src: "assets/img/historia/historia-2023-02.jpg", alt: "Cinco jogadores posados lado a lado num banco de madeira em um campo, de dia", caption: "Foto de família da turma" },
+  { src: "assets/img/historia/historia-2023-03.jpg", alt: "Os mesmos cinco jogadores no banco de madeira ao anoitecer, com um portal do Nether aceso ao fundo", caption: "Turma perto do portal" },
+  { src: "assets/img/historia/historia-2023-04.jpg", alt: "Jogador manokkkk sentado dentro de um barco de madeira ao lado de um portal do Nether", caption: "O manokkkk que morava no barco" },
+  { src: "assets/img/historia/historia-2023-05.jpg", alt: "Curral de vacas cercado de madeira com uma placa escrita farm de mãe do Gustavo", caption: "A farm da mãe do Gustavo" },
+  { src: "assets/img/historia/historia-2023-06.jpg", alt: "Foto panorâmica em efeito planeta pequeno mostrando floresta, praia, deserto e um portal do Nether", caption: "Nosso mundo em miniatura" },
+  { src: "assets/img/historia/historia-2023-07.jpg", alt: "Panorama planeta pequeno com um esqueleto em cima de um pilar de pedra alto", caption: "Esqueleto guardião da torre" },
+];
+
+const HISTORIA_PHOTOS_2025 = [
+  { src: "assets/img/historia/historia-2025-01.jpg", alt: "Jogador com skin de dragão caminhando sob chuva forte por um vilarejo iluminado por tochas", caption: "Corrida na chuva pelo vilarejo" },
+  { src: "assets/img/historia/historia-2025-02.jpg", alt: "Catedral gótica de duas torres construída no servidor, vista ao pôr do sol", caption: "Catedral gótica ao entardecer" },
+  { src: "assets/img/historia/historia-2025-03.jpg", alt: "Jogador com asas abertas posando em frente às torres da catedral durante o pôr do sol", caption: "Asas abertas ao entardecer" },
+  { src: "assets/img/historia/historia-2025-04.jpg", alt: "Personagem alado em frente à catedral com o sol aparecendo exatamente entre as duas torres", caption: "O sol entre as duas torres" },
+  { src: "assets/img/historia/historia-2025-05.jpg", alt: "Personagem alado visto de costas andando por um campo de papoulas rumo a uma vila", caption: "Asas abertas rumo à vila" },
+  { src: "assets/img/historia/historia-2025-06.jpg", alt: "Vista de baixo para cima das torres da catedral, destacando os vitrais e pináculos de pedra", caption: "Olhando para o topo da catedral" },
+  { src: "assets/img/historia/historia-2025-07.jpg", alt: "Catedral gótica vista à distância, com HUD mostrando os pontos Mercado dos Villagers, Porto e Tribunal no mapa", caption: "Catedral gótica no horizonte" },
+  { src: "assets/img/historia/historia-2025-08.jpg", alt: "Personagem com skin alada branca e rosa posando numa ponte de madeira perto da catedral", caption: "Pose na ponte da vila" },
+  { src: "assets/img/historia/historia-2025-09.jpg", alt: "O mesmo personagem alado na ponte de madeira, em outra pose, com a catedral ao fundo", caption: "Curtindo a vista da ponte" },
+  { src: "assets/img/historia/historia-2025-10.jpg", alt: "Jogador abrindo um baú de madeira numa planície gelada cercada de pinheiros nevados", caption: "Baú escondido na neve" },
+];
+
+const HISTORIA_PHOTOS_EXTRA = [
+  { src: "assets/img/historia/historia-extra-01.jpg", alt: "Dois jogadores com armadura clara lado a lado num campo de flores vermelhas durante um pôr do sol", caption: "Pôr do sol entre amigos" },
+  { src: "assets/img/historia/historia-extra-02.jpg", alt: "Jogador com armadura ao lado de um lobo domesticado em frente a dois baús de madeira", caption: "Eu e meu fiel lobo" },
+  { src: "assets/img/historia/historia-extra-03.jpg", alt: "Close noturno de um personagem com vestimenta roxa segurando um diamante na mão", caption: "Diamante brilhando na noite" },
+  { src: "assets/img/historia/historia-extra-04.jpg", alt: "Interior de uma casa de diorito com overlay de desempenho (fps) no canto da tela", caption: "Dentro da nossa casa de diorito" },
+];
+
 (function () {
   function shuffle(list) {
     const arr = list.slice();
@@ -162,32 +193,45 @@ const GALLERY_PHOTOS = [
   // Rede de segurança: se a API já estava pronta antes mesmo desse ponto.
   if (window.YT && window.YT.Player) initPlayer();
 
-  function renderGallery() {
-    const grid = document.getElementById("galleryGrid");
+  function buildPhotoCard(photo) {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "gallery-card";
+    card.dataset.full = photo.src;
+    card.dataset.alt = photo.alt;
+
+    const img = document.createElement("img");
+    img.className = "gallery-thumb";
+    img.src = photo.src;
+    img.alt = photo.alt;
+    img.loading = "lazy";
+
+    const caption = document.createElement("span");
+    caption.className = "gallery-caption";
+    caption.textContent = photo.caption;
+
+    card.appendChild(img);
+    card.appendChild(caption);
+    return card;
+  }
+
+  function renderPhotoGrid(gridId, photos) {
+    const grid = document.getElementById(gridId);
     if (!grid) return;
     grid.innerHTML = "";
+    photos.forEach((photo) => grid.appendChild(buildPhotoCard(photo)));
+  }
 
-    GALLERY_PHOTOS.forEach((photo) => {
-      const card = document.createElement("button");
-      card.type = "button";
-      card.className = "gallery-card";
-      card.dataset.full = photo.src;
-      card.dataset.alt = photo.alt;
+  function renderHistoriaGalleries() {
+    renderPhotoGrid("historiaGrid2023", HISTORIA_PHOTOS_2023);
+    renderPhotoGrid("historiaGrid2025", HISTORIA_PHOTOS_2025);
+    renderPhotoGrid("historiaGridExtra", HISTORIA_PHOTOS_EXTRA);
+  }
 
-      const img = document.createElement("img");
-      img.className = "gallery-thumb";
-      img.src = photo.src;
-      img.alt = photo.alt;
-      img.loading = "lazy";
-
-      const caption = document.createElement("span");
-      caption.className = "gallery-caption";
-      caption.textContent = photo.caption;
-
-      card.appendChild(img);
-      card.appendChild(caption);
-      grid.appendChild(card);
-    });
+  function renderGallery() {
+    renderPhotoGrid("galleryGrid", GALLERY_PHOTOS);
+    const grid = document.getElementById("galleryGrid");
+    if (!grid) return;
 
     NOSTALGIA_TRACKS.forEach((track) => {
       const card = document.createElement("a");
@@ -213,11 +257,12 @@ const GALLERY_PHOTOS = [
   }
 
   function setupGalleryLightbox() {
-    const grid = document.getElementById("galleryGrid");
+    // Delegação no document (não num grid específico) pra funcionar com
+    // qualquer galeria/carrossel que use .gallery-card[data-full], atual ou futura.
     const lightbox = document.getElementById("galleryLightbox");
     const lightboxImg = document.getElementById("lightboxImg");
     const closeBtn = document.getElementById("lightboxClose");
-    if (!grid || !lightbox || !lightboxImg || !closeBtn) return;
+    if (!lightbox || !lightboxImg || !closeBtn) return;
 
     function openLightbox(src, alt) {
       lightboxImg.src = src;
@@ -233,7 +278,7 @@ const GALLERY_PHOTOS = [
       document.body.classList.remove("lightbox-open");
     }
 
-    grid.addEventListener("click", (e) => {
+    document.addEventListener("click", (e) => {
       const card = e.target.closest(".gallery-card[data-full]");
       if (!card) return;
       openLightbox(card.dataset.full, card.dataset.alt);
@@ -248,10 +293,10 @@ const GALLERY_PHOTOS = [
     });
   }
 
-  function setupGalleryCarousel() {
-    const viewport = document.getElementById("galleryViewport");
-    const prevBtn = document.getElementById("galleryPrev");
-    const nextBtn = document.getElementById("galleryNext");
+  function setupCarousel(viewportId, prevId, nextId) {
+    const viewport = document.getElementById(viewportId);
+    const prevBtn = document.getElementById(prevId);
+    const nextBtn = document.getElementById(nextId);
     if (!viewport || !prevBtn || !nextBtn) return;
 
     function cardStep() {
@@ -270,6 +315,13 @@ const GALLERY_PHOTOS = [
     });
   }
 
+  function setupGalleryCarousels() {
+    setupCarousel("galleryViewport", "galleryPrev", "galleryNext");
+    setupCarousel("historiaViewport2023", "historiaPrev2023", "historiaNext2023");
+    setupCarousel("historiaViewport2025", "historiaPrev2025", "historiaNext2025");
+    setupCarousel("historiaViewportExtra", "historiaPrevExtra", "historiaNextExtra");
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     els.root = document.getElementById("nostalgia");
     els.tick = document.getElementById("nostalgiaTick");
@@ -282,7 +334,8 @@ const GALLERY_PHOTOS = [
     setupControls();
     setupInteractionUnlock();
     renderGallery();
+    renderHistoriaGalleries();
     setupGalleryLightbox();
-    setupGalleryCarousel();
+    setupGalleryCarousels();
   });
 })();

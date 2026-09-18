@@ -31,6 +31,7 @@
       <a href="#inicio">Início</a>
       <a href="#servidor">Servidor</a>
       <a href="#mods">Mods</a>
+      <a href="#historia">História</a>
       <a href="#galeria">Galeria</a>
     </nav>
   </div>
@@ -193,6 +194,55 @@
       <h2 class="section-title reveal">Baixe os mods</h2>
       <p class="section-lead reveal">Pra jogar no servidor, sua instalação do Minecraft precisa dos mesmos mods. Siga o passo a passo abaixo — é rapidinho.</p>
 
+      <div class="mod-type-legend reveal">
+        <div class="mod-type-card mod-type-card--required">
+          <span class="mod-type-icon" aria-hidden="true">📦</span>
+          <div>
+            <p class="mod-type-title">Mods obrigatórios</p>
+            <p>São os mods listados aqui embaixo, incluídos no modpack. Pra conectar no servidor, sua instalação precisa ter exatamente os mesmos, na mesma versão — sem eles (ou com versão diferente), o Minecraft nem completa a conexão.</p>
+          </div>
+        </div>
+        <div class="mod-type-card mod-type-card--optional">
+          <span class="mod-type-icon" aria-hidden="true">🎨</span>
+          <div>
+            <p class="mod-type-title">Mods opcionais (só no seu client)</p>
+            <p>Mods de <strong>otimização</strong> (tipo Sodium, Lithium, ImmediatelyFast) e de <strong>interface</strong> (minimapa, inventário organizado, HUD) não fazem parte dessa lista. São client-side: cada um instala os que quiser, do jeito que preferir — eles não vão pro servidor e não afetam quem conecta sem eles.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mod-list-wrap reveal">
+        <h3 class="mod-list-title">Requisitos mínimos pra rodar</h3>
+        <p class="mod-list-lead">Modpack pesado: 137 mods obrigatórios (~510&nbsp;MB de .jar), com geração de mundo customizada (Terralith, YUNG's, Better End/Nether, Twilight Forest, etc). Confira antes de instalar:</p>
+        <div class="server-meta">
+          <div class="meta-chip">
+            <span class="meta-label">Java</span>
+            <span class="meta-value">21 ou mais novo</span>
+          </div>
+          <div class="meta-chip">
+            <span class="meta-label">RAM alocada</span>
+            <span class="meta-value">6&nbsp;GB mínimo &middot; 8&nbsp;GB+ recomendado</span>
+          </div>
+          <div class="meta-chip">
+            <span class="meta-label">Fabric Loader</span>
+            <span class="meta-value">0.19.5 ou mais novo</span>
+          </div>
+          <div class="meta-chip">
+            <span class="meta-label">Processador</span>
+            <span class="meta-value">4 núcleos, 3.0&nbsp;GHz+</span>
+          </div>
+          <div class="meta-chip">
+            <span class="meta-label">Espaço em disco</span>
+            <span class="meta-value">~1&nbsp;GB só de mods + espaço pro mundo</span>
+          </div>
+          <div class="meta-chip">
+            <span class="meta-label">Internet</span>
+            <span class="meta-value">Estável (tem voice chat)</span>
+          </div>
+        </div>
+        <p class="trust-note">🔧 Máquina fraca? Isso aqui não roda liso em notebook de config básica ou integrada (tipo Intel HD/UHD sem placa de vídeo dedicada) — são muitos mods de terreno/estrutura carregando junto. Recomendado: SSD, não HD.</p>
+      </div>
+
       <ol class="steps">
         <li class="step reveal">
           <div class="step-slot torch-glow">1</div>
@@ -262,103 +312,995 @@
       </ol>
 
       <div class="mod-list-wrap reveal" id="mod-list">
-        <h3 class="mod-list-title">Mods inclusos nessa versão</h3>
-        <p class="mod-list-lead">Prefere conferir cada mod na fonte oficial antes de instalar? Sem problema — aqui está a lista completa, com link direto pra página de cada um.</p>
+        <h3 class="mod-list-title">Mods obrigatórios inclusos nessa versão</h3>
+        <p class="mod-list-lead">Essa é a lista completa dos mods necessários pra entrar no servidor. Prefere conferir cada um na fonte oficial antes de instalar? Sem problema — tem link direto pra página de cada um.</p>
 
         <ul class="mod-grid">
           <li class="mod-card">
-            <span class="mod-icon" style="background:#6b4fa0">BC</span>
-            <div class="mod-info"><p class="mod-name">BCLib</p><p class="mod-author">por Quiqueck</p></div>
+            <span class="mod-icon" style="background:#493889">3S</span>
+            <div class="mod-info"><p class="mod-name">3d-Skin-Layers</p><p class="mod-author">por tr7zw</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/bclib" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/bclib" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://modrinth.com/mod/3dskinlayers" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#3d6fa8">BD</span>
-            <div class="mod-info"><p class="mod-name">Better Days</p><p class="mod-author">por wendall911</p></div>
+            <span class="mod-icon" style="background:#89386b">LS</span>
+            <div class="mod-info"><p class="mod-name">[Let&#x27;s Do] Bakery</p><p class="mod-author">por satisfy</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/betterdays" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/betterdays" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://github.com/satisfyu/Bakery" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#9c4fae">BE</span>
-            <div class="mod-info"><p class="mod-name">BetterEnd</p><p class="mod-author">por Quiqueck</p></div>
+            <span class="mod-icon" style="background:#388938">LS</span>
+            <div class="mod-info"><p class="mod-name">[Let&#x27;s Do] Beachparty</p><p class="mod-author">por Satisfy</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/betterend" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/betterend" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://github.com/satisfyu/Beachparty" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#b3453f">BN</span>
-            <div class="mod-info"><p class="mod-name">BetterNether</p><p class="mod-author">por Quiqueck</p></div>
+            <span class="mod-icon" style="background:#573889">LS</span>
+            <div class="mod-info"><p class="mod-name">[Let&#x27;s Do] Brewery</p><p class="mod-author">por satisfy</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/betternether" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/betternether" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://github.com/satisfyu/Brewery" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#3f8fa3">CR</span>
-            <div class="mod-info"><p class="mod-name">Croptopia</p><p class="mod-author">por thethonk</p></div>
+            <span class="mod-icon" style="background:#894538">LS</span>
+            <div class="mod-info"><p class="mod-name">[Let&#x27;s Do] Farm &amp; Charm</p><p class="mod-author">por satisfy, jason13</p></div>
             <div class="mod-links">
-              <a href="https://www.curseforge.com/minecraft/mc-mods/croptopia" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://github.com/satisfyu/FarmAndCharm" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#8a6a2f">EC</span>
-            <div class="mod-info"><p class="mod-name">Ecologics</p><p class="mod-author">por SameDifferent</p></div>
+            <span class="mod-icon" style="background:#538938">LS</span>
+            <div class="mod-info"><p class="mod-name">[Let&#x27;s Do] Vinery</p><p class="mod-author">por Jason13Official, Satisfy</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/ecologics" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/ecologics" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://github.com/satisfyu/Vinery" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#2f8a7a">EL</span>
-            <div class="mod-info"><p class="mod-name">EpheroLib</p><p class="mod-author">por thethonk</p></div>
+            <span class="mod-icon" style="background:#893871">AC</span>
+            <div class="mod-info"><p class="mod-name">Accessories</p><p class="mod-author">por Blodhgarm, chyzman e outros</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/epherolib" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/epherolib" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://wispforest.io/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon mod-icon--light" style="background:#c7cdd6">FA</span>
-            <div class="mod-info"><p class="mod-name">Fabric API</p><p class="mod-author">por modmuss50</p></div>
+            <span class="mod-icon" style="background:#89386e">AS</span>
+            <div class="mod-info"><p class="mod-name">Alex&#x27;s Caves Continued</p><p class="mod-author">por Alexthe668, Noonyeyz e outros</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://modrinth.com/mod/alexs-caves-continued" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#b5652f">FF</span>
+            <span class="mod-icon" style="background:#387189">AS</span>
+            <div class="mod-info"><p class="mod-name">Alex&#x27;s Caves Continued Delight</p><p class="mod-author">por codx</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/alexs-caves-continued-delight" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#758938">AS</span>
+            <div class="mod-info"><p class="mod-name">Alex&#x27;s Mobs Continued</p><p class="mod-author">por Alexthe668, Carro1001 e outros</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/alexs-mobs-continued" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#895838">AS</span>
+            <div class="mod-info"><p class="mod-name">Alex&#x27;s Mobs Continued Delight</p><p class="mod-author">por codx</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/alexs-mobs-continued-delight" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893889">AP</span>
+            <div class="mod-info"><p class="mod-name">AppleSkin</p><p class="mod-author">por squeek502</p></div>
+            <div class="mod-links">
+              <a href="https://minecraft.curseforge.com/projects/appleskin" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#897638">AR</span>
+            <div class="mod-info"><p class="mod-name">Architectury</p><p class="mod-author">por shedaniel</p></div>
+            <div class="mod-links">
+              <a href="https://architectury.github.io/architectury-documentations/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#896038">AS</span>
+            <div class="mod-info"><p class="mod-name">Armourer&#x27;s Workshop</p><p class="mod-author">por RiskyKen, SAGESSE</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/Armourers-Workshop/Armourers-Workshop" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#385489">AR</span>
+            <div class="mod-info"><p class="mod-name">Artifacts</p><p class="mod-author">por ochotonida, Florens</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/artifacts" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#583889">AT</span>
+            <div class="mod-info"><p class="mod-name">Athena</p><p class="mod-author">por ThatGravyBoat</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/terrarium-earth/athena" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893877">AZ</span>
+            <div class="mod-info"><p class="mod-name">AzureLib</p><p class="mod-author">por AzureDoom, Bvanseg, DerToaster, ZigyTheBird, Gecko, Eliot, Chappie, Tslat</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/azurelib" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388975">BA</span>
+            <div class="mod-info"><p class="mod-name">BaguetteLib</p><p class="mod-author">por Leclowndu93150</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/baguettelib" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#38895e">BA</span>
+            <div class="mod-info"><p class="mod-name">Balm</p><p class="mod-author">por BlayTheNinth</p></div>
+            <div class="mod-links">
+              <a href="https://balm.twelveiterations.com/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#433889">BC</span>
+            <div class="mod-info"><p class="mod-name">BCLib</p><p class="mod-author">por Quiqueck, paulevs e outros</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/bclib" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388939">BE</span>
+            <div class="mod-info"><p class="mod-name">Better End</p><p class="mod-author">por Quiqueck (code), paulevs (code &amp; art) e outros</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/betterend" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#386689">BF</span>
+            <div class="mod-info"><p class="mod-name">Better Furnaces Reforged</p><p class="mod-author">por Wilyicaro</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/Wilyicaro/BetterFurnacesReforged" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388948">BN</span>
+            <div class="mod-info"><p class="mod-name">Better Nether</p><p class="mod-author">por quiqueck, paulevs (original author)</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/betternether" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#894738">BE</span>
+            <div class="mod-info"><p class="mod-name">BetterDays</p><p class="mod-author">por wendall911</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/wendall911/BetterDays" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#896038">BM</span>
+            <div class="mod-info"><p class="mod-name">Bosses of Mass Destruction (Beta)</p><p class="mod-author">por Barribob</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/bosses-of-mass-destruction" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#895838">BD</span>
+            <div class="mod-info"><p class="mod-name">Brazilian Delight</p><p class="mod-author">por DanBrown_</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/braziliandelight" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#386989">CA</span>
+            <div class="mod-info"><p class="mod-name">Camerapture</p><p class="mod-author">por chrrrs</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/camerapture" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#493889">CC</span>
+            <div class="mod-info"><p class="mod-name">Cardinal Components API</p><p class="mod-author">por UpcraftLP, Pyrofab</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/cardinal-components" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#387689">CO</span>
+            <div class="mod-info"><p class="mod-name">Carry On</p><p class="mod-author">por Tschipp, Purplicious_Cow</p></div>
+            <div class="mod-links">
+              <a href="https://tschipp.ch/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#384c89">CH</span>
+            <div class="mod-info"><p class="mod-name">Chipped</p><p class="mod-author">por Alex Nijjar, Grimbop e outros</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/terrarium-earth/chipped" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#608938">CR</span>
+            <div class="mod-info"><p class="mod-name">Chisel Refabricated</p><p class="mod-author">por Slaincow, KnowYourKnot e outros</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/chisel-reborn" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#608938">CC</span>
+            <div class="mod-info"><p class="mod-name">Cloth Config v15</p><p class="mod-author">por shedaniel</p></div>
+            <div class="mod-links">
+              <a href="https://minecraft.curseforge.com/projects/cloth-config" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388963">CL</span>
+            <div class="mod-info"><p class="mod-name">Clumps</p><p class="mod-author">por Jared</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/clumps" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#888938">CO</span>
+            <div class="mod-info"><p class="mod-name">CodxLib</p><p class="mod-author">por codx</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/codxlib" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#818938">CO</span>
+            <div class="mod-info"><p class="mod-name">Collective</p><p class="mod-author">por Rick South</p></div>
+            <div class="mod-links">
+              <a href="https://curseforge.com/minecraft/mc-mods/collective" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893938">CO</span>
+            <div class="mod-info"><p class="mod-name">Comforts</p><p class="mod-author">por Illusive Soulworks</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/illusivesoulworks/comforts" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#898938">CB</span>
+            <div class="mod-info"><p class="mod-name">Cooking for Blockheads</p><p class="mod-author">por BlayTheNinth, ZerotS</p></div>
+            <div class="mod-links">
+              <a href="https://mods.twelveiterations.com/minecraft/cookingforblockheads" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#843889">CO</span>
+            <div class="mod-info"><p class="mod-name">CoroUtil</p><p class="mod-author">por Corosus</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/coroutil" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#896638">CA</span>
+            <div class="mod-info"><p class="mod-name">Cosmetic Armor</p><p class="mod-author">por Apace</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/cosmetic-armor-revitalized-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89385b">CR</span>
+            <div class="mod-info"><p class="mod-name">CreativeCore</p><p class="mod-author">por CreativeMD, AriaFreeze</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/creativecore" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#7d3889">CO</span>
+            <div class="mod-info"><p class="mod-name">Creeper Overhaul</p><p class="mod-author">por Artist/Creator - Joosh, Dev - ThatGravyBoat</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/creeper-overhaul" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388953">CL</span>
+            <div class="mod-info"><p class="mod-name">Cristel Lib</p><p class="mod-author">por Cristelknight</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/cristel-lib" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#5a8938">CR</span>
+            <div class="mod-info"><p class="mod-name">Croptopia</p><p class="mod-author">por iThonk</p></div>
+            <div class="mod-links">
+              <a href="https://fabricmc.net/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893839">CC</span>
+            <div class="mod-info"><p class="mod-name">Cryonic Config</p><p class="mod-author">por Slainlight</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/matthewperiut/cryonicconfig" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89386a">DT</span>
+            <div class="mod-info"><p class="mod-name">Deltabox Tools</p><p class="mod-author">por DanBrown_</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/deltaboxlib" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#5c8938">EC</span>
+            <div class="mod-info"><p class="mod-name">Ecologics</p><p class="mod-author">por SameButDifferent, Zero_DSRS_VX e outros</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/ecologics" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#387d89">EL</span>
+            <div class="mod-info"><p class="mod-name">ElevatorMod</p><p class="mod-author">por VsnGamer</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/VsnGamer/ElevatorMod" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#386089">EM</span>
+            <div class="mod-info"><p class="mod-name">Emojiful</p><p class="mod-author">por HorizonStudio</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/InnovativeOnlineIndustries/Emojiful/issues" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#773889">EM</span>
+            <div class="mod-info"><p class="mod-name">Emotecraft</p><p class="mod-author">por KosmX, dima_dencep</p></div>
+            <div class="mod-links">
+              <a href="https://kosmx.gitbook.io/emotecraft/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#386989">EB</span>
+            <div class="mod-info"><p class="mod-name">Emotecraft: Borrow Their Emote (EBTE)</p><p class="mod-author">por ZipeStudio</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/emotecraft-borrow-their-emote" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388971">EP</span>
+            <div class="mod-info"><p class="mod-name">EpheroLib</p><p class="mod-author">por Thonk</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/epherolib" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#386a89">FA</span>
+            <div class="mod-info"><p class="mod-name">Fabric API</p><p class="mod-author">por FabricMC</p></div>
+            <div class="mod-links">
+              <a href="https://fabricmc.net" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#583889">FL</span>
+            <div class="mod-info"><p class="mod-name">Fabric Language Kotlin</p><p class="mod-author">por FabricMC</p></div>
+            <div class="mod-links">
+              <a href="https://minecraft.curseforge.com/projects/fabric-language-kotlin" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#433889">FA</span>
+            <div class="mod-info"><p class="mod-name">Factory API</p><p class="mod-author">por Wilyicaro</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/Wilyicaro/FactoryAPI" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89387c">FA</span>
+            <div class="mod-info"><p class="mod-name">FallingTree</p><p class="mod-author">por Rakambda</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/falling-tree" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388951">FS</span>
+            <div class="mod-info"><p class="mod-name">Farmer&#x27;s Delight</p><p class="mod-author">por Vectorwing, ChrysanthCow, MehVahdJukaar, cassiancc</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/farmers-delight-refabricated" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#898238">FC</span>
+            <div class="mod-info"><p class="mod-name">Forge Config API Port</p><p class="mod-author">por Fuzs</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/Fuzss/forgeconfigapiport" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#608938">FR</span>
+            <div class="mod-info"><p class="mod-name">Framework</p><p class="mod-author">por MrCrayfish</p></div>
+            <div class="mod-links">
+              <a href="https://mrcrayfish.com/mods?id=framework" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893845">FF</span>
             <div class="mod-info"><p class="mod-name">Friends&amp;Foes</p><p class="mod-author">por Faboslav</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/friends-and-foes" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/friends-and-foes" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://github.com/Faboslav/friends-and-foes" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#b3618a">PR</span>
-            <div class="mod-info"><p class="mod-name">Promenade</p><p class="mod-author">por Hugman_76</p></div>
+            <span class="mod-icon" style="background:#418938">FF</span>
+            <div class="mod-info"><p class="mod-name">Frights &amp; Foliage</p><p class="mod-author">por Nathan</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/promenade" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/promenade" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://github.com/Nasache/frights_and_foliage-1.21.1" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#a8842f">RL</span>
-            <div class="mod-info"><p class="mod-name">Resourceful Lib</p><p class="mod-author">por ThatGravyBoat</p></div>
+            <span class="mod-icon" style="background:#548938">FU</span>
+            <div class="mod-info"><p class="mod-name">Fusion</p><p class="mod-author">por SuperMartijn642</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/resourceful-lib" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/resourceful-lib" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://www.curseforge.com/minecraft/mc-mods/fusion-connected-textures" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
             </div>
           </li>
           <li class="mod-card">
-            <span class="mod-icon" style="background:#4f5aa8">WW</span>
+            <span class="mod-icon" style="background:#893938">G4</span>
+            <div class="mod-info"><p class="mod-name">GeckoLib 4</p><p class="mod-author">por Gecko, Eliot, AzureDoom, DerToaster, Tslat, Witixin</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/geckolib" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388977">GE</span>
+            <div class="mod-info"><p class="mod-name">Geophilic</p><p class="mod-author">por bebebea_loste</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/datapack/geophilic" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#897638">GL</span>
+            <div class="mod-info"><p class="mod-name">GlitchCore</p><p class="mod-author">por Adubbz</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/glitchcore" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#386989">HA</span>
+            <div class="mod-info"><p class="mod-name">Handcrafted</p><p class="mod-author">por Alex Nijjar, Kekie6</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/terrarium-earth/handcrafted" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#798938">HE</span>
+            <div class="mod-info"><p class="mod-name">Handcrafted Elytra</p><p class="mod-author">por Beast135</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/BeastSlayer666" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89383c">II</span>
+            <div class="mod-info"><p class="mod-name">Illager Invasion</p><p class="mod-author">por Dricky, Safro, Zeckemith, Fuzs</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/Fuzss/illagerinvasion" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#896238">IA</span>
+            <div class="mod-info"><p class="mod-name">Immersive Armors</p><p class="mod-author">por Luke100000</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/immersive-armors" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#453889">IC</span>
+            <div class="mod-info"><p class="mod-name">Iron Chests</p><p class="mod-author">por anner</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/4nner/ironchests" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#387389">JA</span>
+            <div class="mod-info"><p class="mod-name">Jade</p><p class="mod-author">por Snownee</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/jade" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#895b38">JA</span>
+            <div class="mod-info"><p class="mod-name">JamLib</p><p class="mod-author">por Jamalam</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/JamCoreModding/jamlib" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#898638">JO</span>
+            <div class="mod-info"><p class="mod-name">Journeymap</p><p class="mod-author">por Mysticdrew, Techbrew e outros</p></div>
+            <div class="mod-links">
+              <a href="http://journeymap.info" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893875">JE</span>
+            <div class="mod-info"><p class="mod-name">Just Enough Items</p><p class="mod-author">por mezz</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/jei" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#384b89">JZ</span>
+            <div class="mod-info"><p class="mod-name">Just Zoom</p><p class="mod-author">por Keksuccino</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/just-zoom" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#387189">KO</span>
+            <div class="mod-info"><p class="mod-name">Konkrete</p><p class="mod-author">por Keksuccino</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/konkrete" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893885">LB</span>
+            <div class="mod-info"><p class="mod-name">Leaves Be Gone</p><p class="mod-author">por Fuzs</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/Fuzss/leavesbegone" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#38893a">LI</span>
+            <div class="mod-info"><p class="mod-name">Lithostitched</p><p class="mod-author">por Apollo</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/project/lithostitched" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#883889">LO</span>
+            <div class="mod-info"><p class="mod-name">Lootr</p><p class="mod-author">por Noobanidus, ZestyBlaze e outros</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/lootr-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388949">MS</span>
+            <div class="mod-info"><p class="mod-name">Macaw&#x27;s Furniture</p><p class="mod-author">por Sketch Macaw &amp; Peachy Macaw</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/macaws-furniture" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#443889">MS</span>
+            <div class="mod-info"><p class="mod-name">Macaw&#x27;s Lights and Lamps</p><p class="mod-author">por SketchMacaw</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/macaws-lights-and-lamps" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#38893d">MS</span>
+            <div class="mod-info"><p class="mod-name">Macaw&#x27;s Paths and Pavings</p><p class="mod-author">por Sketch Macaw, Peachy Macaw</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/macaws-paths-and-pavings" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#384089">MM</span>
+            <div class="mod-info"><p class="mod-name">Mobs of Mythology</p><p class="mod-author">por kyber-6</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/mobs-of-mythology" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388966">ML</span>
+            <div class="mod-info"><p class="mod-name">Moonlight Lib</p><p class="mod-author">por MehVahdJukaar</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/selene" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893844">MO</span>
+            <div class="mod-info"><p class="mod-name">MossyLib</p><p class="mod-author">por LopyMine</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/mossylib" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#398938">MS</span>
+            <div class="mod-info"><p class="mod-name">MrCrayfish&#x27;s Furniture Mod: Refurbished</p><p class="mod-author">por MrCrayfish</p></div>
+            <div class="mod-links">
+              <a href="https://mrcrayfish.com/mods/furniture_refurbished" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#894938">MM</span>
+            <div class="mod-info"><p class="mod-name">Mutant Monsters</p><p class="mod-author">por shcott21, Chumbanotz, Fuzs, tdstress</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/Fuzss/mutantmonsters" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#894c38">ON</span>
+            <div class="mod-info"><p class="mod-name">OnlyHammersAndExcavators</p><p class="mod-author">por Block_Legend001</p></div>
+            <div class="mod-links">
+              <a href="https://blocklegend001.dev" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893847">OB</span>
+            <div class="mod-info"><p class="mod-name">Open Block Elevator Mod</p><p class="mod-author">por farrucho</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/openblocks-elevator-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#38896d">OO</span>
+            <div class="mod-info"><p class="mod-name">oωo</p><p class="mod-author">por glisco</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/owo-lib" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893845">PA</span>
+            <div class="mod-info"><p class="mod-name">Player Animator</p><p class="mod-author">por KosmX  </p></div>
+            <div class="mod-links">
+              <a href="https://kosmx.dev" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388981">PL</span>
+            <div class="mod-info"><p class="mod-name">Puzzles Lib</p><p class="mod-author">por Fuzs</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/puzzles-lib" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388986">QA</span>
+            <div class="mod-info"><p class="mod-name">Quantified API</p><p class="mod-author">por Admany</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/quantified" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#387c89">RE</span>
+            <div class="mod-info"><p class="mod-name">Rechiseled</p><p class="mod-author">por SuperMartijn642</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/rechiseled" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388689">RL</span>
+            <div class="mod-info"><p class="mod-name">Resourceful Lib</p><p class="mod-author">por ThatGravyBoat, Epic_Oreo</p></div>
+            <div class="mod-links">
+              <a href="https://resourcefulbees.com" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#383e89">RE</span>
+            <div class="mod-info"><p class="mod-name">Resourcefulconfig</p><p class="mod-author">por ThatGravyBoat</p></div>
+            <div class="mod-links">
+              <a href="https://resourcefulbees.com" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#384b89">RE</span>
+            <div class="mod-info"><p class="mod-name">Revive</p><p class="mod-author">por Globox_Z</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/revive" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#6d3889">RC</span>
+            <div class="mod-info"><p class="mod-name">Right Click Harvest</p><p class="mod-author">por Jamalam</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/JamCoreModding/right-click-harvest" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#385889">SE</span>
+            <div class="mod-info"><p class="mod-name">SecurityCraft</p><p class="mod-author">por Verkos</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/VerkoSK/SecurityCraftFabric" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388939">SE</span>
+            <div class="mod-info"><p class="mod-name">SereneSeasons</p><p class="mod-author">por Adubbz, Forstride</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/serene-seasons" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#513889">SH</span>
+            <div class="mod-info"><p class="mod-name">ShetiPhianCore</p><p class="mod-author">por ShetiPhian, Artwork: Fruzstrated</p></div>
+            <div class="mod-links">
+              <a href="https://shetiphian.carrd.co" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388981">SE</span>
+            <div class="mod-info"><p class="mod-name">Shield Expansion</p><p class="mod-author">por Infernal Studios</p></div>
+            <div class="mod-links">
+              <a href="https://infernalstudios.org/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89384b">SV</span>
+            <div class="mod-info"><p class="mod-name">Simple Voice Chat</p><p class="mod-author">por Max Henkel</p></div>
+            <div class="mod-links">
+              <a href="https://modrepo.de/minecraft/voicechat/overview" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#733889">SM</span>
+            <div class="mod-info"><p class="mod-name">SmartBrainLib</p><p class="mod-author">por Tslat</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/smartbrainlib" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#385089">SB</span>
+            <div class="mod-info"><p class="mod-name">Sophisticated Backpacks</p><p class="mod-author">por P3pp3rF1y, Ridanisaurus e outros</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks-unofficial-fabric-port" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388984">SC</span>
+            <div class="mod-info"><p class="mod-name">Sophisticated Core</p><p class="mod-author">por P3pp3rF1y, Salandora</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/sophisticated-core-unofficial-fabric-port" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89383e">SP</span>
+            <div class="mod-info"><p class="mod-name">Sound Physics Remastered</p><p class="mod-author">por Sonic Ether, vlad2305m e outros</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/sound-physics-remastered" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#38893a">SW</span>
+            <div class="mod-info"><p class="mod-name">Spellbound Weapons</p><p class="mod-author">por limesplatus</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/datapack/spellbound-weapons" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893882">ST</span>
+            <div class="mod-info"><p class="mod-name">Structory</p><p class="mod-author">por Botany, Starmute e outros</p></div>
+            <div class="mod-links">
+              <a href="https://www.stardustlabs.net/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#894138">ST</span>
+            <div class="mod-info"><p class="mod-name">Structory: Towers</p><p class="mod-author">por Botany, Starmute e outros</p></div>
+            <div class="mod-links">
+              <a href="https://www.stardustlabs.net/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#384b89">SS</span>
+            <div class="mod-info"><p class="mod-name">SuperMartijn642&#x27;s Config Lib</p><p class="mod-author">por SuperMartijn642</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/supermartijn642s-config-lib" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#888938">SS</span>
+            <div class="mod-info"><p class="mod-name">SuperMartijn642&#x27;s Core Lib</p><p class="mod-author">por SuperMartijn642</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/supermartijn642s-core-lib" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89383c">SU</span>
+            <div class="mod-info"><p class="mod-name">Supplementaries</p><p class="mod-author">por MehVahdJukaar, Plantkillable</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/supplementaries" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893873">SS</span>
+            <div class="mod-info"><p class="mod-name">Supplementaries Squared</p><p class="mod-author">por MehVahdJukaar, Plantkillable</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/suppsquared" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388951">TE</span>
+            <div class="mod-info"><p class="mod-name">TerraBlender</p><p class="mod-author">por Adubbz</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/terrablender" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893872">TE</span>
+            <div class="mod-info"><p class="mod-name">Terralith</p><p class="mod-author">por Starmute, catter1 e outros</p></div>
+            <div class="mod-links">
+              <a href="https://www.stardustlabs.net/" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#6a3889">TE</span>
+            <div class="mod-info"><p class="mod-name">Terraqueous</p><p class="mod-author">por ShetiPhian, Artwork: Fruzstrated</p></div>
+            <div class="mod-links">
+              <a href="https://shetiphian.carrd.co" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89384b">AE</span>
+            <div class="mod-info"><p class="mod-name">The Aether</p><p class="mod-author">por AlphaMode, baguchi, bconlon, Blodhgarm, Burning Cactus, Drullkus, Hugo Payn, Jaryt, Katie &#x27;Oz&#x27; Payn, quek, Raptor, reetam, RENREN, sunsette</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/aether" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388945">TF</span>
+            <div class="mod-info"><p class="mod-name">The Twilight Forest</p><p class="mod-author">por Benimatic, AtomicBlom e outros</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#898238">TT</span>
+            <div class="mod-info"><p class="mod-name">Towns and Towers</p><p class="mod-author">por Kubek, Biban_Auriu e outros</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/towns-and-towers" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893880">TC</span>
+            <div class="mod-info"><p class="mod-name">Trash Cans</p><p class="mod-author">por SuperMartijn642</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/trash-cans" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893843">TR</span>
+            <div class="mod-info"><p class="mod-name">TrashSlot</p><p class="mod-author">por BlayTheNinth</p></div>
+            <div class="mod-links">
+              <a href="https://mods.twelveiterations.com/minecraft/trashslot" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89384c">TR</span>
+            <div class="mod-info"><p class="mod-name">Trinkets</p><p class="mod-author">por Emi, C4</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/trinkets-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388945">VV</span>
+            <div class="mod-info"><p class="mod-name">Variants&amp;Ventures</p><p class="mod-author">por Faboslav</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/Faboslav/variants-and-ventures" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89385b">WA</span>
+            <div class="mod-info"><p class="mod-name">Waystones</p><p class="mod-author">por BlayTheNinth</p></div>
+            <div class="mod-links">
+              <a href="https://mods.twelveiterations.com/minecraft/waystones" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#418938">WA</span>
+            <div class="mod-info"><p class="mod-name">What Are They Up To</p><p class="mod-author">por Corosus</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/mod/what-are-they-up-to" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#388988">WD</span>
+            <div class="mod-info"><p class="mod-name">When Dungeons Arise</p><p class="mod-author">por Aureljz, DiamondTown &amp; Zephyrusj</p></div>
+            <div class="mod-links">
+              <a href="https://modrinth.com/project/8DfbfASn" target="_blank" rel="noopener" class="mod-link">Modrinth &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#385a89">WO</span>
             <div class="mod-info"><p class="mod-name">WorldWeaver</p><p class="mod-author">por Quiqueck</p></div>
             <div class="mod-links">
-              <a href="https://modrinth.com/mod/worldweaver" target="_blank" rel="noopener" class="mod-link">Modrinth ↗</a>
-              <a href="https://www.curseforge.com/minecraft/mc-mods/worldweaver" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge ↗</a>
+              <a href="https://github.com/quiqueck/WorldWeaver" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#4c8938">YE</span>
+            <div class="mod-info"><p class="mod-name">YetAnotherConfigLib</p><p class="mod-author">por isXander</p></div>
+            <div class="mod-links">
+              <a href="https://isxander.dev" target="_blank" rel="noopener" class="mod-link">Pagina do mod &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#533889">YR</span>
+            <div class="mod-info"><p class="mod-name">You&#x27;re in Grave Danger</p><p class="mod-author">por b1n_ry</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/youre-in-grave-danger" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#89383e">YS</span>
+            <div class="mod-info"><p class="mod-name">YUNG&#x27;s API</p><p class="mod-author">por YUNGNICKYOUNG</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-api-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893881">YS</span>
+            <div class="mod-info"><p class="mod-name">YUNG&#x27;s Better Desert Temples</p><p class="mod-author">por YUNGNICKYOUNG, Tera</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-desert-temples-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#503889">YS</span>
+            <div class="mod-info"><p class="mod-name">YUNG&#x27;s Better Dungeons</p><p class="mod-author">por YUNGNICKYOUNG, Acarii</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-dungeons-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#5b8938">YS</span>
+            <div class="mod-info"><p class="mod-name">YUNG&#x27;s Better Jungle Temples</p><p class="mod-author">por YUNGNICKYOUNG, Tera</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-jungle-temples-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#7c8938">YS</span>
+            <div class="mod-info"><p class="mod-name">YUNG&#x27;s Better Mineshafts</p><p class="mod-author">por YUNGNICKYOUNG</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-mineshafts-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#893880">YS</span>
+            <div class="mod-info"><p class="mod-name">YUNG&#x27;s Better Nether Fortresses</p><p class="mod-author">por YUNGNICKYOUNG, Acarii</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-nether-fortresses-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#385f89">YS</span>
+            <div class="mod-info"><p class="mod-name">YUNG&#x27;s Better Strongholds</p><p class="mod-author">por YUNGNICKYOUNG, Acarii</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#5f3889">YS</span>
+            <div class="mod-info"><p class="mod-name">YUNG&#x27;s Extras</p><p class="mod-author">por YUNGNICKYOUNG, Acarii</p></div>
+            <div class="mod-links">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/yungs-extras-fabric" target="_blank" rel="noopener" class="mod-link mod-link--cf">CurseForge &#8599;</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mod-list-wrap reveal">
+        <h3 class="mod-list-title">Mods opcionais inclusos no pack (só client)</h3>
+        <p class="mod-list-lead">Esses vêm junto no pacote pra deixar o jogo mais bonito/rápido, mas são <strong>client-side puro</strong> — não entram na checagem de compatibilidade do servidor. Pode instalar ou pular, à vontade.</p>
+        <ul class="mod-grid">
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#385489">CH</span>
+            <div class="mod-info"><p class="mod-name">Chat Heads</p><p class="mod-author">por dzwdz, Fourmisain</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/dzwdz/chat_heads" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#823889">CB</span>
+            <div class="mod-info"><p class="mod-name">CustomSkinLoader Bootstrap</p><p class="mod-author">por xfl03, JLChnToZ e outros</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/xfl03/MCCustomSkinLoader" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
+            </div>
+          </li>
+          <li class="mod-card">
+            <span class="mod-icon" style="background:#498938">IM</span>
+            <div class="mod-info"><p class="mod-name">ImmediatelyFast</p><p class="mod-author">por RK_01</p></div>
+            <div class="mod-links">
+              <a href="https://github.com/RaphiMC/ImmediatelyFast" target="_blank" rel="noopener" class="mod-link mod-link--gh">GitHub &#8599;</a>
             </div>
           </li>
         </ul>
@@ -382,6 +1324,63 @@
           <summary>Abri o jogo, mas ele travou ou fechou sozinho. E agora?</summary>
           <p>Na maioria das vezes é falta de RAM alocada ou um mod que precisa de outro mod (dependência) que não foi instalado. Vá nas configurações da instância no launcher (em Prism: "Edit Instance" → "Settings" → "Java") e aumente a memória pra pelo menos 4GB, depois olhe o arquivo de crash na pasta "crash-reports" da instância pra ver qual mod aparece no topo do erro.</p>
         </details>
+        <details class="faq-item">
+          <summary>Posso instalar mod de otimização (Sodium, Lithium...) ou de interface (minimapa...) além desses da lista?</summary>
+          <p>Pode, à vontade! Esses são mods <strong>client-side</strong> — rodam só no seu computador e não têm nada a ver com o servidor. Instale o que quiser, na hora que quiser, sem pedir pra ninguém: eles não entram na verificação de compatibilidade, então não atrapalham sua conexão nem a de mais ninguém. Só os mods obrigatórios da lista aqui em cima precisam ser exatamente os mesmos do servidor.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NOSSA HISTÓRIA ================= -->
+  <section class="historia tex-dirt" id="historia">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Nossa História</h2>
+      <p class="section-lead reveal">Antes desse servidor, teve outros. Muita coisa aconteceu no Mine ao longo dos anos — construção que ninguém achou que ia terminar, guerra por causa de farm, jogador que resolveu morar dentro de um barco sem dar satisfação a ninguém, gente que sumiu e voltou meses depois só pra ver se a base ainda tava de pé. Aqui embaixo tem um pedacinho dessa história, direto dos prints que sobreviveram.</p>
+
+      <div class="historia-era reveal">
+        <h3 class="historia-era-title">2023 — Onde tudo começou</h3>
+        <p class="historia-era-text">O primeiro mundo que rodamos juntos foi lá em 2023. Era bem mais simples — sem shader, sem construção grandiosa, só a galera minerando, plantando e descobrindo o que dava pra fazer com os mods da época. Teve o manokkkk que resolveu morar dentro de um barco por um tempo (sem ninguém saber explicar direito por quê), farm de vaca com o nome da mãe de um jogador na placa, e um portal do Nether que virou point de foto de grupo. Boa parte dos prints daquela época se perdeu — esses aqui são os que sobraram.</p>
+      </div>
+
+      <div class="carousel reveal" id="historiaCarousel2023">
+        <button type="button" class="carousel-arrow carousel-arrow--prev" id="historiaPrev2023" aria-label="Foto anterior">‹</button>
+        <div class="carousel-viewport" id="historiaViewport2023">
+          <div class="carousel-track" id="historiaGrid2023">
+            <p class="gallery-loading">Carregando galeria…</p>
+          </div>
+        </div>
+        <button type="button" class="carousel-arrow carousel-arrow--next" id="historiaNext2023" aria-label="Próxima foto">›</button>
+      </div>
+
+      <div class="historia-era reveal">
+        <h3 class="historia-era-title">2025 — A era da Catedral</h3>
+        <p class="historia-era-text">A galera nunca parou de jogar nesses dois anos — só que quase todos os prints daquele meio-tempo se perderam. O que sobrou é de 2025, já num mundo novo, com shader, skins mais elaboradas e uma construção que virou marco: uma catedral gótica de duas torres, com vitral e tudo, cercada por um vilarejo com nome pros lugares (Mercado dos Villagers, Porto, Tribunal — sim, tinha até tribunal). Foi nesse servidor que rolaram algumas das fotos mais bonitas que a gente já tirou jogando: pôr do sol entre as torres, poses aladas na ponte, gente caçando baú escondido na neve com o lobo do lado. Um pedaço bem grande da nossa história de Minecraft mora nesse mapa.</p>
+      </div>
+
+      <div class="carousel reveal" id="historiaCarousel2025">
+        <button type="button" class="carousel-arrow carousel-arrow--prev" id="historiaPrev2025" aria-label="Foto anterior">‹</button>
+        <div class="carousel-viewport" id="historiaViewport2025">
+          <div class="carousel-track" id="historiaGrid2025">
+            <p class="gallery-loading">Carregando galeria…</p>
+          </div>
+        </div>
+        <button type="button" class="carousel-arrow carousel-arrow--next" id="historiaNext2025" aria-label="Próxima foto">›</button>
+      </div>
+
+      <div class="historia-era reveal">
+        <h3 class="historia-era-title">E mais uns registros soltos</h3>
+        <p class="historia-era-text">Esses aqui a gente nem lembra direito de qual servidor eram, mas mereciam ficar guardados de qualquer jeito.</p>
+      </div>
+
+      <div class="carousel reveal" id="historiaCarouselExtra">
+        <button type="button" class="carousel-arrow carousel-arrow--prev" id="historiaPrevExtra" aria-label="Foto anterior">‹</button>
+        <div class="carousel-viewport" id="historiaViewportExtra">
+          <div class="carousel-track" id="historiaGridExtra">
+            <p class="gallery-loading">Carregando galeria…</p>
+          </div>
+        </div>
+        <button type="button" class="carousel-arrow carousel-arrow--next" id="historiaNextExtra" aria-label="Próxima foto">›</button>
       </div>
     </div>
   </section>
@@ -410,6 +1409,7 @@
 <footer class="site-footer">
   <div class="section-inner footer-inner">
     <p>Feito pela galera, para a galera. 🛠️</p>
+    <p class="footer-credit">Site criado por <a href="https://github.com/Gusmares" target="_blank" rel="noopener">Gusmares</a> — código no <a href="https://github.com/Gusmares" target="_blank" rel="noopener">GitHub</a>.</p>
     <p class="footer-disclaimer">Este site é um projeto de fã e não é afiliado à Mojang Studios ou Microsoft. Minecraft é marca registrada da Mojang Studios.</p>
   </div>
 </footer>

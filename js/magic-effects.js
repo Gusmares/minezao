@@ -45,7 +45,7 @@
   /* ---------- Poeira mágica ambiente (vaga-lumes) ---------- */
   function setupAmbientParticles() {
     if (reduceMotion) return;
-    const sections = document.querySelectorAll(".hero, #mods.mods-guide, #galeria.gallery");
+    const sections = document.querySelectorAll(".hero, #mods.mods-guide, #historia.historia, #galeria.gallery");
     sections.forEach((section) => {
       const field = document.createElement("div");
       field.className = "particle-field";
@@ -203,7 +203,8 @@
     // uma seção com tutorial longo pode nunca cruzar 40% de área visível.
     const milestones = [
       { id: "mods", level: 3, name: "Mods", achievement: "Chegou nos mods", el: document.querySelector("#mods .section-title") },
-      { id: "galeria", level: 4, name: "Galeria", achievement: "Chegou na galeria", el: document.querySelector("#galeria .section-title") },
+      { id: "historia", level: 4, name: "História", achievement: "Relembrou a história", el: document.querySelector("#historia .section-title") },
+      { id: "galeria", level: 5, name: "Galeria", achievement: "Chegou na galeria", el: document.querySelector("#galeria .section-title") },
       { id: "mod-list", level: null, name: null, achievement: "Viu a lista completa de mods", el: document.getElementById("mod-list") },
     ].filter((m) => m.el);
 
