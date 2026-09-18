@@ -16,9 +16,10 @@
 
 <!-- ================= HEADER ================= -->
 <header class="site-header" id="topo">
+  <div class="xp-bar" aria-hidden="true"><div class="xp-bar__fill" id="xpFill"></div></div>
   <div class="header-inner">
     <a href="#topo" class="logo">
-      <span class="logo-block" aria-hidden="true"></span>
+      <span class="logo-block torch-glow" aria-hidden="true"></span>
       <span class="logo-text" data-config="serverName">Servidor da Galera</span>
     </a>
 
@@ -108,6 +109,79 @@
 
         </div>
       </div>
+
+      <h3 class="steps-title reveal">Passo a passo pra entrar</h3>
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="step-slot torch-glow">1</div>
+          <div class="step-content">
+            <h3>Confira se os mods já estão instalados</h3>
+            <p>Antes de tentar entrar, garanta que sua instalação tem exatamente os mesmos mods do servidor — se faltar um ou a versão for diferente, o Minecraft recusa a conexão na hora. Ainda não instalou nada? Segue o passo a passo lá na seção <a href="#mods">Mods</a> e volta aqui depois.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-slot torch-glow">2</div>
+          <div class="step-content">
+            <h3>Abra o launcher e escolha o perfil certo</h3>
+            <p>Abra o Prism Launcher, CurseForge ou ATLauncher (o que você usou pra instalar os mods) e selecione a instância/perfil configurado pro servidor — não o perfil padrão do Minecraft vanilla. Clique em <strong>Play</strong> e espere o jogo carregar normalmente.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-slot torch-glow">3</div>
+          <div class="step-content">
+            <h3>Vá em Multijogador</h3>
+            <p>No menu principal do jogo, clique em <em>Multiplayer</em> (ou <em>Multijogador</em>, se seu jogo estiver em português).</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-slot torch-glow">4</div>
+          <div class="step-content">
+            <h3>Adicione o servidor ou use Conexão Direta</h3>
+            <p>Clique em <em>Add Server</em> / <em>Adicionar Servidor</em> pra salvar o servidor na sua lista (assim você não digita o endereço de novo toda vez), ou em <em>Direct Connect</em> / <em>Conexão Direta</em> se quiser só entrar rapidinho sem salvar.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-slot torch-glow">5</div>
+          <div class="step-content">
+            <h3>Cole o endereço exatamente como está no cartão aqui em cima</h3>
+            <p>Use o botão de copiar do cartão "Endereço do Servidor" e cole certinho no campo de endereço, incluindo a porta depois dos dois-pontos (algo como <code>endereco:porta</code>). Um espaço a mais, faltando os dois-pontos ou a porta errada já é motivo suficiente pra não conectar.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-slot torch-glow">6</div>
+          <div class="step-content">
+            <h3>Clique em Entrar no Servidor</h3>
+            <p>Confirme e clique em <em>Join Server</em> / <em>Entrar no Servidor</em>. Se estiver tudo certo, o mundo carrega e você já cai direto na base da galera — bem-vindo(a)!</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-slot torch-glow">7</div>
+          <div class="step-content">
+            <h3>Deu erro ou travou em "Connecting..."?</h3>
+            <p>Confira se você copiou a porta certa (depois dos dois-pontos) e se não sobrou espaço em branco no campo. Teste sua internet — se outros sites também estiverem lentos, o problema é aí. Se continuar travado, pergunta pro admin se o servidor está online no momento antes de sair tentando de novo.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="faq-wrap reveal">
+        <h3 class="faq-title">Perguntas frequentes</h3>
+        <details class="faq-item">
+          <summary>Preciso ter os mesmos mods pra conseguir entrar?</summary>
+          <p>Precisa, sim — é obrigatório. O Minecraft com mods só conecta em servidores que rodam exatamente o mesmo conjunto de mods (e a mesma versão deles) que o cliente. Se faltar algo, dá erro de "incompatible mod set" ou a conexão nem completa. Dá uma olhada na seção <a href="#mods">Mods</a> pra instalar tudo certinho antes de tentar entrar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Aparece "Connection timed out" ou "Não foi possível conectar", e agora?</summary>
+          <p>Primeiro confira se colou o endereço certo, com a porta depois dos dois-pontos (<code>endereco:porta</code>) — é o erro mais comum. Se estiver tudo certo aí, teste sua internet e pergunta no grupo se o servidor está no ar; às vezes é só uma queda temporária.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Dá pra jogar vanilla, sem instalar os mods?</summary>
+          <p>Não. Como o servidor roda com o modpack ativado, um cliente vanilla (sem mods) não consegue nem completar a conexão. Você precisa da mesma versão do jogo, do mesmo mod loader (Forge/Fabric) e dos mesmos mods instalados.</p>
+        </details>
+        <details class="faq-item">
+          <summary>O endereço do servidor mudou — preciso mexer no servidor que já salvei?</summary>
+          <p>Se você usou <em>Add Server</em> / <em>Adicionar Servidor</em> e salvou o endereço antigo, edite essa entrada na sua lista de servidores (ou apague e adicione de novo) com o endereço atualizado que aparece no cartão aqui na página. Se você sempre usa <em>Direct Connect</em> / <em>Conexão Direta</em>, é só colar o endereço novo na hora — não precisa configurar nada.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -119,44 +193,68 @@
 
       <ol class="steps">
         <li class="step reveal">
-          <div class="step-slot">1</div>
+          <div class="step-slot torch-glow">1</div>
           <div class="step-content">
-            <h3>Instale um launcher com suporte a mods</h3>
-            <p>Baixe e instale o <strong>Prism Launcher</strong>, <strong>CurseForge</strong> ou <strong>ATLauncher</strong> — qualquer um deles gerencia versões e mods para você.</p>
+            <h3>Entenda por que você precisa de um launcher com mods</h3>
+            <p>O launcher oficial da Mojang só abre o Minecraft puro, sem Forge, sem Fabric e sem mod nenhum — ele não foi feito pra isso. Pra jogar com a galera você precisa de um launcher alternativo, que instala o mod loader certo e organiza os arquivos pra você. Recomendamos o <strong>Prism Launcher</strong>, gratuito e de código aberto; <strong>CurseForge</strong> e <strong>ATLauncher</strong> também são ótimas alternativas e funcionam de um jeito bem parecido.</p>
           </div>
         </li>
 
         <li class="step reveal">
-          <div class="step-slot">2</div>
+          <div class="step-slot torch-glow">2</div>
           <div class="step-content">
-            <h3>Baixe o modpack do servidor</h3>
-            <p>Pegue o pacote com todos os mods já organizados no botão abaixo.</p>
+            <h3>Instale o launcher e logue com sua conta</h3>
+            <p>Baixe o instalador do Prism Launcher (ou do CurseForge/ATLauncher, se preferir) direto do site oficial de cada um e instale normalmente. Na primeira abertura, faça login com a mesma conta Microsoft que você já usa pra jogar Minecraft — não precisa comprar nada de novo, é a licença premium de sempre. Sem essa conta logada, o launcher não consegue baixar as versões do jogo.</p>
+          </div>
+        </li>
+
+        <li class="step reveal">
+          <div class="step-slot torch-glow">3</div>
+          <div class="step-content">
+            <h3>Crie uma instância com a versão certa do jogo e do mod loader</h3>
+            <p>Dentro do launcher, crie uma instância nova e escolha exatamente a versão do Minecraft e o mod loader (Forge ou Fabric) indicados na seção <a href="#servidor">Servidor</a>. Repare que a nossa lista de mods tem o Fabric API — isso significa que o pacote roda em <strong>Fabric</strong>, não em Forge. O launcher baixa esse loader sozinho na hora de criar a instância, então relaxa: você só precisa escolher as opções certas.</p>
+          </div>
+        </li>
+
+        <li class="step reveal">
+          <div class="step-slot torch-glow">4</div>
+          <div class="step-content">
+            <h3>Escolha entre modpack pronto (.zip) ou mods avulsos</h3>
+            <p>O jeito mais rápido é baixar o modpack .zip aqui da página e importar direto no launcher — em geral é só arrastar o arquivo pra dentro do Prism ou usar a opção "Importar instância".</p>
             <a href="#" class="btn btn-small" id="modpackBtn" data-config="modpackLink">Baixar modpack (.zip)</a>
             <p class="trust-note">🛡️ Tá desconfiado de baixar um .zip de estranho? Sem problema — <a href="#mod-list">veja a lista completa de mods</a> aqui embaixo e baixe cada um direto da fonte oficial (Modrinth ou CurseForge) pelo seu launcher favorito.</p>
           </div>
         </li>
 
         <li class="step reveal">
-          <div class="step-slot">3</div>
+          <div class="step-slot torch-glow">5</div>
           <div class="step-content">
-            <h3>Instale a mesma versão do jogo e do mod loader</h3>
-            <p>Confira a versão do Minecraft e do Forge/Fabric indicada na seção <a href="#servidor">Servidor</a> e crie um perfil igual no seu launcher.</p>
+            <h3>Encontre a pasta "mods" e solte os arquivos .jar nela</h3>
+            <p>Se você importou o modpack pronto pelo launcher, esse passo já acontece sozinho. Baixando mod por mod, é preciso colocar os <code>.jar</code> dentro da pasta <code>mods</code> da instância: no Prism, clique com o botão direito na instância e escolha "Mods Folder" (ou "Open .minecraft Folder" → pasta mods), o que funciona igual no Windows, Mac e Linux. Usando o launcher oficial sem gerenciador de instância, o caminho padrão é <code>%appdata%\.minecraft\mods</code> no Windows, <code>~/Library/Application Support/minecraft/mods</code> no Mac e <code>~/.minecraft/mods</code> no Linux.</p>
           </div>
         </li>
 
         <li class="step reveal">
-          <div class="step-slot">4</div>
+          <div class="step-slot torch-glow">6</div>
           <div class="step-content">
-            <h3>Coloque os mods na pasta certa</h3>
-            <p>Extraia os arquivos <code>.jar</code> dentro da pasta <code>mods</code> do seu perfil. Se o modpack já vier pronto pelo launcher, esse passo é automático.</p>
+            <h3>Confira se a versão de cada mod bate com a do jogo</h3>
+            <p>Todo mod tem uma página no Modrinth ou CurseForge com um filtro de "Game Version" e de "Loader" — antes de baixar qualquer coisa extra, confira se os dois batem exatamente com a versão e o loader da sua instância. Um mod de Fabric não roda numa instância Forge (e vice-versa), e uma versão de mod feita pra 1.20 pode simplesmente não carregar numa instância 1.21. Ficou em dúvida? A lista de mods aqui embaixo já mostra a versão certa de cada um pra essa modpack.</p>
           </div>
         </li>
 
         <li class="step reveal">
-          <div class="step-slot">5</div>
+          <div class="step-slot torch-glow">7</div>
+          <div class="step-content">
+            <h3>Resolva os perrengues mais comuns na primeira abertura</h3>
+            <p>Jogo crashando ao abrir? Abra a pasta "crash-reports" dentro da instância e veja qual mod aparece no topo do erro — geralmente é uma dependência faltando, tipo um mod que precisa do Fabric API ou do BCLib instalado junto. Erro de "mod incompatível" quase sempre é versão errada, então revise o passo anterior. E se o jogo abre mas trava, fica lento ou fecha sozinho, é falta de RAM: nas configurações da instância (em Prism, "Edit Instance" → "Settings" → "Java"), aumente a memória alocada pra pelo menos 4GB.</p>
+          </div>
+        </li>
+
+        <li class="step reveal">
+          <div class="step-slot torch-glow">8</div>
           <div class="step-content">
             <h3>Conecte no servidor</h3>
-            <p>Abra o Minecraft com o perfil certo, vá em <em>Multiplayer</em> → <em>Add Server</em> e cole o endereço assim que ele for divulgado aqui na página.</p>
+            <p>Abra o Minecraft pela instância certa, vá em <em>Multiplayer</em> → <em>Add Server</em> e cole o endereço assim que ele for divulgado aqui na página. Pronto — se todos os passos acima foram seguidos, é só entrar e jogar com a galera. Quer o passo a passo completo de como conectar? Segue lá na seção <a href="#servidor">Servidor</a>.</p>
           </div>
         </li>
       </ol>
@@ -263,6 +361,26 @@
           </li>
         </ul>
       </div>
+
+      <div class="faq-wrap reveal">
+        <h3 class="faq-title">Perguntas frequentes</h3>
+        <details class="faq-item">
+          <summary>Preciso comprar o Minecraft de novo pra usar um launcher diferente?</summary>
+          <p>Não! Prism, CurseForge e ATLauncher usam a mesma licença que você já tem — é só logar com sua conta Microsoft (a premium, comprada) dentro do launcher. Eles não vendem o jogo, só organizam mods e versões pra você.</p>
+        </details>
+        <details class="faq-item">
+          <summary>O .zip do modpack é seguro? Não vou pegar vírus?</summary>
+          <p>Baixando pelo botão aqui do site, sim — o pacote é montado por quem cuida do servidor, com os mesmos mods listados na página. Se preferir não confiar em .zip nenhum, sem problema: use a lista completa de mods lá em cima e baixe cada um direto do Modrinth ou CurseForge, que são as fontes oficiais.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Posso misturar mod de Forge com mod de Fabric?</summary>
+          <p>Não, eles são incompatíveis entre si — cada mod loader tem seu próprio formato de mod. Repare que a nossa lista inclui o Fabric API, então esse pacote é 100% Fabric; ao baixar algo extra por conta própria, sempre confira se a versão é "Fabric" e não "Forge" ou "NeoForge".</p>
+        </details>
+        <details class="faq-item">
+          <summary>Abri o jogo, mas ele travou ou fechou sozinho. E agora?</summary>
+          <p>Na maioria das vezes é falta de RAM alocada ou um mod que precisa de outro mod (dependência) que não foi instalado. Vá nas configurações da instância no launcher (em Prism: "Edit Instance" → "Settings" → "Java") e aumente a memória pra pelo menos 4GB, depois olhe o arquivo de crash na pasta "crash-reports" da instância pra ver qual mod aparece no topo do erro.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -324,6 +442,8 @@
 </div>
 
 <script src="js/nostalgia-player.js"></script>
+<script src="js/sfx.js"></script>
+<script src="js/magic-effects.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="js/script.js"></script>
 </body>

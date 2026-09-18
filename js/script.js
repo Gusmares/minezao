@@ -94,6 +94,7 @@ function setupRevealOnScroll() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
+        entry.target.classList.add("glint-once");
         observer.unobserve(entry.target);
       }
     });

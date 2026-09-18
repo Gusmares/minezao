@@ -5,15 +5,20 @@
              "Pixelify Sans"    -> textos corridos (pixelado, legível)
    Padrão:   painéis com bisel 3D (claro no topo-esquerda, escuro embaixo-direita,
              borda preta externa) imitando a UI clássica de jogos 16-bit/Minecraft.
-   Texturas: ruído pixelado autoral de 8x8px (assets/img/textures/pixel-noise.png),
-             ampliado sem suavização (image-rendering: pixelated) e tingido via
-             background-blend-mode nas superfícies de pedra/madeira/grama e nos
-             botões. A seção "Servidor" usa cor sólida de propósito.
+   Texturas: tiles pixelados autorais de 64x64px, um por material (pedra com
+             minério/cavernas, terra com pedrinhas, madeira com veio e nós,
+             grama com duas variações de bloco), com manchas espalhadas sem
+             alinhar a nenhuma grade — pra não ler como um padrão repetido —
+             e ampliados sem suavização (image-rendering: pixelated).
+             A seção "Servidor" usa cor sólida de propósito.
              Nenhum asset extraído do jogo é usado.
    ========================================================================== */
 
 :root{
-  --tex-pattern: url("../assets/img/textures/pixel-noise.png");
+  --tex-stone: url("../assets/img/textures/stone-tile.png");
+  --tex-dirt:  url("../assets/img/textures/dirt-tile.png");
+  --tex-wood:  url("../assets/img/textures/wood-tile.png");
+  --tex-grass: url("../assets/img/textures/grass-tile.png");
 
   --dirt:        #7b5233;
 
@@ -64,8 +69,8 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   text-shadow: 3px 3px 0 var(--shadow-soft);
 }
 
-/* ---------- texturas (ruído pixelado autoral, tingido via blend-mode) ---------- */
-.tex-dirt, .tex-stone, .tex-wood, .site-header, .btn{
+/* ---------- texturas (tiles pixelados autorais, uma por material) ---------- */
+.tex-dirt, .tex-stone, .tex-wood, .site-header, .btn, .grass-edge{
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -73,25 +78,23 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 
 .tex-dirt{
   background-color: var(--dirt);
-  background-image: var(--tex-pattern);
-  background-blend-mode: multiply;
-  background-size: 128px 128px;
+  background-image: var(--tex-dirt);
+  background-size: 512px 512px;
 }
 
 .tex-stone{
   background-color: var(--stone);
-  background-image: var(--tex-pattern);
-  background-blend-mode: multiply;
-  background-size: 128px 128px;
+  background-image: var(--tex-stone);
+  background-size: 512px 512px;
 }
 
 .tex-wood{
   background-color: var(--wood);
   background-image:
     repeating-linear-gradient(90deg, rgba(0,0,0,.22) 0 4px, transparent 4px 64px),
-    var(--tex-pattern);
-  background-blend-mode: normal, multiply;
-  background-size: auto, 128px 128px;
+    var(--tex-wood);
+  background-blend-mode: normal, normal;
+  background-size: auto, 384px 384px;
 }
 
 
@@ -115,9 +118,8 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   border: none;
   cursor: pointer;
   background-color: var(--stone);
-  background-image: var(--tex-pattern);
-  background-blend-mode: multiply;
-  background-size: 64px 64px;
+  background-image: var(--tex-stone);
+  background-size: 256px 256px;
   box-shadow:
     inset 3px 3px 0 0 rgba(255,255,255,.3),
     inset -3px -3px 0 0 rgba(0,0,0,.4),
@@ -134,8 +136,8 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
     inset 3px 3px 0 0 rgba(0,0,0,.4),
     0 0 0 4px var(--ink);
 }
-.btn-primary{ background-color: var(--grass); }
-.btn-secondary{ background-color: var(--wood); }
+.btn-primary{ background-color: var(--grass); background-image: var(--tex-grass); background-size: 128px 64px; }
+.btn-secondary{ background-color: var(--wood); background-image: var(--tex-wood); }
 .btn-small{ font-size: 11px; padding: 12px 16px; margin-top: 8px; }
 
 .btn[disabled], .btn[aria-disabled="true"]{
@@ -153,9 +155,9 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   background-color: var(--wood);
   background-image:
     repeating-linear-gradient(90deg, rgba(0,0,0,.22) 0 4px, transparent 4px 64px),
-    var(--tex-pattern);
-  background-blend-mode: normal, multiply;
-  background-size: auto, 96px 96px;
+    var(--tex-wood);
+  background-blend-mode: normal, normal;
+  background-size: auto, 384px 384px;
   border-bottom: 4px solid var(--ink);
   box-shadow: inset 0 -4px 0 0 rgba(0,0,0,.25);
 }
@@ -213,6 +215,8 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   overflow: hidden;
 }
 .hero-inner{
+  position: relative;
+  z-index: 2;
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
@@ -293,12 +297,102 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   border: 2px solid var(--ink);
 }
 
+/* ---------- Hero vivo: céu dinâmico (fases + sol/lua + nuvens) ---------- */
+.hero[data-phase="manha"]{ background: linear-gradient(180deg, #6f9cc4 0%, #9dc3dd 55%, #cfe6ef 100%); }
+.hero[data-phase="tarde"]{ background: linear-gradient(180deg, #4c6b8a 0%, #7592ad 55%, #a9c4d8 100%); }
+.hero[data-phase="entardecer"]{ background: linear-gradient(180deg, #6d4a52 0%, #c9825a 55%, #e8b370 100%); }
+.hero[data-phase="noite"]{ background: linear-gradient(180deg, #0f1626 0%, #1c2b4a 55%, #33456b 100%); }
+
+.hero-sky{ position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+
+.stars{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, #fff 100%, transparent),
+    radial-gradient(2px 2px at 25% 55%, #fff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 40% 15%, #fff 100%, transparent),
+    radial-gradient(2px 2px at 60% 40%, #fff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 75% 65%, #fff 100%, transparent),
+    radial-gradient(2px 2px at 85% 25%, #fff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 92% 50%, #fff 100%, transparent),
+    radial-gradient(2px 2px at 15% 80%, #fff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 50% 85%, #fff 100%, transparent),
+    radial-gradient(2px 2px at 33% 70%, #fff 100%, transparent);
+}
+.hero[data-phase="noite"] .stars{ opacity: .85; }
+
+.sky-orb{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  margin-top: -70px;
+  background: var(--yellow);
+  border: 3px solid var(--ink);
+  box-shadow: inset 3px 3px 0 0 rgba(255,255,255,.4), inset -3px -3px 0 0 rgba(0,0,0,.25);
+  animation: sky-arc 100s linear infinite;
+  will-change: transform;
+}
+.hero[data-phase="noite"] .sky-orb{ background: var(--paper); }
+@keyframes sky-arc{
+  0%{ transform: translate(-10vw, 60px); opacity: .85; }
+  50%{ transform: translate(48vw, -120px); opacity: 1; }
+  100%{ transform: translate(110vw, 60px); opacity: .85; }
+}
+
+.cloud-layer{ position: absolute; inset: 0; overflow: hidden; }
+.cloud{
+  position: absolute;
+  width: 32px;
+  height: 12px;
+  background: rgba(255,255,255,.85);
+  box-shadow:
+    8px -6px 0 0 rgba(255,255,255,.85),
+    16px -6px 0 0 rgba(255,255,255,.85),
+    8px 6px 0 0 rgba(255,255,255,.65),
+    -8px 0 0 0 rgba(255,255,255,.65);
+  animation: cloud-drift linear infinite;
+}
+.cloud--1{ top: 12%; animation-duration: 70s; }
+.cloud--2{ top: 30%; width: 24px; animation-duration: 95s; animation-delay: -30s; }
+.cloud--3{ top: 6%; width: 26px; animation-duration: 120s; animation-delay: -60s; }
+.hero[data-phase="noite"] .cloud{ opacity: .2; }
+@keyframes cloud-drift{
+  from{ transform: translateX(-15vw); }
+  to{ transform: translateX(115vw); }
+}
+
+/* ---------- Poeira mágica ambiente (vaga-lumes) ---------- */
+.particle-field{ position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
+.particle{
+  position: absolute;
+  bottom: -10px;
+  width: 4px;
+  height: 4px;
+  background: var(--yellow);
+  box-shadow: 0 0 0 1px var(--ink);
+  animation: mote-float linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes mote-float{
+  0%{ transform: translateY(0); opacity: 0; }
+  10%{ opacity: .85; }
+  90%{ opacity: .85; }
+  100%{ transform: translateY(-140px); opacity: 0; }
+}
+
 /* borda de grama: capim irregular "crescendo" da faixa de terra pro céu */
 .grass-edge{
+  position: relative;
+  z-index: 2;
   height: 26px;
   background-color: var(--grass);
-  background-image: repeating-linear-gradient(90deg, var(--grass) 0 10%, #4c8a34 10% 20%);
-  background-size: 20% 100%;
+  background-image: var(--tex-grass);
+  background-size: 256px 128px;
   clip-path: polygon(
     0% 0%, 10% 0%, 10% 35%, 20% 35%, 20% 15%, 30% 15%, 30% 45%, 40% 45%,
     40% 0%, 50% 0%, 50% 35%, 60% 35%, 60% 15%, 70% 15%, 70% 45%, 80% 45%,
@@ -309,7 +403,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 /* ==========================================================================
    SEÇÕES GERAIS
    ========================================================================== */
-.section-inner{ max-width: 1000px; margin: 0 auto; padding: 90px 24px; }
+.section-inner{ position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; padding: 90px 24px; }
 .section-title{
   font-size: 26px;
   color: var(--cream);
@@ -514,6 +608,39 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .step-content p{ font-size: 17px; }
 .step-content a{ text-decoration: underline; font-weight: 700; }
 
+.steps-title{
+  font-size: 20px;
+  color: var(--cream);
+  margin: 48px 0 18px;
+}
+
+/* ---------- FAQ ---------- */
+.faq-wrap{ margin-top: 40px; }
+.faq-title{
+  font-size: 20px;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.faq-item{
+  background: var(--stone-light);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: inset 2px 2px 0 0 rgba(255,255,255,.3);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+.faq-item summary{
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker{ display: none; }
+.faq-item summary::before{ content: "▸ "; color: var(--wood-dark); }
+.faq-item[open] summary::before{ content: "▾ "; }
+.faq-item p{ margin: 10px 0 0; font-size: 15px; }
+.faq-item a{ text-decoration: underline; font-weight: 700; }
+
 /* ---------- GALERIA ---------- */
 .gallery{ position: relative; }
 .gallery::before{
@@ -645,6 +772,179 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 .lightbox-close:hover{ filter: brightness(1.15); }
 body.lightbox-open{ overflow: hidden; }
+
+/* ==========================================================================
+   EFEITOS MÁGICOS
+   ========================================================================== */
+
+/* ---------- brilho de tocha (logo + numeração dos passos) ---------- */
+.torch-glow{ position: relative; }
+.torch-glow::after{
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 2px;
+  background: radial-gradient(circle, rgba(255,250,143,.55) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+  animation: torch-flicker 2.2s infinite steps(1, end);
+}
+.step:nth-child(odd) .step-slot.torch-glow::after{ animation-delay: -.7s; }
+.step:nth-child(even) .step-slot.torch-glow::after{ animation-delay: -1.4s; }
+@keyframes torch-flicker{
+  0%{ opacity: .55; } 12%{ opacity: .4; } 24%{ opacity: .6; } 36%{ opacity: .35; }
+  48%{ opacity: .58; } 60%{ opacity: .42; } 72%{ opacity: .55; } 86%{ opacity: .38; } 100%{ opacity: .55; }
+}
+
+/* ---------- glint mágico (hover/foco/toque + brinde no primeiro reveal) ---------- */
+.glint-active, .glint-once{ position: relative; overflow: hidden; }
+.hero-photo.glint-once{ overflow: visible; } /* preserva o frame-tag, que sai de propósito da caixa */
+.glint-active::before, .glint-once::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,.5) 45%, rgba(255,250,143,.85) 50%, rgba(255,255,255,.5) 55%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.glint-active::before{ animation: glint-sweep .9s ease-out; }
+.glint-once::before{ animation: glint-sweep .9s ease-out; animation-delay: .2s; }
+@keyframes glint-sweep{
+  from{ left: -60%; }
+  to{ left: 130%; }
+}
+
+/* ---------- anel de impacto ao clicar/tocar ---------- */
+.impact-ring{
+  position: fixed;
+  width: 26px;
+  height: 26px;
+  margin-left: -13px;
+  margin-top: -13px;
+  border: 3px solid var(--yellow);
+  box-shadow: 0 0 0 2px var(--ink);
+  pointer-events: none;
+  z-index: 1200;
+  animation: ring-expand .5s ease-out forwards;
+}
+@keyframes ring-expand{
+  from{ transform: scale(.4); opacity: .9; }
+  to{ transform: scale(2.2); opacity: 0; }
+}
+
+/* ---------- barra de XP e badge de nível ---------- */
+.xp-bar{ height: 8px; background: var(--ink); }
+.xp-bar__fill{
+  height: 100%;
+  width: 0%;
+  background: var(--grass);
+  background-image: repeating-linear-gradient(90deg, transparent 0 9%, rgba(0,0,0,.35) 9% 10%);
+  transition: width .15s linear;
+}
+.level-badge{
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  z-index: 900;
+  transform: translate(-50%, -12px);
+  background: var(--ink);
+  color: var(--yellow);
+  font-family: var(--font-title);
+  font-size: 12px;
+  padding: 10px 16px;
+  border: 3px solid var(--ink);
+  box-shadow: inset 2px 2px 0 0 rgba(255,255,255,.15), 0 4px 0 0 rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease;
+  white-space: nowrap;
+}
+.level-badge.is-visible{ opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- toasts de conquista ---------- */
+#achievementStack{
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+.achievement-toast{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 260px;
+  background: var(--stone-light);
+  color: var(--ink);
+  padding: 10px 14px;
+  transform: translateX(-130%);
+  opacity: 0;
+  transition: transform .35s ease, opacity .35s ease;
+}
+.achievement-toast.is-visible{ transform: translateX(0); opacity: 1; }
+.achievement-toast__icon{
+  display: grid;
+  grid-template-columns: repeat(2, 14px);
+  grid-template-rows: repeat(2, 14px);
+  gap: 2px;
+  flex-shrink: 0;
+}
+.achievement-toast__icon div{ background: var(--stone-fleck); border: 1px solid var(--ink); }
+.achievement-toast__icon div:nth-child(1){ background: var(--grass); }
+.achievement-toast__icon div:nth-child(4){ background: var(--yellow); }
+.achievement-toast__eyebrow{ font-family: var(--font-title); font-size: 9px; color: var(--wood-dark); margin: 0 0 4px; }
+.achievement-toast__title{ font-weight: 700; font-size: 14px; margin: 0; }
+.achievement-toast__desc{ font-size: 12px; margin: 2px 0 0; color: #4a4a4a; }
+
+/* ---------- easter egg: código Konami ---------- */
+.falling-block{
+  position: fixed;
+  top: -40px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--ink);
+  box-shadow: inset 2px 2px 0 0 rgba(255,255,255,.3), inset -2px -2px 0 0 rgba(0,0,0,.35);
+  z-index: 1100;
+  pointer-events: none;
+  animation: block-fall linear forwards;
+}
+@keyframes block-fall{
+  from{ transform: translateY(0) rotate(0deg); }
+  to{ transform: translateY(110vh) rotate(180deg); }
+}
+.konami-banner{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  z-index: 1100;
+  transform: translate(-50%, -50%) scale(.8);
+  font-family: var(--font-title);
+  font-size: 22px;
+  color: var(--yellow);
+  text-shadow: 3px 3px 0 var(--shadow-soft);
+  background: var(--ink);
+  padding: 18px 26px;
+  border: 4px solid var(--ink);
+  box-shadow: inset 3px 3px 0 0 rgba(255,255,255,.2), 0 0 0 4px var(--yellow);
+  opacity: 0;
+  text-align: center;
+  transition: opacity .3s ease, transform .3s ease;
+}
+.konami-banner.is-visible{ opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+@media (prefers-reduced-motion: reduce){
+  .torch-glow::after{ animation: none; opacity: .5; }
+  .sky-orb, .cloud, .particle{ animation: none !important; }
+  .glint-active::before, .glint-once::before{ animation: none !important; opacity: 0; }
+  .impact-ring{ animation: none !important; display: none; }
+  .falling-block{ animation: none !important; display: none; }
+}
 
 /* ==========================================================================
    FOOTER

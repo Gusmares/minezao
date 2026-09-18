@@ -84,6 +84,7 @@ const GALLERY_PHOTOS = [
   function setupInteractionUnlock() {
     const unlock = () => {
       unmuteAndPlay();
+      window.__radioUnlocked = true;
       document.removeEventListener("click", unlock);
       document.removeEventListener("keydown", unlock);
       document.removeEventListener("touchstart", unlock);
@@ -113,8 +114,14 @@ const GALLERY_PHOTOS = [
         player.playVideo();
       }
     });
-    els.next.addEventListener("click", playNext);
-    els.prev.addEventListener("click", playPrev);
+    els.next.addEventListener("click", () => {
+      playNext();
+      if (window.MagicAchievements) window.MagicAchievements.unlock("track-change", "DJ da galera", "Trocou de música no rádio.");
+    });
+    els.prev.addEventListener("click", () => {
+      playPrev();
+      if (window.MagicAchievements) window.MagicAchievements.unlock("track-change", "DJ da galera", "Trocou de música no rádio.");
+    });
   }
 
   function initPlayer() {
@@ -217,6 +224,7 @@ const GALLERY_PHOTOS = [
       lightboxImg.alt = alt || "";
       lightbox.hidden = false;
       document.body.classList.add("lightbox-open");
+      if (window.MagicAchievements) window.MagicAchievements.unlock("lightbox", "Foto em close-up", "Abriu uma foto da galeria em tamanho grande.");
     }
 
     function closeLightbox() {
