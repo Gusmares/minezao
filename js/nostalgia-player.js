@@ -17,12 +17,12 @@ const NOSTALGIA_TRACKS = [
 ];
 
 const GALLERY_PHOTOS = [
-  { src: "assets/img/gallery/foto-01.jpg", alt: "Steve enfrentando um esqueleto na beira de um penhasco" },
-  { src: "assets/img/gallery/foto-02.jpg", alt: "Ilha com templo na selva, vista de uma base com cama e baú" },
-  { src: "assets/img/gallery/foto-03.jpg", alt: "Corte do mundo, da superfície até o Nether" },
-  { src: "assets/img/gallery/foto-04.jpg", alt: "Steve sentado ao lado de um Creeper em frente a uma selva" },
-  { src: "assets/img/gallery/foto-05.jpg", alt: "Steve correndo pela grama com os mobs do jogo" },
-  { src: "assets/img/gallery/foto-06.png", alt: "Steve enfrentando um esqueleto ao entardecer" },
+  { src: "assets/img/gallery/foto-01.jpg", alt: "Steve enfrentando um esqueleto na beira de um penhasco", caption: "Duelo com esqueleto" },
+  { src: "assets/img/gallery/foto-02.jpg", alt: "Ilha com templo na selva, vista de uma base com cama e baú", caption: "Templo escondido na selva" },
+  { src: "assets/img/gallery/foto-03.jpg", alt: "Corte do mundo, da superfície até o Nether", caption: "Da superfície até o Nether" },
+  { src: "assets/img/gallery/foto-04.jpg", alt: "Steve sentado ao lado de um Creeper em frente a uma selva", caption: "Amizade com um Creeper" },
+  { src: "assets/img/gallery/foto-05.jpg", alt: "Steve correndo pela grama com os mobs do jogo", caption: "Correria com os mobs" },
+  { src: "assets/img/gallery/foto-06.png", alt: "Steve enfrentando um esqueleto ao entardecer", caption: "Emboscada ao entardecer" },
 ];
 
 (function () {
@@ -161,11 +161,11 @@ const GALLERY_PHOTOS = [
     grid.innerHTML = "";
 
     GALLERY_PHOTOS.forEach((photo) => {
-      const card = document.createElement("a");
+      const card = document.createElement("button");
+      card.type = "button";
       card.className = "gallery-card";
-      card.href = photo.src;
-      card.target = "_blank";
-      card.rel = "noopener";
+      card.dataset.full = photo.src;
+      card.dataset.alt = photo.alt;
 
       const img = document.createElement("img");
       img.className = "gallery-thumb";
@@ -173,7 +173,12 @@ const GALLERY_PHOTOS = [
       img.alt = photo.alt;
       img.loading = "lazy";
 
+      const caption = document.createElement("span");
+      caption.className = "gallery-caption";
+      caption.textContent = photo.caption;
+
       card.appendChild(img);
+      card.appendChild(caption);
       grid.appendChild(card);
     });
 
@@ -197,6 +202,41 @@ const GALLERY_PHOTOS = [
       card.appendChild(img);
       card.appendChild(caption);
       grid.appendChild(card);
+    });
+  }
+
+  function setupGalleryLightbox() {
+    const grid = document.getElementById("galleryGrid");
+    const lightbox = document.getElementById("galleryLightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeBtn = document.getElementById("lightboxClose");
+    if (!grid || !lightbox || !lightboxImg || !closeBtn) return;
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "";
+      lightbox.hidden = false;
+      document.body.classList.add("lightbox-open");
+    }
+
+    function closeLightbox() {
+      lightbox.hidden = true;
+      lightboxImg.src = "";
+      document.body.classList.remove("lightbox-open");
+    }
+
+    grid.addEventListener("click", (e) => {
+      const card = e.target.closest(".gallery-card[data-full]");
+      if (!card) return;
+      openLightbox(card.dataset.full, card.dataset.alt);
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
     });
   }
 
@@ -234,6 +274,7 @@ const GALLERY_PHOTOS = [
     setupControls();
     setupInteractionUnlock();
     renderGallery();
+    setupGalleryLightbox();
     setupGalleryCarousel();
   });
 })();

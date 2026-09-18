@@ -270,7 +270,7 @@
   <section class="gallery tex-stone" id="galeria">
     <div class="section-inner">
       <h2 class="section-title reveal">Galeria Nostalgia</h2>
-      <p class="section-lead reveal">As capas dos clássicos que tocam no rádio aí embaixo. Clique numa foto pra assistir ao vídeo original — todo o crédito é de quem fez.</p>
+      <p class="section-lead reveal">Fotos do mundo e as capas dos clássicos que tocam no rádio aí embaixo. Clique numa foto pra ver ela grande, ou numa capa de música pra assistir ao vídeo original — todo o crédito é de quem fez.</p>
 
       <div class="carousel reveal" id="galleryCarousel">
         <button type="button" class="carousel-arrow carousel-arrow--prev" id="galleryPrev" aria-label="Foto anterior">‹</button>
@@ -291,7 +291,6 @@
   <div class="section-inner footer-inner">
     <p>Feito pela galera, para a galera. 🛠️</p>
     <p class="footer-disclaimer">Este site é um projeto de fã e não é afiliado à Mojang Studios ou Microsoft. Minecraft é marca registrada da Mojang Studios.</p>
-    <p class="footer-credit">Padrão de textura <a href="http://www.freepik.com">Designed by Layerace / Freepik</a></p>
   </div>
 </footer>
 
@@ -316,6 +315,12 @@
   </div>
 
   <button type="button" class="nostalgia-tick" id="nostalgiaTick" aria-label="Abrir rádio nostalgia" title="Rádio Nostalgia — clique pra ativar o som">🎵</button>
+</div>
+
+<!-- ================= LIGHTBOX DA GALERIA ================= -->
+<div class="lightbox" id="galleryLightbox" hidden>
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fechar">✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
 </div>
 
 <script src="js/nostalgia-player.js"></script>

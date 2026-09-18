@@ -5,14 +5,15 @@
              "Pixelify Sans"    -> textos corridos (pixelado, legível)
    Padrão:   painéis com bisel 3D (claro no topo-esquerda, escuro embaixo-direita,
              borda preta externa) imitando a UI clássica de jogos 16-bit/Minecraft.
-   Texturas: padrão pixelado licenciado (Freepik/Layerace — ver crédito no rodapé),
-             tingido via background-blend-mode nas superfícies de pedra/madeira/
-             grama e nos botões. A seção "Servidor" usa cor sólida de propósito.
+   Texturas: ruído pixelado autoral de 8x8px (assets/img/textures/pixel-noise.png),
+             ampliado sem suavização (image-rendering: pixelated) e tingido via
+             background-blend-mode nas superfícies de pedra/madeira/grama e nos
+             botões. A seção "Servidor" usa cor sólida de propósito.
              Nenhum asset extraído do jogo é usado.
    ========================================================================== */
 
 :root{
-  --tex-pattern: url("../assets/img/textures/pixel-pattern.jpg");
+  --tex-pattern: url("../assets/img/textures/pixel-noise.png");
 
   --dirt:        #7b5233;
 
@@ -63,19 +64,25 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   text-shadow: 3px 3px 0 var(--shadow-soft);
 }
 
-/* ---------- texturas (padrão licenciado tingido via blend-mode) ---------- */
+/* ---------- texturas (ruído pixelado autoral, tingido via blend-mode) ---------- */
+.tex-dirt, .tex-stone, .tex-wood, .site-header, .btn{
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
 .tex-dirt{
   background-color: var(--dirt);
   background-image: var(--tex-pattern);
   background-blend-mode: multiply;
-  background-size: 150px 150px;
+  background-size: 128px 128px;
 }
 
 .tex-stone{
   background-color: var(--stone);
   background-image: var(--tex-pattern);
   background-blend-mode: multiply;
-  background-size: 150px 150px;
+  background-size: 128px 128px;
 }
 
 .tex-wood{
@@ -84,7 +91,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
     repeating-linear-gradient(90deg, rgba(0,0,0,.22) 0 4px, transparent 4px 64px),
     var(--tex-pattern);
   background-blend-mode: normal, multiply;
-  background-size: auto, 150px 150px;
+  background-size: auto, 128px 128px;
 }
 
 
@@ -110,7 +117,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   background-color: var(--stone);
   background-image: var(--tex-pattern);
   background-blend-mode: multiply;
-  background-size: 60px 60px;
+  background-size: 64px 64px;
   box-shadow:
     inset 3px 3px 0 0 rgba(255,255,255,.3),
     inset -3px -3px 0 0 rgba(0,0,0,.4),
@@ -148,7 +155,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
     repeating-linear-gradient(90deg, rgba(0,0,0,.22) 0 4px, transparent 4px 64px),
     var(--tex-pattern);
   background-blend-mode: normal, multiply;
-  background-size: auto, 110px 110px;
+  background-size: auto, 96px 96px;
   border-bottom: 4px solid var(--ink);
   box-shadow: inset 0 -4px 0 0 rgba(0,0,0,.25);
 }
@@ -530,7 +537,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 
 .carousel-track{
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 18px;
   padding: 4px 4px 14px;
 }
@@ -538,7 +545,8 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .gallery-loading{ color: var(--paper); font-size: 14px; }
 
 .gallery-card{
-  display: block;
+  display: flex;
+  flex-direction: column;
   flex: 0 0 220px;
   scroll-snap-align: start;
   background: var(--wood);
@@ -548,6 +556,11 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
     inset -3px -3px 0 0 rgba(0,0,0,.4);
   padding: 8px;
   color: var(--cream);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
   transition: transform .12s ease;
 }
 .gallery-card:hover{ transform: translateY(-4px); }
@@ -562,6 +575,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .gallery-caption{
   display: block;
   margin-top: 8px;
+  min-height: 2.7em;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
@@ -590,6 +604,48 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .carousel-arrow--prev{ left: 4px; }
 .carousel-arrow--next{ right: 4px; }
 
+/* ---------- LIGHTBOX DA GALERIA ---------- */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: rgba(0,0,0,.85);
+}
+.lightbox[hidden]{ display: none; }
+.lightbox-img{
+  display: block;
+  max-width: min(900px, 100%);
+  max-height: 85vh;
+  border: 6px solid var(--ink);
+  background: var(--ink);
+  box-shadow:
+    inset 3px 3px 0 0 rgba(255,255,255,.25),
+    inset -3px -3px 0 0 rgba(0,0,0,.5);
+  object-fit: contain;
+}
+.lightbox-close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--ink);
+  background: var(--wood);
+  color: var(--cream);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow:
+    inset -3px -3px 0 0 var(--wood-dark),
+    inset 3px 3px 0 0 rgba(255,255,255,.35);
+}
+.lightbox-close:hover{ filter: brightness(1.15); }
+body.lightbox-open{ overflow: hidden; }
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */
@@ -605,13 +661,6 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   max-width: 60ch;
   margin-inline: auto;
 }
-.footer-credit{
-  margin-top: 8px;
-  font-size: 12px;
-  color: #6f6f6f;
-}
-.footer-credit a{ color: #9a9a9a; text-decoration: underline; }
-
 /* ==========================================================================
    REVEAL ON SCROLL
    ========================================================================== */

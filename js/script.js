@@ -53,14 +53,24 @@ function applyConfig() {
 function setupPhotoFallback() {
   const img = document.getElementById("serverPhoto");
   const placeholder = document.getElementById("photoPlaceholder");
-  img.addEventListener("load", () => {
+
+  function showPhoto() {
     img.style.display = "block";
     placeholder.style.display = "none";
-  });
-  img.addEventListener("error", () => {
+  }
+  function showPlaceholder() {
     img.style.display = "none";
     placeholder.style.display = "flex";
-  });
+  }
+
+  img.addEventListener("load", showPhoto);
+  img.addEventListener("error", showPlaceholder);
+
+  // A imagem pode já ter carregado (cache/disco local) antes desses
+  // listeners serem anexados, e nesse caso o evento "load" nunca dispara.
+  if (img.complete) {
+    img.naturalWidth > 0 ? showPhoto() : showPlaceholder();
+  }
 }
 
 function setupNavToggle() {
