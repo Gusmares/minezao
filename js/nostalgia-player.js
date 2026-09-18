@@ -14,6 +14,13 @@ const NOSTALGIA_TRACKS = [
   { id: "w4utAyKFrZY", title: "SOU STEVE (Paródia Believer) — jvnq" },
   { id: "M2GYZhz7B34", title: "RAVINA (Paródia Havana) — jvnq" },
   { id: "WwIvxSWR_B8", title: "Intro do Rezendeevil — Tron!" },
+  { id: "jDARX4yUPkk", title: "RAP ESPECIAL DE 5 MILHÕES DE INSCRITOS (feat. 7Minutoz) — AuthenticGames" },
+  { id: "bo3brXVDpGM", title: "EU SOU UM MANINHO DO TT — AuthenticGames" },
+  { id: "I84aDCsHjtg", title: "EU DESISTO (Paródia Despacito) — Cronos" },
+  { id: "D1-nFYg4pug", title: "Virar Comida (Paródia Closer) — WellVlogs" },
+  { id: "Tp1mk8DsLuQ", title: "I Am Believing (Minecraft CrazyCraft Parody) — Lachlan" },
+  { id: "OeWxxTLdRBw", title: "Rap Minecraft Paraíso (ft. Tauz) — rezendeevil" },
+  { id: "HG-xvvVz1KE", title: "Música Minecraft Saphira (ft. Tauz) — AM3NlC" },
 ];
 
 const GALLERY_PHOTOS = [
