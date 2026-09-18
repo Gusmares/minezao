@@ -1066,6 +1066,73 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .lightbox-close:hover{ filter: brightness(1.15); }
 body.lightbox-open{ overflow: hidden; }
 
+/* ---------- DISCORD (chamada em destaque antes do rodapé) ---------- */
+.discord-cta{ position: relative; }
+.discord-cta::before{
+  content: "";
+  display: block;
+  height: 10px;
+  background-color: var(--ink);
+}
+.discord-cta .section-inner{ padding-top: 64px; padding-bottom: 64px; }
+.discord-card{
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 32px 36px;
+  background: #4752c4;
+  color: var(--cream);
+  box-shadow:
+    inset 4px 4px 0 0 rgba(255,255,255,.28),
+    inset -4px -4px 0 0 rgba(0,0,0,.35),
+    0 0 0 4px var(--yellow);
+}
+.discord-card__icon{
+  flex-shrink: 0;
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  background: var(--ink);
+  box-shadow: inset 0 0 0 3px #000, inset 3px 3px 0 0 rgba(255,255,255,.1);
+}
+.discord-card__body{ flex: 1; min-width: 0; }
+.discord-card__eyebrow{
+  font-family: var(--font-title);
+  font-size: 10px;
+  color: var(--yellow);
+  margin: 0 0 10px;
+  text-shadow: 2px 2px 0 var(--shadow-soft);
+}
+.discord-card__title{
+  font-size: 20px;
+  color: var(--cream);
+  margin: 0 0 10px;
+}
+.discord-card__text{
+  font-size: 17px;
+  margin: 0;
+  color: var(--cream);
+}
+.discord-btn{
+  flex-shrink: 0;
+  font-size: 14px;
+  padding: 20px 26px;
+  color: var(--ink);
+  text-shadow: none;
+  background-color: var(--cream);
+  background-image: none;
+  white-space: nowrap;
+}
+.discord-btn:hover{ filter: none; color: var(--ink); background-color: var(--yellow); }
+@media (max-width: 860px){
+  .discord-card{ flex-direction: column; align-items: stretch; text-align: center; padding: 28px 22px; }
+  .discord-card__icon{ align-self: center; }
+  .discord-btn{ text-align: center; white-space: normal; }
+}
+
 /* ==========================================================================
    EFEITOS MÁGICOS
    ========================================================================== */

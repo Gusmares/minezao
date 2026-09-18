@@ -205,6 +205,7 @@
       { id: "mods", level: 3, name: "Mods", achievement: "Chegou nos mods", el: document.querySelector("#mods .section-title") },
       { id: "historia", level: 4, name: "História", achievement: "Relembrou a história", el: document.querySelector("#historia .section-title") },
       { id: "galeria", level: 5, name: "Galeria", achievement: "Chegou na galeria", el: document.querySelector("#galeria .section-title") },
+      { id: "discord", level: 6, name: "Discord", achievement: "Achou o Discord", el: document.querySelector("#discord .discord-card__title") },
     ].filter((m) => m.el);
 
     // A lista de mods agora é um <details> retrátil — "viu a lista completa"
