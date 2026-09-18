@@ -25,6 +25,15 @@ const GALLERY_PHOTOS = [
   { src: "assets/img/gallery/foto-06.png", alt: "Steve enfrentando um esqueleto ao entardecer", caption: "Emboscada ao entardecer" },
 ];
 
+/* ---------- Clipes de gameplay (Medal.tv) ---------- */
+const NOSTALGIA_CLIPS = [
+  { src: "assets/video/clipes/clipe-01.mp4", poster: "assets/video/clipes/clipe-01.jpg", caption: "Pérola de Ender debaixo de tempestade" },
+  { src: "assets/video/clipes/clipe-02.mp4", poster: "assets/video/clipes/clipe-02.jpg", caption: "Fogos no céu perto do Porto" },
+  { src: "assets/video/clipes/clipe-03.mp4", poster: "assets/video/clipes/clipe-03.jpg", caption: "Explorando o Tribunal no escuro" },
+  { src: "assets/video/clipes/clipe-04.mp4", poster: "assets/video/clipes/clipe-04.jpg", caption: "Incêndio na farm de XP" },
+  { src: "assets/video/clipes/clipe-05.mp4", poster: "assets/video/clipes/clipe-05.jpg", caption: "Escolhendo o destino no teleporte" },
+];
+
 /* ---------- Fotos de servidores antigos (seção "Nossa História") ---------- */
 const HISTORIA_PHOTOS_2023 = [
   { src: "assets/img/historia/historia-2023-01.jpg", alt: "Print granulado e antigo de uma área de mineração com dois jogadores perto de um baú", caption: "O primeiro print que sobrou" },
@@ -219,6 +228,40 @@ const HISTORIA_PHOTOS_EXTRA = [
     return card;
   }
 
+  function buildClipCard(clip) {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "gallery-card gallery-card--video";
+    card.dataset.full = clip.src;
+    card.dataset.alt = clip.caption;
+    card.dataset.type = "video";
+
+    const thumbWrap = document.createElement("span");
+    thumbWrap.className = "gallery-thumb-wrap";
+
+    const img = document.createElement("img");
+    img.className = "gallery-thumb";
+    img.src = clip.poster;
+    img.alt = clip.caption;
+    img.loading = "lazy";
+
+    const playBadge = document.createElement("span");
+    playBadge.className = "gallery-play-badge";
+    playBadge.setAttribute("aria-hidden", "true");
+    playBadge.textContent = "▶";
+
+    thumbWrap.appendChild(img);
+    thumbWrap.appendChild(playBadge);
+
+    const caption = document.createElement("span");
+    caption.className = "gallery-caption";
+    caption.textContent = clip.caption;
+
+    card.appendChild(thumbWrap);
+    card.appendChild(caption);
+    return card;
+  }
+
   function renderPhotoGrid(gridId, photos) {
     const grid = document.getElementById(gridId);
     if (!grid) return;
@@ -236,6 +279,8 @@ const HISTORIA_PHOTOS_EXTRA = [
     renderPhotoGrid("galleryGrid", GALLERY_PHOTOS);
     const grid = document.getElementById("galleryGrid");
     if (!grid) return;
+
+    NOSTALGIA_CLIPS.forEach((clip) => grid.appendChild(buildClipCard(clip)));
 
     NOSTALGIA_TRACKS.forEach((track) => {
       const card = document.createElement("a");
@@ -265,12 +310,27 @@ const HISTORIA_PHOTOS_EXTRA = [
     // qualquer galeria/carrossel que use .gallery-card[data-full], atual ou futura.
     const lightbox = document.getElementById("galleryLightbox");
     const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxVideo = document.getElementById("lightboxVideo");
     const closeBtn = document.getElementById("lightboxClose");
     if (!lightbox || !lightboxImg || !closeBtn) return;
 
-    function openLightbox(src, alt) {
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || "";
+    function openLightbox(src, alt, type) {
+      if (type === "video" && lightboxVideo) {
+        lightboxImg.hidden = true;
+        lightboxImg.src = "";
+        lightboxVideo.hidden = false;
+        lightboxVideo.src = src;
+        lightboxVideo.play().catch(() => {});
+      } else {
+        if (lightboxVideo) {
+          lightboxVideo.hidden = true;
+          lightboxVideo.pause();
+          lightboxVideo.src = "";
+        }
+        lightboxImg.hidden = false;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || "";
+      }
       lightbox.hidden = false;
       document.body.classList.add("lightbox-open");
       if (window.MagicAchievements) window.MagicAchievements.unlock("lightbox", "Foto em close-up", "Abriu uma foto da galeria em tamanho grande.");
@@ -279,13 +339,17 @@ const HISTORIA_PHOTOS_EXTRA = [
     function closeLightbox() {
       lightbox.hidden = true;
       lightboxImg.src = "";
+      if (lightboxVideo) {
+        lightboxVideo.pause();
+        lightboxVideo.src = "";
+      }
       document.body.classList.remove("lightbox-open");
     }
 
     document.addEventListener("click", (e) => {
       const card = e.target.closest(".gallery-card[data-full]");
       if (!card) return;
-      openLightbox(card.dataset.full, card.dataset.alt);
+      openLightbox(card.dataset.full, card.dataset.alt, card.dataset.type);
     });
 
     closeBtn.addEventListener("click", closeLightbox);

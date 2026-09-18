@@ -1,3 +1,7 @@
 # Screenshots originais usados como fonte pra seção "Nossa História" —
 # as versões otimizadas que o site realmente usa ficam em assets/img/historia/
-FotosDeoutrosServers/
+/FotosDeoutrosServers/
+
+# Clipes brutos do Medal.tv (alta taxa de bits, ~250MB) — as versões
+# recomprimidas pro site ficam em assets/video/clipes/
+/clipes/
