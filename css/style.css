@@ -397,6 +397,87 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 
 /* ==========================================================================
+   AVISO MOBILE — DIAGNÓSTICO DE DISPOSITIVO (estilo tela F3)
+   Só aparece em telas estreitas (ver JS: setupDeviceNotice). Mostra o que
+   detectamos do aparelho e avisa que mods/modpack baixam melhor num PC.
+   ========================================================================== */
+.device-notice{
+  position: relative;
+  z-index: 40;
+  padding: 14px 16px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.device-notice[hidden]{ display: none; }
+.device-notice__inner{
+  color: var(--cream);
+  padding: 12px 14px 16px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.device-notice.is-visible .device-notice__inner{ opacity: 1; transform: translateY(0); }
+
+.device-notice__topbar{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-title);
+  font-size: 10px;
+  color: var(--cream);
+  text-shadow: 2px 2px 0 var(--shadow-soft);
+  margin-bottom: 10px;
+}
+.device-notice__tag{
+  background: var(--grass);
+  color: var(--ink);
+  padding: 3px 6px;
+  border: 2px solid var(--ink);
+}
+.device-notice__topbar span:nth-child(2){ flex: 1; }
+.device-notice__close{
+  background: none;
+  border: none;
+  color: var(--cream);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 6px;
+  margin: -6px;
+}
+.device-notice__close:hover{ color: var(--yellow); }
+
+.device-notice__debug{
+  background: rgba(0,0,0,.4);
+  border: 2px solid rgba(0,0,0,.5);
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.device-notice__debug li{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+.device-notice__debug .k{ color: #b9c8ce; }
+.device-notice__debug .v{ color: var(--yellow); font-weight: 700; text-align: right; }
+
+.device-notice__msg{
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0 0 14px;
+  color: var(--cream);
+}
+.device-notice__ok{ width: 100%; text-align: center; }
+
+@media (min-width: 641px){
+  .device-notice{ display: none; }
+}
+
+/* ==========================================================================
    SEÇÕES GERAIS
    ========================================================================== */
 .section-inner{ position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; padding: 90px 24px; }
@@ -1190,6 +1271,8 @@ body.lightbox-open{ overflow: hidden; }
   z-index: 999;
 }
 
+.nostalgia-backdrop{ display: none; }
+
 .nostalgia-popup{
   position: relative;
   width: 260px;
@@ -1278,13 +1361,48 @@ body.lightbox-open{ overflow: hidden; }
 }
 
 @media (max-width: 640px){
-  .nostalgia{ right: 10px; bottom: 10px; }
-  .nostalgia-popup{ width: 210px; }
+  /* fundo escurecido atrás do popup — vira um "bottom sheet": toca fora pra fechar */
+  .nostalgia-backdrop{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: -1;
+  }
+  .nostalgia:not(.is-collapsed) .nostalgia-backdrop{ display: block; }
+
+  .nostalgia{
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    display: flex;
+    justify-content: flex-end;
+  }
+  .nostalgia-popup{ width: 100%; max-width: 300px; }
+  .nostalgia-popup__topbar{ padding: 10px 12px; font-size: 11px; }
+  .nostalgia-popup__close{
+    font-size: 18px;
+    padding: 10px;
+    margin: -10px;
+  }
   .nostalgia-popup__video-wrap{
     position: absolute;
     width: 2px;
     height: 2px;
     overflow: hidden;
     opacity: .01;
+  }
+  .nostalgia-popup__bar{ padding: 10px 12px 12px; }
+  .nostalgia-popup__title{ font-size: 13px; }
+  .nostalgia-popup__controls{ gap: 10px; }
+  .nostalgia-popup__controls button{
+    width: 48px;
+    height: 44px;
+    font-size: 16px;
+  }
+  .nostalgia-tick{
+    width: 54px;
+    height: 54px;
+    font-size: 24px;
   }
 }

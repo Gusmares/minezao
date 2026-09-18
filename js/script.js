@@ -99,6 +99,74 @@ function setupModListToggle() {
   openIfTargeted();
 }
 
+/* ==========================================================================
+ * AVISO MOBILE — "F3" com diagnóstico do dispositivo
+ * Detecta SO/aparelho/navegador (só decorativo, pra mostrar que o site é
+ * autoral) e avisa que o modpack/mods baixam melhor num computador, sem
+ * travar quem só quer ver a história e as fotos pelo celular.
+ * ========================================================================== */
+function detectClientInfo() {
+  const ua = navigator.userAgent || "";
+
+  let os = "Desconhecido";
+  if (/Windows/i.test(ua)) os = "Windows";
+  else if (/iPhone|iPad|iPod/i.test(ua)) os = "iOS";
+  else if (/Android/i.test(ua)) os = "Android";
+  else if (/Mac OS X/i.test(ua)) os = "macOS";
+  else if (/Linux/i.test(ua)) os = "Linux";
+
+  let device = "Dispositivo móvel";
+  if (/iPad/i.test(ua)) device = "iPad";
+  else if (/iPhone/i.test(ua)) device = "iPhone";
+  else if (/Android/i.test(ua)) {
+    const match = ua.match(/Android\s[^;]+;\s*([^)]+)\)/i);
+    device = match ? match[1].split(/\s+Build|\s+wv/i)[0].trim() : "Smartphone Android";
+  }
+
+  let browser = "Navegador";
+  if (/EdgA|EdgiOS|Edg\//i.test(ua)) browser = "Edge";
+  else if (/CriOS/i.test(ua)) browser = "Chrome";
+  else if (/FxiOS|Firefox/i.test(ua)) browser = "Firefox";
+  else if (/Chrome/i.test(ua)) browser = "Chrome";
+  else if (/Safari/i.test(ua)) browser = "Safari";
+
+  return { os, device, browser };
+}
+
+function setupDeviceNotice() {
+  const notice = document.getElementById("deviceNotice");
+  if (!notice) return;
+
+  const isMobile = window.innerWidth > 0 && window.matchMedia("(max-width: 640px)").matches;
+  if (!isMobile || sessionStorage.getItem("deviceNoticeDismissed") === "1") return;
+
+  const { os, device, browser } = detectClientInfo();
+  const debugList = document.getElementById("deviceNoticeDebug");
+  const rows = [
+    ["Dispositivo", device],
+    ["Sistema", os],
+    ["Navegador", browser],
+    ["Tela", `${window.innerWidth}×${window.innerHeight}`],
+  ];
+  debugList.innerHTML = rows
+    .map(([k, v]) => `<li><span class="k">${k}</span><span class="v">${v}</span></li>`)
+    .join("");
+
+  function dismiss() {
+    notice.classList.remove("is-visible");
+    sessionStorage.setItem("deviceNoticeDismissed", "1");
+    setTimeout(() => { notice.hidden = true; }, 350);
+  }
+
+  document.getElementById("deviceNoticeClose").addEventListener("click", dismiss);
+  document.getElementById("deviceNoticeOk").addEventListener("click", dismiss);
+
+  notice.hidden = false;
+  requestAnimationFrame(() => {
+    setTimeout(() => notice.classList.add("is-visible"), 400);
+  });
+}
+
 function setupRevealOnScroll() {
   const items = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver((entries) => {
@@ -118,5 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPhotoFallback();
   setupNavToggle();
   setupModListToggle();
+  setupDeviceNotice();
   setupRevealOnScroll();
 });

@@ -39,6 +39,22 @@
 
 <main>
 
+  <!-- ================= AVISO MOBILE (DETECÇÃO DE DISPOSITIVO) ================= -->
+  <div class="device-notice" id="deviceNotice" hidden>
+    <div class="device-notice__inner pixel-panel tex-stone">
+      <div class="device-notice__topbar">
+        <span class="device-notice__tag">F3</span>
+        <span>Diagnóstico do cliente</span>
+        <button type="button" class="device-notice__close" id="deviceNoticeClose" aria-label="Fechar aviso" title="Fechar">✕</button>
+      </div>
+      <ul class="device-notice__debug" id="deviceNoticeDebug" aria-hidden="true"></ul>
+      <p class="device-notice__msg">
+        Esse servidor roda <strong>Minecraft Java Edition</strong>. Pra baixar os mods e ter a melhor experiência, acesse por um <strong>computador</strong> 💻 — mas fica à vontade pra já explorar a história, as fotos e os vídeos aqui do celular! 📱
+      </p>
+      <button type="button" class="btn btn-small device-notice__ok" id="deviceNoticeOk">Entendi, valeu!</button>
+    </div>
+  </div>
+
   <!-- ================= HERO ================= -->
   <section class="hero" id="inicio">
     <div class="hero-inner">
@@ -1422,6 +1438,7 @@
 
 <!-- ================= PLAYER NOSTÁLGICO ================= -->
 <div class="nostalgia" id="nostalgia">
+  <div class="nostalgia-backdrop" id="nostalgiaBackdrop"></div>
   <div class="nostalgia-popup" id="nostalgiaPopup">
     <div class="nostalgia-popup__topbar">
       <span>📼 Rádio Nostalgia</span>

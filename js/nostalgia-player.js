@@ -138,7 +138,18 @@ const HISTORIA_PHOTOS_EXTRA = [
     document.addEventListener("touchstart", unlock);
   }
 
+  function isMobileViewport() {
+    // window.innerWidth pode chegar como 0 num primeiro paint ainda não
+    // commitado (aba em segundo plano, pré-render); nesse caso não trata
+    // como mobile, pra nunca prender o desktop no estado fechado.
+    return window.innerWidth > 0 && window.matchMedia("(max-width: 640px)").matches;
+  }
+
   function setupControls() {
+    // No celular o player começa fechado (só o botão flutuante) pra não
+    // cobrir os CTAs do hero — no desktop ele já abre tocando, como antes.
+    if (isMobileViewport()) els.root.classList.add("is-collapsed");
+
     els.tick.addEventListener("click", () => {
       els.root.classList.remove("is-collapsed");
       unmuteAndPlay();
@@ -146,6 +157,11 @@ const HISTORIA_PHOTOS_EXTRA = [
     els.close.addEventListener("click", () => {
       els.root.classList.add("is-collapsed");
     });
+    if (els.backdrop) {
+      els.backdrop.addEventListener("click", () => {
+        els.root.classList.add("is-collapsed");
+      });
+    }
     els.playPause.addEventListener("click", () => {
       if (!player) return;
       if (player.isMuted()) {
@@ -394,6 +410,7 @@ const HISTORIA_PHOTOS_EXTRA = [
     els.root = document.getElementById("nostalgia");
     els.tick = document.getElementById("nostalgiaTick");
     els.close = document.getElementById("nostalgiaClose");
+    els.backdrop = document.getElementById("nostalgiaBackdrop");
     els.title = document.getElementById("nostalgiaTitle");
     els.playPause = document.getElementById("nostalgiaPlayPause");
     els.next = document.getElementById("nostalgiaNext");
