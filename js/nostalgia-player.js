@@ -21,6 +21,7 @@ const NOSTALGIA_TRACKS = [
   { id: "Tp1mk8DsLuQ", title: "I Am Believing (Minecraft CrazyCraft Parody) — Lachlan" },
   { id: "OeWxxTLdRBw", title: "Rap Minecraft Paraíso (ft. Tauz) — rezendeevil" },
   { id: "HG-xvvVz1KE", title: "Música Minecraft Saphira (ft. Tauz) — AM3NlC" },
+  { id: "OdwDGU-f5KU", title: "EU VOU TE FLEXAR (Paródia Gangnam Style) — BaixaMemoria" },
 ];
 
 const GALLERY_PHOTOS = [
@@ -296,6 +297,9 @@ const HISTORIA_PHOTOS_EXTRA = [
   function renderHistoriaGalleries() {
     renderPhotoGrid("historiaGrid2023", HISTORIA_PHOTOS_2023);
     renderPhotoGrid("historiaGrid2025", HISTORIA_PHOTOS_2025);
+    // os clipes são gameplay do servidor de 2025: entram no fim do carrossel dessa era
+    const grid2025 = document.getElementById("historiaGrid2025");
+    if (grid2025) NOSTALGIA_CLIPS.forEach((clip) => grid2025.appendChild(buildClipCard(clip)));
     renderPhotoGrid("historiaGridExtra", HISTORIA_PHOTOS_EXTRA);
   }
 
@@ -303,8 +307,6 @@ const HISTORIA_PHOTOS_EXTRA = [
     renderPhotoGrid("galleryGrid", GALLERY_PHOTOS);
     const grid = document.getElementById("galleryGrid");
     if (!grid) return;
-
-    NOSTALGIA_CLIPS.forEach((clip) => grid.appendChild(buildClipCard(clip)));
 
     NOSTALGIA_TRACKS.forEach((track) => {
       const card = document.createElement("a");
