@@ -45,7 +45,7 @@
   /* ---------- Poeira mágica ambiente (vaga-lumes) ---------- */
   function setupAmbientParticles() {
     if (reduceMotion) return;
-    const sections = document.querySelectorAll(".hero, #mods.mods-guide, #historia.historia, #galeria.gallery");
+    const sections = document.querySelectorAll(".hero, #objetivo.objetivo, #mods.mods-guide, #historia.historia, #galeria.gallery");
     sections.forEach((section) => {
       const field = document.createElement("div");
       field.className = "particle-field";
@@ -213,10 +213,11 @@
     // Observa o TÍTULO de cada seção (elemento pequeno), não a seção inteira —
     // uma seção com tutorial longo pode nunca cruzar 40% de área visível.
     const milestones = [
-      { id: "mods", level: 3, name: "Mods", achievement: "Chegou nos mods", el: document.querySelector("#mods .section-title") },
-      { id: "historia", level: 4, name: "História", achievement: "Relembrou a história", el: document.querySelector("#historia .section-title") },
-      { id: "galeria", level: 5, name: "Galeria", achievement: "Chegou na galeria", el: document.querySelector("#galeria .section-title") },
-      { id: "discord", level: 6, name: "Discord", achievement: "Achou o Discord", el: document.querySelector("#discord .discord-card__title") },
+      { id: "objetivo", level: 2, name: "Objetivo", achievement: "Conheceu o nosso objetivo", el: document.querySelector("#objetivo .section-title") },
+      { id: "mods", level: 4, name: "Mods", achievement: "Chegou nos mods", el: document.querySelector("#mods .section-title") },
+      { id: "historia", level: 5, name: "História", achievement: "Relembrou a história", el: document.querySelector("#historia .section-title") },
+      { id: "galeria", level: 6, name: "Galeria", achievement: "Chegou na galeria", el: document.querySelector("#galeria .section-title") },
+      { id: "discord", level: 7, name: "Discord", achievement: "Achou o Discord", el: document.querySelector("#discord .discord-card__title") },
     ].filter((m) => m.el);
 
     // A lista de mods agora é um <details> retrátil — "viu a lista completa"

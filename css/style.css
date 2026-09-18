@@ -528,8 +528,190 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   margin-bottom: 48px;
 }
 
+/* ---------- OBJETIVO (apresentação do servidor) ----------
+   Fica logo depois do hero, então a grama do hero "nasce" em cima da terra desta
+   seção. Cartões usam o mesmo painel de pedra clara com bisel das outras seções. */
+.objetivo{ position: relative; }
+.objetivo .server-meta{ margin: 0; }
+.objetivo-bloco{ margin-top: 64px; }
+.objetivo-bloco__title{
+  font-size: 20px;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.objetivo-bloco__lead{
+  font-size: 16px;
+  color: var(--paper);
+  text-shadow: 2px 2px 0 rgba(0,0,0,.35);
+  max-width: 62ch;
+  margin-bottom: 24px;
+}
+
+.do-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.do-card{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--stone-light);
+  color: var(--ink);
+  border: var(--border-px) solid var(--ink);
+  box-shadow: inset 3px 3px 0 0 rgba(255,255,255,.25), inset -3px -3px 0 0 rgba(0,0,0,.2);
+  padding: 20px 22px;
+}
+.do-card--wide{ grid-column: 1 / -1; }
+.do-card--wide .do-text{ max-width: 82ch; }
+.do-head{ display: flex; align-items: center; gap: 12px; }
+.do-icon{
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: var(--ink);
+  box-shadow: inset 0 0 0 3px #000, inset 3px 3px 0 0 rgba(255,255,255,.1);
+}
+.do-title{
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.25;
+  margin: 0;
+  text-shadow: none;
+}
+.do-text{ font-size: 16px; margin: 0; }
+.do-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+.do-tag{
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  box-shadow: inset 2px 2px 0 0 rgba(255,255,255,.6);
+  padding: 2px 8px;
+}
+.do-more{ margin: 22px 0 0; font-size: 16px; color: var(--paper); text-shadow: 2px 2px 0 rgba(0,0,0,.35); }
+.do-more a{ color: var(--yellow); font-weight: 700; text-decoration: underline; }
+
+.pilares{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.pilar{
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--stone-light);
+  color: var(--ink);
+  border: var(--border-px) solid var(--ink);
+  box-shadow: inset 3px 3px 0 0 rgba(255,255,255,.25), inset -3px -3px 0 0 rgba(0,0,0,.2);
+  padding: 22px 24px;
+}
+.pilar-icon{
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: inset 0 0 0 3px #000, inset 3px 3px 0 0 rgba(255,255,255,.25), inset -3px -3px 0 0 rgba(0,0,0,.25);
+}
+.pilar-icon--paz{ background: #4f7fa8; }
+.pilar-icon--fe{ background: #d9a72e; }
+/* cruz desenhada em CSS: o emoji ✝️ muda de cara (e até de cor) em cada sistema */
+.pilar-cross{
+  position: relative;
+  width: 26px;
+  height: 34px;
+  filter:
+    drop-shadow(2px 0 0 var(--ink)) drop-shadow(-2px 0 0 var(--ink))
+    drop-shadow(0 2px 0 var(--ink)) drop-shadow(0 -2px 0 var(--ink));
+}
+.pilar-cross::before,
+.pilar-cross::after{
+  content: "";
+  position: absolute;
+  background: var(--cream);
+}
+.pilar-cross::before{ left: 9px; top: 0; width: 8px; height: 34px; }
+.pilar-cross::after{ left: 0; top: 9px; width: 26px; height: 8px; }
+.pilar-icon--criatividade{ background: var(--grass); }
+.pilar-icon--amizade{ background: var(--wood); }
+.pilar-body{ min-width: 0; }
+.pilar-title{
+  font-family: var(--font-title);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0 0 8px;
+  text-shadow: none;
+}
+.pilar-text{ font-size: 16px; margin: 0; }
+.pilar-verso{
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  background: var(--cream);
+  border-left: 6px solid var(--wood-dark);
+  font-size: 15px;
+}
+.pilar-verso cite{
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-family: var(--font-title);
+  font-size: 9px;
+  line-height: 1.5;
+  color: #6a6a6a;
+}
+
+.objetivo-cta{
+  margin-top: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px 32px;
+  padding: 26px 30px;
+  background: var(--wood-dark);
+  color: var(--cream);
+  border: var(--border-px) solid var(--ink);
+  box-shadow: inset 4px 4px 0 0 rgba(255,255,255,.2), inset -4px -4px 0 0 rgba(0,0,0,.3);
+}
+.objetivo-cta__text{ flex: 1 1 320px; margin: 0; font-size: 19px; font-weight: 700; }
+
+@media (max-width: 860px){
+  .do-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px){
+  .pilares{ grid-template-columns: 1fr; }
+}
+@media (max-width: 560px){
+  .do-grid{ grid-template-columns: 1fr; }
+  .pilar{ flex-direction: column; gap: 14px; }
+  .objetivo-bloco{ margin-top: 52px; }
+}
+
 /* ---------- SERVIDOR ---------- */
 .server-info{ background-color: var(--dirt); position: relative; }
+/* separa da seção Objetivo (as duas são de terra) com a mesma faixa escura das demais */
+.server-info::before{
+  content: "";
+  display: block;
+  height: 10px;
+  background-color: var(--ink);
+}
 
 .server-layout{
   display: flex;
@@ -750,7 +932,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   .req-card--wide{ grid-column: span 1; }
 }
 
-.mod-list-wrap{ margin-top: 56px; }
+.mod-list-wrap{ margin-top: 56px; scroll-margin-top: 90px; } /* o header sticky não pode cobrir o título ao pular pra #mod-list */
 .mod-list-title{
   font-size: 20px;
   color: var(--cream);
@@ -1353,9 +1535,8 @@ body.lightbox-open{ overflow: hidden; }
   .hero-inner{ padding-bottom: 50px; }
 }
 
-@media (max-width: 640px){
-  body{ font-size: 17px; }
-  .mc-title{ font-size: 30px; }
+/* 7 links de menu + logo só cabem em linha a partir de ~980px; abaixo disso vira hambúrguer */
+@media (max-width: 1040px){
   .site-nav{
     position: absolute;
     top: 100%; left: 0; right: 0;
@@ -1368,6 +1549,11 @@ body.lightbox-open{ overflow: hidden; }
   .site-nav.is-open{ display: flex; }
   .site-nav a{ padding: 16px 24px; border-bottom: 1px solid rgba(0,0,0,.2); }
   .nav-toggle{ display: flex; }
+}
+
+@media (max-width: 640px){
+  body{ font-size: 17px; }
+  .mc-title{ font-size: 30px; }
   .section-inner{ padding: 64px 20px; }
   .step{ flex-direction: column; }
   .gallery-card{ flex-basis: 66vw; }
