@@ -205,8 +205,18 @@
       { id: "mods", level: 3, name: "Mods", achievement: "Chegou nos mods", el: document.querySelector("#mods .section-title") },
       { id: "historia", level: 4, name: "História", achievement: "Relembrou a história", el: document.querySelector("#historia .section-title") },
       { id: "galeria", level: 5, name: "Galeria", achievement: "Chegou na galeria", el: document.querySelector("#galeria .section-title") },
-      { id: "mod-list", level: null, name: null, achievement: "Viu a lista completa de mods", el: document.getElementById("mod-list") },
     ].filter((m) => m.el);
+
+    // A lista de mods agora é um <details> retrátil — "viu a lista completa"
+    // só faz sentido quando a pessoa realmente abre, não ao passar perto no scroll.
+    const modListToggle = document.getElementById("modListToggle");
+    if (modListToggle) {
+      modListToggle.addEventListener("toggle", function onOpen() {
+        if (!modListToggle.open) return;
+        AchievementSystem.unlock("section-mod-list", "Viu a lista completa de mods", "");
+        modListToggle.removeEventListener("toggle", onOpen);
+      });
+    }
 
     if (!milestones.length) return;
 

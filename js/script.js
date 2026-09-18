@@ -88,6 +88,17 @@ function setupNavToggle() {
   });
 }
 
+function setupModListToggle() {
+  const details = document.getElementById("modListToggle");
+  if (!details) return;
+
+  function openIfTargeted() {
+    if (location.hash === "#mod-list") details.open = true;
+  }
+  window.addEventListener("hashchange", openIfTargeted);
+  openIfTargeted();
+}
+
 function setupRevealOnScroll() {
   const items = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver((entries) => {
@@ -106,5 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
   applyConfig();
   setupPhotoFallback();
   setupNavToggle();
+  setupModListToggle();
   setupRevealOnScroll();
 });

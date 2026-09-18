@@ -639,6 +639,30 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   max-width: 62ch;
   margin-bottom: 22px;
 }
+.mod-list-toggle{ margin-bottom: 0; }
+.mod-list-toggle > .mod-grid{ margin-top: 18px; }
+.mod-list-toggle-summary{
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-title);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--cream);
+  background: var(--wood);
+  border: 3px solid var(--ink);
+  box-shadow: inset 2px 2px 0 0 rgba(255,255,255,.3), inset -2px -2px 0 0 rgba(0,0,0,.25);
+  padding: 12px 18px;
+}
+.mod-list-toggle-summary:hover{ background: var(--wood-dark); }
+.mod-list-toggle-summary::-webkit-details-marker{ display: none; }
+.mod-list-toggle-summary::before{ content: "▸"; color: var(--cream); }
+.mod-list-toggle[open] .mod-list-toggle-summary::before{ content: "▾"; }
+.mod-list-toggle-text-open{ display: none; }
+.mod-list-toggle[open] .mod-list-toggle-text-closed{ display: none; }
+.mod-list-toggle[open] .mod-list-toggle-text-open{ display: inline; }
 .mod-grid{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
