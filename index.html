@@ -50,20 +50,6 @@
           <a href="#mods" class="btn btn-secondary">Baixar mods</a>
         </div>
       </div>
-
-      <div class="hero-photo reveal">
-        <div class="photo-frame tex-wood">
-          <img src="assets/img/server-photo.jpg" alt="Screenshot do servidor" class="server-photo" id="serverPhoto">
-          <div class="photo-placeholder tex-stone" id="photoPlaceholder">
-            <div class="placeholder-icon" aria-hidden="true">
-              <div></div><div></div><div></div><div></div>
-            </div>
-            <p><strong>Screenshot do servidor</strong></p>
-            <p class="placeholder-hint">em breve</p>
-          </div>
-          <span class="frame-tag">📸 base da galera</span>
-        </div>
-      </div>
     </div>
     <div class="grass-edge" aria-hidden="true"></div>
   </section>
@@ -74,39 +60,55 @@
       <h2 class="section-title reveal">Como entrar</h2>
       <p class="section-lead reveal">Ainda estamos preparando tudo. Por enquanto o servidor roda localmente — assim que tivermos um endereço público, ele aparece bem aqui embaixo.</p>
 
-      <div class="server-card reveal">
-        <div class="server-card-topbar">Edit Server Info</div>
-        <div class="server-card-body">
+      <div class="server-layout">
+        <div class="server-card reveal">
+          <div class="server-card-topbar">Edit Server Info</div>
+          <div class="server-card-body">
 
-          <div class="field">
-            <label>Nome do Servidor</label>
-            <div class="field-box" data-config="serverName">Servidor da Galera</div>
+            <div class="field">
+              <label>Nome do Servidor</label>
+              <div class="field-box" data-config="serverName">Servidor da Galera</div>
+            </div>
+
+            <div class="field">
+              <label>Endereço do Servidor</label>
+              <div class="field-box field-box--pending">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span data-config="serverIP">em breve</span>
+                <button class="copy-btn" id="copyIpBtn" type="button" disabled title="Endereço ainda não disponível">copiar</button>
+              </div>
+            </div>
+
+            <div class="server-meta">
+              <div class="meta-chip">
+                <span class="meta-label">Versão</span>
+                <span class="meta-value" data-config="version">1.21.x</span>
+              </div>
+              <div class="meta-chip">
+                <span class="meta-label">Modpack</span>
+                <span class="meta-value" data-config="modpackName">Personalizado</span>
+              </div>
+              <div class="meta-chip">
+                <span class="meta-label">Status</span>
+                <span class="meta-value meta-value--pending">Em preparação</span>
+              </div>
+            </div>
+
           </div>
+        </div>
 
-          <div class="field">
-            <label>Endereço do Servidor</label>
-            <div class="field-box field-box--pending">
-              <span class="status-dot" aria-hidden="true"></span>
-              <span data-config="serverIP">em breve</span>
-              <button class="copy-btn" id="copyIpBtn" type="button" disabled title="Endereço ainda não disponível">copiar</button>
+        <div class="server-photo-wrap">
+          <div class="photo-frame tex-wood">
+            <img src="assets/img/server-photo.jpg" alt="Screenshot do servidor" class="server-photo" id="serverPhoto">
+            <div class="photo-placeholder tex-stone" id="photoPlaceholder">
+              <div class="placeholder-icon" aria-hidden="true">
+                <div></div><div></div><div></div><div></div>
+              </div>
+              <p><strong>Screenshot do servidor</strong></p>
+              <p class="placeholder-hint">em breve</p>
             </div>
+            <span class="frame-tag">📸 base da galera</span>
           </div>
-
-          <div class="server-meta">
-            <div class="meta-chip">
-              <span class="meta-label">Versão</span>
-              <span class="meta-value" data-config="version">1.21.x</span>
-            </div>
-            <div class="meta-chip">
-              <span class="meta-label">Modpack</span>
-              <span class="meta-value" data-config="modpackName">Personalizado</span>
-            </div>
-            <div class="meta-chip">
-              <span class="meta-label">Status</span>
-              <span class="meta-value meta-value--pending">Em preparação</span>
-            </div>
-          </div>
-
         </div>
       </div>
 

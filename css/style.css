@@ -219,10 +219,6 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   z-index: 2;
   max-width: 1100px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 48px;
-  align-items: center;
   padding-bottom: 70px;
 }
 .eyebrow{
@@ -420,10 +416,24 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 /* ---------- SERVIDOR ---------- */
 .server-info{ background-color: var(--dirt); position: relative; }
 
+.server-layout{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 32px;
+}
+
 .server-card{
+  flex: 1 1 360px;
   max-width: 560px;
   background: var(--stone-light);
   color: var(--ink);
+}
+
+.server-photo-wrap{
+  flex: 1 1 260px;
+  max-width: 400px;
+  align-self: center;
 }
 .server-card-topbar{
   background: var(--ink);
@@ -798,7 +808,6 @@ body.lightbox-open{ overflow: hidden; }
 
 /* ---------- glint mágico (hover/foco/toque + brinde no primeiro reveal) ---------- */
 .glint-active, .glint-once{ position: relative; overflow: hidden; }
-.hero-photo.glint-once{ overflow: visible; } /* preserva o frame-tag, que sai de propósito da caixa */
 .glint-active::before, .glint-once::before{
   content: "";
   position: absolute;
@@ -809,12 +818,14 @@ body.lightbox-open{ overflow: hidden; }
   background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,.5) 45%, rgba(255,250,143,.85) 50%, rgba(255,255,255,.5) 55%, transparent 100%);
   pointer-events: none;
   z-index: 1;
+  opacity: 0;
 }
-.glint-active::before{ animation: glint-sweep .9s ease-out; }
-.glint-once::before{ animation: glint-sweep .9s ease-out; animation-delay: .2s; }
+.glint-active::before{ animation: glint-sweep .9s ease-out forwards; }
+.glint-once::before{ animation: glint-sweep .9s ease-out forwards; animation-delay: .2s; }
 @keyframes glint-sweep{
-  from{ left: -60%; }
-  to{ left: 130%; }
+  0%{ left: -60%; opacity: 1; }
+  99%{ opacity: 1; }
+  100%{ left: 130%; opacity: 0; }
 }
 
 /* ---------- anel de impacto ao clicar/tocar ---------- */
@@ -975,8 +986,7 @@ body.lightbox-open{ overflow: hidden; }
    RESPONSIVO
    ========================================================================== */
 @media (max-width: 860px){
-  .hero-inner{ grid-template-columns: 1fr; padding-bottom: 50px; }
-  .hero-photo{ order: -1; }
+  .hero-inner{ padding-bottom: 50px; }
 }
 
 @media (max-width: 640px){
