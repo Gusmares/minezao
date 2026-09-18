@@ -279,6 +279,19 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   border: 2px solid var(--ink);
 }
 
+/* borda de grama: capim irregular "crescendo" da faixa de terra pro céu */
+.grass-edge{
+  height: 26px;
+  background-color: var(--grass);
+  background-image: repeating-linear-gradient(90deg, var(--grass) 0 10%, #4c8a34 10% 20%);
+  background-size: 20% 100%;
+  clip-path: polygon(
+    0% 0%, 10% 0%, 10% 35%, 20% 35%, 20% 15%, 30% 15%, 30% 45%, 40% 45%,
+    40% 0%, 50% 0%, 50% 35%, 60% 35%, 60% 15%, 70% 15%, 70% 45%, 80% 45%,
+    80% 0%, 90% 0%, 90% 35%, 100% 35%, 100% 100%, 0% 100%
+  );
+}
+
 /* ==========================================================================
    SEÇÕES GERAIS
    ========================================================================== */
@@ -298,14 +311,6 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 
 /* ---------- SERVIDOR ---------- */
 .server-info{ background-color: var(--dirt); position: relative; }
-.server-info::before{
-  content: "";
-  display: block;
-  height: 14px;
-  background-color: var(--grass);
-  background-image: linear-gradient(45deg, var(--grass-dark) 25%, transparent 25%, transparent 75%, var(--grass-dark) 75%);
-  background-size: 10px 10px;
-}
 
 .server-card{
   max-width: 560px;
