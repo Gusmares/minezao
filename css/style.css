@@ -64,6 +64,13 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 
 /* ---------- texturas (padrão licenciado tingido via blend-mode) ---------- */
+.tex-dirt{
+  background-color: var(--dirt);
+  background-image: var(--tex-pattern);
+  background-blend-mode: multiply;
+  background-size: 150px 150px;
+}
+
 .tex-stone{
   background-color: var(--stone);
   background-image: var(--tex-pattern);
