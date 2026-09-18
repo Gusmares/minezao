@@ -37,6 +37,11 @@
   --cream:       #f5f1e6;
   --yellow:      #fffa8f;
   --shadow-soft: rgba(0,0,0,.45);
+  --text-outline:
+    2px 0 0 var(--ink), -2px 0 0 var(--ink),
+    0 2px 0 var(--ink), 0 -2px 0 var(--ink),
+    2px 2px 0 var(--ink), -2px -2px 0 var(--ink),
+    2px -2px 0 var(--ink), -2px 2px 0 var(--ink);
 
   --font-title: "Press Start 2P", monospace;
   --font-body:  "Pixelify Sans", sans-serif;
@@ -221,23 +226,26 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   margin: 0 auto;
   padding-bottom: 70px;
 }
+/* o céu do hero varia de bem escuro (noite) a bem claro (manhã); contorno
+   sólido garante leitura do texto em qualquer fase, em vez de só uma sombra */
 .eyebrow{
   font-family: var(--font-title);
   font-size: 11px;
   color: var(--yellow);
   margin-bottom: 18px;
-  text-shadow: 2px 2px 0 var(--shadow-soft);
+  text-shadow: var(--text-outline);
 }
 .mc-title{
   font-size: 40px;
   color: var(--cream);
   margin: 0 0 20px;
+  text-shadow: var(--text-outline);
 }
 .hero-sub{
   font-size: 20px;
   max-width: 46ch;
   color: var(--cream);
-  text-shadow: 2px 2px 0 rgba(0,0,0,.35);
+  text-shadow: var(--text-outline);
   margin-bottom: 30px;
 }
 .hero-actions{ display: flex; gap: 16px; flex-wrap: wrap; }
@@ -475,6 +483,22 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 
 @media (min-width: 641px){
   .device-notice{ display: none; }
+}
+
+/* ---------- contraste: fundo "pedra" (.tex-stone) é bem mais claro que os
+   demais fundos (terra/madeira); texto claro precisa do mesmo contorno do
+   hero pra continuar legível em cima dele ---------- */
+.tex-stone .section-title,
+.tex-stone .section-lead,
+.tex-stone .mod-list-title,
+.tex-stone .mod-list-lead,
+.tex-stone .steps-title,
+.tex-stone .faq-title,
+.tex-stone .gallery-loading,
+.tex-stone .device-notice__topbar,
+.tex-stone .device-notice__close,
+.tex-stone .device-notice__msg{
+  text-shadow: var(--text-outline);
 }
 
 /* ==========================================================================
