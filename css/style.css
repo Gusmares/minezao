@@ -585,10 +585,11 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 
 .req-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
   margin: 22px 0;
 }
+.req-card--wide{ grid-column: span 2; }
 .req-card{
   display: flex;
   gap: 12px;
@@ -622,8 +623,12 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   margin: 0;
   color: var(--ink);
 }
+@media (max-width: 860px){
+  .req-grid{ grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 480px){
   .req-grid{ grid-template-columns: 1fr; }
+  .req-card--wide{ grid-column: span 1; }
 }
 
 .mod-list-wrap{ margin-top: 56px; }

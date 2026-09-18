@@ -34,6 +34,10 @@ const HISTORIA_PHOTOS_2023 = [
   { src: "assets/img/historia/historia-2023-05.jpg", alt: "Curral de vacas cercado de madeira com uma placa escrita farm de mãe do Gustavo", caption: "A farm da mãe do Gustavo" },
   { src: "assets/img/historia/historia-2023-06.jpg", alt: "Foto panorâmica em efeito planeta pequeno mostrando floresta, praia, deserto e um portal do Nether", caption: "Nosso mundo em miniatura" },
   { src: "assets/img/historia/historia-2023-07.jpg", alt: "Panorama planeta pequeno com um esqueleto em cima de um pilar de pedra alto", caption: "Esqueleto guardião da torre" },
+  { src: "assets/img/historia/historia-2023-08.jpg", alt: "Três jogadores posados à noite em frente a uma construção de pedra coberta de vinhas, com cerejeiras ao fundo", caption: "Encontro noturno na ruína" },
+  { src: "assets/img/historia/historia-2023-09.jpg", alt: "Jogador em pé sobre um pilar de madeira no meio do oceano, ao lado de uma ilha minúscula de netherrack com uma torre e um baú", caption: "A ilha mais aleatória do mundo" },
+  { src: "assets/img/historia/historia-2023-10.jpg", alt: "Vista em primeira pessoa de duas fornalhas e bancadas de trabalho encaixadas na parede de pedra de uma base", caption: "Cantinho das fornalhas" },
+  { src: "assets/img/historia/historia-2023-11.jpg", alt: "Três baús duplos de madeira empilhados numa sala de armazenamento de pedra", caption: "O depósito ficou lotado" },
 ];
 
 const HISTORIA_PHOTOS_2025 = [
@@ -46,7 +50,6 @@ const HISTORIA_PHOTOS_2025 = [
   { src: "assets/img/historia/historia-2025-07.jpg", alt: "Catedral gótica vista à distância, com HUD mostrando os pontos Mercado dos Villagers, Porto e Tribunal no mapa", caption: "Catedral gótica no horizonte" },
   { src: "assets/img/historia/historia-2025-08.jpg", alt: "Personagem com skin alada branca e rosa posando numa ponte de madeira perto da catedral", caption: "Pose na ponte da vila" },
   { src: "assets/img/historia/historia-2025-09.jpg", alt: "O mesmo personagem alado na ponte de madeira, em outra pose, com a catedral ao fundo", caption: "Curtindo a vista da ponte" },
-  { src: "assets/img/historia/historia-2025-10.jpg", alt: "Jogador abrindo um baú de madeira numa planície gelada cercada de pinheiros nevados", caption: "Baú escondido na neve" },
 ];
 
 const HISTORIA_PHOTOS_EXTRA = [
@@ -54,6 +57,7 @@ const HISTORIA_PHOTOS_EXTRA = [
   { src: "assets/img/historia/historia-extra-02.jpg", alt: "Jogador com armadura ao lado de um lobo domesticado em frente a dois baús de madeira", caption: "Eu e meu fiel lobo" },
   { src: "assets/img/historia/historia-extra-03.jpg", alt: "Close noturno de um personagem com vestimenta roxa segurando um diamante na mão", caption: "Diamante brilhando na noite" },
   { src: "assets/img/historia/historia-extra-04.jpg", alt: "Interior de uma casa de diorito com overlay de desempenho (fps) no canto da tela", caption: "Dentro da nossa casa de diorito" },
+  { src: "assets/img/historia/historia-extra-05.jpg", alt: "Jogador abrindo um baú de madeira numa planície gelada cercada de pinheiros nevados, em 2024", caption: "Baú escondido na neve (2024)" },
 ];
 
 (function () {
