@@ -1,0 +1,5 @@
+Contact: https://github.com/Gusmares/minezao/security/advisories/new
+Contact: https://discord.gg/2M74ZGUfzH
+Expires: 2027-09-18T00:00:00.000Z
+Preferred-Languages: pt-BR, en
+Canonical: https://minezao.vercel.app/.well-known/security.txt

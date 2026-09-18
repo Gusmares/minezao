@@ -22,7 +22,7 @@ const GALLERY_PHOTOS = [
   { src: "assets/img/gallery/foto-03.jpg", alt: "Corte do mundo, da superfície até o Nether", caption: "Da superfície até o Nether" },
   { src: "assets/img/gallery/foto-04.jpg", alt: "Steve sentado ao lado de um Creeper em frente a uma selva", caption: "Amizade com um Creeper" },
   { src: "assets/img/gallery/foto-05.jpg", alt: "Steve correndo pela grama com os mobs do jogo", caption: "Correria com os mobs" },
-  { src: "assets/img/gallery/foto-06.png", alt: "Steve enfrentando um esqueleto ao entardecer", caption: "Emboscada ao entardecer" },
+  { src: "assets/img/gallery/foto-06.jpg", alt: "Steve enfrentando um esqueleto ao entardecer", caption: "Emboscada ao entardecer" },
 ];
 
 /* ---------- Clipes de gameplay (Medal.tv) ---------- */
@@ -187,6 +187,7 @@ const HISTORIA_PHOTOS_EXTRA = [
   function initPlayer() {
     if (player) return;
     player = new YT.Player("nostalgiaVideoHost", {
+      host: "https://www.youtube-nocookie.com",
       videoId: currentTrack().id,
       width: "100%",
       height: "100%",

@@ -10,3 +10,8 @@
 # GitHub Release e liga o link em js/script.js (CONFIG.modpackLink).
 /mods.rar
 /modpack-wgusmares.zip
+
+# Jars soltos do modpack (centenas de MB) e config local do Claude Code —
+# nada disso deve ir pro repositório nem ser servido publicamente.
+/mods/
+/.claude/

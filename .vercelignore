@@ -1,0 +1,11 @@
+# Nada disso deve ir pro ar (nem ser servido publicamente pela Vercel).
+# Tudo ancorado na raiz com "/": sem isso, "/clipes" também casaria com
+# assets/video/clipes/, que são os vídeos que o site realmente usa.
+/.claude
+/.gitignore
+/.vercelignore
+/mods
+/mods.rar
+/modpack-wgusmares.zip
+/FotosDeoutrosServers
+/clipes

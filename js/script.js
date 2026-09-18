@@ -15,7 +15,6 @@ function applyConfig() {
   document.querySelectorAll('[data-config="serverName"]').forEach(el => {
     el.textContent = CONFIG.serverName;
   });
-  document.title = `${CONFIG.serverName} — Minecraft`;
 
   document.querySelectorAll('[data-config="version"]').forEach(el => {
     el.textContent = CONFIG.version;
@@ -148,9 +147,19 @@ function setupDeviceNotice() {
     ["Navegador", browser],
     ["Tela", `${window.innerWidth}×${window.innerHeight}`],
   ];
-  debugList.innerHTML = rows
-    .map(([k, v]) => `<li><span class="k">${k}</span><span class="v">${v}</span></li>`)
-    .join("");
+  debugList.replaceChildren(
+    ...rows.map(([k, v]) => {
+      const li = document.createElement("li");
+      const key = document.createElement("span");
+      key.className = "k";
+      key.textContent = k;
+      const val = document.createElement("span");
+      val.className = "v";
+      val.textContent = v;
+      li.append(key, val);
+      return li;
+    })
+  );
 
   function dismiss() {
     notice.classList.remove("is-visible");

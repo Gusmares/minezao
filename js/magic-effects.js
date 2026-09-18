@@ -175,13 +175,24 @@
 
       const toast = document.createElement("div");
       toast.className = "achievement-toast pixel-panel";
-      toast.innerHTML =
-        '<div class="achievement-toast__icon" aria-hidden="true"><div></div><div></div><div></div><div></div></div>' +
-        '<div class="achievement-toast__text">' +
-        '<p class="achievement-toast__eyebrow">Conquista desbloqueada!</p>' +
-        `<p class="achievement-toast__title">${title}</p>` +
-        (desc ? `<p class="achievement-toast__desc">${desc}</p>` : "") +
-        "</div>";
+      const icon = document.createElement("div");
+      icon.className = "achievement-toast__icon";
+      icon.setAttribute("aria-hidden", "true");
+      for (let i = 0; i < 4; i++) icon.appendChild(document.createElement("div"));
+
+      const text = document.createElement("div");
+      text.className = "achievement-toast__text";
+      const addLine = (cls, content) => {
+        const p = document.createElement("p");
+        p.className = cls;
+        p.textContent = content;
+        text.appendChild(p);
+      };
+      addLine("achievement-toast__eyebrow", "Conquista desbloqueada!");
+      addLine("achievement-toast__title", title);
+      if (desc) addLine("achievement-toast__desc", desc);
+
+      toast.append(icon, text);
       ensureStack().appendChild(toast);
 
       if (window.SFX && window.__radioUnlocked) window.SFX.play("achievement");
