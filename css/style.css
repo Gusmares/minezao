@@ -103,6 +103,88 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 
 
+/* ---------- ícones pixel art ----------
+   Cada ícone é uma célula de 16x16 px do sprite assets/img/icons/pixel-icons.png
+   (gerado por tools/gerar-icones.py), ampliada sempre em múltiplo inteiro e sem
+   suavização, senão borra: --px-k 1 = 16px (dentro do texto), 2 = 32px (caixas
+   de ícone), 3 = 48px. O contêiner define --px-k e os ícones herdam.
+   .px-icon  = ícone colorido, com contorno escuro.
+   .px-glyph = símbolo branco usado como máscara e pintado com currentColor
+               (setas, fechar, play...), então acompanha cor, hover e tema. */
+:root{ --n: 36; --px-sprite: url("../assets/img/icons/pixel-icons.png"); }
+
+.px-icon{
+  display: inline-block;
+  flex-shrink: 0;
+  width: calc(16px * var(--px-k, 1));
+  height: calc(16px * var(--px-k, 1));
+  vertical-align: -3px;
+  pointer-events: none;
+  background-image: var(--px-sprite);
+  background-repeat: no-repeat;
+  background-size: calc(16px * var(--px-k, 1) * var(--n)) calc(16px * var(--px-k, 1));
+  background-position: calc(var(--i) * -16px * var(--px-k, 1)) 0;
+  image-rendering: pixelated;
+}
+.px-glyph,
+.mod-list-toggle-summary::before,
+.faq-item summary::before{
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  width: calc(16px * var(--px-k, 1));
+  height: calc(16px * var(--px-k, 1));
+  vertical-align: -3px;
+  pointer-events: none;
+  background-color: currentColor;
+  -webkit-mask-image: var(--px-sprite);
+  mask-image: var(--px-sprite);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: calc(16px * var(--px-k, 1) * var(--n)) calc(16px * var(--px-k, 1));
+  mask-size: calc(16px * var(--px-k, 1) * var(--n)) calc(16px * var(--px-k, 1));
+  -webkit-mask-position: calc(var(--i) * -16px * var(--px-k, 1)) 0;
+  mask-position: calc(var(--i) * -16px * var(--px-k, 1)) 0;
+  image-rendering: pixelated;
+}
+.px-icon--map{ --i: 0; }
+.px-icon--portal{ --i: 1; }
+.px-icon--paw{ --i: 2; }
+.px-icon--bread{ --i: 3; }
+.px-icon--house{ --i: 4; }
+.px-icon--mic{ --i: 5; }
+.px-icon--backpack{ --i: 6; }
+.px-icon--dove{ --i: 7; }
+.px-icon--palette{ --i: 8; }
+.px-icon--handshake{ --i: 9; }
+.px-icon--camera{ --i: 10; }
+.px-icon--chest{ --i: 11; }
+.px-icon--coffee{ --i: 12; }
+.px-icon--ram{ --i: 13; }
+.px-icon--spool{ --i: 14; }
+.px-icon--floppy{ --i: 15; }
+.px-icon--shield{ --i: 16; }
+.px-icon--cassette{ --i: 17; }
+.px-icon--note{ --i: 18; }
+.px-icon--laptop{ --i: 19; }
+.px-icon--phone{ --i: 20; }
+.px-icon--heart{ --i: 21; }
+.px-icon--cpu{ --i: 22; }
+.px-icon--signal{ --i: 23; }
+.px-icon--wrench{ --i: 24; }
+.px-glyph--close{ --i: 25; }
+.px-glyph--play{ --i: 26; }
+.px-glyph--pause{ --i: 27; }
+.px-glyph--prev{ --i: 28; }
+.px-glyph--next{ --i: 29; }
+.px-glyph--arrow{ --i: 30; }
+.px-glyph--ext{ --i: 31; }
+.px-glyph--chev-r{ --i: 32; }
+.px-glyph--chev-d{ --i: 33; }
+.px-glyph--angle-l{ --i: 34; }
+.px-glyph--angle-r{ --i: 35; }
+
+
 /* ---------- painel com bisel 3D (estilo GUI) ---------- */
 .pixel-panel{
   position: relative;
@@ -389,23 +471,36 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   100%{ transform: translateY(-140px); opacity: 0; }
 }
 
-/* borda de grama: capim irregular "crescendo" da faixa de terra pro céu.
-   Um clip-path percentual só dá 5 dentes esticados na largura toda da tela
-   (feio e ainda pior em telas largas); um mask-image SVG repetido em tile
-   de tamanho fixo em px mantém os dentes pequenos e consistentes. */
+/* borda de grama estilo Minecraft: camada grossa e pixelada (1 "pixel" = 4px, o
+   mesmo tamanho do texel da textura) com topo em degraus e franja irregular
+   "pingando" sobre a terra da próxima seção — como o lado de um bloco de grama.
+   O elemento fica entre o hero e a seção seguinte: as margens negativas o puxam
+   16px pra dentro do céu e 16px pra dentro da terra sem ocupar espaço no fluxo,
+   e ele vai de ponta a ponta da tela (dentro do hero pegava o padding lateral e
+   deixava um vão nas bordas). A máscara SVG tem 512px de largura e perfil
+   sorteado, pra repetição não parecer padrão; a sombra escura embaixo separa a
+   franja verde da terra. */
 .grass-edge{
   position: relative;
   z-index: 2;
-  height: 26px;
+  height: 32px;
+  margin: -16px 0 -16px;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 0 rgba(0,0,0,.3));
+}
+.grass-edge::before{
+  content: "";
+  position: absolute;
+  inset: 0;
   background-color: var(--grass);
   background-image: var(--tex-grass);
   background-size: 256px 128px;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='26'%3E%3Cpath d='M0 22H3L6 6L9 22H11L14 14L17 22H20V26H0Z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='26'%3E%3Cpath d='M0 22H3L6 6L9 22H11L14 14L17 22H20V26H0Z'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='8' viewBox='0 0 128 8' shape-rendering='crispEdges'%3E%3Cpath d='M0 2H1H2V1H3H4H5V2H6H7H8H9H10H11V1H12H13V2H14H15V1H16H17V2H18V1H19V0H20H21H22V1H23V2H24H25H26H27H28V1H29H30V2H31V1H32V0H33H34V1H35V2H36H37V1H38V0H39V1H40V2H41H42V1H43V2H44H45H46H47H48V1H49V0H50H51V1H52H53V0H54V1H55V2H56H57H58H59H60V1H61H62V2H63H64H65V1H66H67V2H68H69V1H70V0H71V1H72V2H73H74H75V1H76V0H77H78H79V1H80V2H81H82V1H83H84V2H85H86H87H88H89H90V1H91V2H92H93H94V1H95H96V2H97H98H99H100H101H102V1H103V2H104H105H106V1H107H108H109V2H110H111H112H113H114V1H115H116V2H117H118V1H119H120V2H121H122H123V1H124V0H125V1H126V2H127H128V6H127V5H126H125H124V6H123V8H122V7H121H120V5H119H118V6H117V5H116V6H115V7H114V6H113H112H111V5H110H109V8H108V6H107V7H106H105V6H104H103V8H102V6H101V7H100V6H99H98V8H97V7H96V6H95V7H94H93H92V6H91H90H89V5H88H87H86V7H85V6H84H83V8H82V5H81H80V6H79V7H78H77H76V8H75V5H74H73V6H72H71V7H70H69H68V5H67V7H66H65V8H64V5H63H62V6H61H60V5H59H58V7H57H56H55V6H54V8H53V6H52V5H51H50V7H49H48V6H47H46V7H45H44H43V6H42H41V5H40H39V8H38V7H37H36V6H35H34H33V7H32H31V6H30V8H29V6H28H27H26V7H25H24V8H23V6H22H21H20V5H19V6H18H17H16V5H15H14V6H13H12V5H11V6H10H9V8H8V7H7H6H5V5H4H3V6H2V7H1V6H0Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='8' viewBox='0 0 128 8' shape-rendering='crispEdges'%3E%3Cpath d='M0 2H1H2V1H3H4H5V2H6H7H8H9H10H11V1H12H13V2H14H15V1H16H17V2H18V1H19V0H20H21H22V1H23V2H24H25H26H27H28V1H29H30V2H31V1H32V0H33H34V1H35V2H36H37V1H38V0H39V1H40V2H41H42V1H43V2H44H45H46H47H48V1H49V0H50H51V1H52H53V0H54V1H55V2H56H57H58H59H60V1H61H62V2H63H64H65V1H66H67V2H68H69V1H70V0H71V1H72V2H73H74H75V1H76V0H77H78H79V1H80V2H81H82V1H83H84V2H85H86H87H88H89H90V1H91V2H92H93H94V1H95H96V2H97H98H99H100H101H102V1H103V2H104H105H106V1H107H108H109V2H110H111H112H113H114V1H115H116V2H117H118V1H119H120V2H121H122H123V1H124V0H125V1H126V2H127H128V6H127V5H126H125H124V6H123V8H122V7H121H120V5H119H118V6H117V5H116V6H115V7H114V6H113H112H111V5H110H109V8H108V6H107V7H106H105V6H104H103V8H102V6H101V7H100V6H99H98V8H97V7H96V6H95V7H94H93H92V6H91H90H89V5H88H87H86V7H85V6H84H83V8H82V5H81H80V6H79V7H78H77H76V8H75V5H74H73V6H72H71V7H70H69H68V5H67V7H66H65V8H64V5H63H62V6H61H60V5H59H58V7H57H56H55V6H54V8H53V6H52V5H51H50V7H49H48V6H47H46V7H45H44H43V6H42H41V5H40H39V8H38V7H37H36V6H35H34H33V7H32H31V6H30V8H29V6H28H27H26V7H25H24V8H23V6H22H21H20V5H19V6H18H17H16V5H15H14V6H13H12V5H11V6H10H9V8H8V7H7H6H5V5H4H3V6H2V7H1V6H0Z'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat-x;
   mask-repeat: repeat-x;
-  -webkit-mask-size: 20px 26px;
-  mask-size: 20px 26px;
+  -webkit-mask-size: 512px 32px;
+  mask-size: 512px 32px;
 }
 
 /* ==========================================================================
@@ -451,11 +546,11 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 .device-notice__topbar span:nth-child(2){ flex: 1; }
 .device-notice__close{
+  display: inline-flex;
   background: none;
   border: none;
   color: var(--cream);
   cursor: pointer;
-  font-size: 16px;
   line-height: 1;
   padding: 6px;
   margin: -6px;
@@ -572,7 +667,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  --px-k: 2;
   background: var(--ink);
   box-shadow: inset 0 0 0 3px #000, inset 3px 3px 0 0 rgba(255,255,255,.1);
 }
@@ -626,7 +721,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+  --px-k: 2;
   box-shadow: inset 0 0 0 3px #000, inset 3px 3px 0 0 rgba(255,255,255,.25), inset -3px -3px 0 0 rgba(0,0,0,.25);
 }
 .pilar-icon--paz{ background: #4f7fa8; }
@@ -843,6 +938,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   font-size: 15px;
   font-weight: 500;
 }
+.trust-note .px-icon{ margin-top: 4px; }
 .trust-note a{ color: var(--yellow); font-weight: 700; text-decoration: underline; }
 
 .mod-type-legend{
@@ -863,11 +959,11 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 .mod-type-icon{
   flex-shrink: 0;
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 19px;
+  --px-k: 2;
   background: var(--grass-dark);
   box-shadow: inset 0 0 0 3px #000;
 }
@@ -903,12 +999,12 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 .req-icon{
   flex-shrink: 0;
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  --px-k: 2;
   background: var(--ink);
   box-shadow: inset 0 0 0 2px #000;
 }
@@ -964,8 +1060,8 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 }
 .mod-list-toggle-summary:hover{ background: var(--wood-dark); }
 .mod-list-toggle-summary::-webkit-details-marker{ display: none; }
-.mod-list-toggle-summary::before{ content: "▸"; color: var(--cream); }
-.mod-list-toggle[open] .mod-list-toggle-summary::before{ content: "▾"; }
+.mod-list-toggle-summary::before{ --i: 32; margin-right: 8px; color: var(--cream); }
+.mod-list-toggle[open] .mod-list-toggle-summary::before{ --i: 33; }
 .mod-list-toggle-text-open{ display: none; }
 .mod-list-toggle[open] .mod-list-toggle-text-closed{ display: none; }
 .mod-list-toggle[open] .mod-list-toggle-text-open{ display: inline; }
@@ -1063,8 +1159,8 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   list-style: none;
 }
 .faq-item summary::-webkit-details-marker{ display: none; }
-.faq-item summary::before{ content: "▸ "; color: var(--wood-dark); }
-.faq-item[open] summary::before{ content: "▾ "; }
+.faq-item summary::before{ --i: 32; margin-right: 6px; color: var(--wood-dark); }
+.faq-item[open] summary::before{ --i: 33; }
 .faq-item p{ margin: 10px 0 0; font-size: 15px; }
 .faq-item a{ text-decoration: underline; font-weight: 700; }
 
@@ -1163,7 +1259,7 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  --px-k: 2;
   padding-left: 3px;
   pointer-events: none;
 }
@@ -1187,8 +1283,11 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   border: 3px solid var(--ink);
   background: var(--wood);
   color: var(--cream);
-  font-size: 20px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  --px-k: 2;
   cursor: pointer;
   box-shadow:
     inset -3px -3px 0 0 var(--wood-dark),
@@ -1242,8 +1341,11 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   border: 3px solid var(--ink);
   background: var(--wood);
   color: var(--cream);
-  font-size: 20px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  --px-k: 2;
   cursor: pointer;
   box-shadow:
     inset -3px -3px 0 0 var(--wood-dark),
@@ -1284,7 +1386,7 @@ body.lightbox-open{ overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 38px;
+  --px-k: 3;
   background: var(--ink);
   box-shadow: inset 0 0 0 3px #000, inset 3px 3px 0 0 rgba(255,255,255,.1);
 }
@@ -1595,11 +1697,11 @@ body.lightbox-open{ overflow: hidden; }
   justify-content: space-between;
 }
 .nostalgia-popup__close{
+  display: inline-flex;
   background: none;
   border: none;
   color: var(--cream);
   cursor: pointer;
-  font-size: 14px;
   line-height: 1;
   padding: 2px 4px;
 }
@@ -1627,13 +1729,16 @@ body.lightbox-open{ overflow: hidden; }
 }
 .nostalgia-popup__controls{ display: flex; gap: 8px; justify-content: center; }
 .nostalgia-popup__controls button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--ink);
   color: var(--cream);
   border: 2px solid var(--ink);
   width: 36px;
   height: 30px;
+  padding: 0;
   cursor: pointer;
-  font-size: 14px;
 }
 .nostalgia-popup__controls button:hover{ background: var(--wood-dark); color: var(--yellow); }
 
@@ -1643,7 +1748,7 @@ body.lightbox-open{ overflow: hidden; }
   justify-content: center;
   width: 50px;
   height: 50px;
-  font-size: 22px;
+  --px-k: 2;
   background: var(--grass);
   border: 3px solid var(--ink);
   box-shadow:
@@ -1680,7 +1785,6 @@ body.lightbox-open{ overflow: hidden; }
   .nostalgia-popup{ width: 100%; max-width: 300px; }
   .nostalgia-popup__topbar{ padding: 10px 12px; font-size: 11px; }
   .nostalgia-popup__close{
-    font-size: 18px;
     padding: 10px;
     margin: -10px;
   }
@@ -1697,11 +1801,10 @@ body.lightbox-open{ overflow: hidden; }
   .nostalgia-popup__controls button{
     width: 48px;
     height: 44px;
-    font-size: 16px;
+    --px-k: 2;
   }
   .nostalgia-tick{
     width: 54px;
     height: 54px;
-    font-size: 24px;
   }
 }

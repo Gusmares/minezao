@@ -102,7 +102,9 @@ const HISTORIA_PHOTOS_EXTRA = [
   }
 
   function setPlayIcon(isPlaying) {
-    els.playPause.textContent = isPlaying ? "⏸" : "▶";
+    const glyph = els.playPause.querySelector(".px-glyph");
+    glyph.classList.toggle("px-glyph--pause", isPlaying);
+    glyph.classList.toggle("px-glyph--play", !isPlaying);
     els.playPause.title = isPlaying ? "Pausar" : "Tocar";
   }
 
@@ -273,7 +275,9 @@ const HISTORIA_PHOTOS_EXTRA = [
     const playBadge = document.createElement("span");
     playBadge.className = "gallery-play-badge";
     playBadge.setAttribute("aria-hidden", "true");
-    playBadge.textContent = "▶";
+    const playGlyph = document.createElement("span");
+    playGlyph.className = "px-glyph px-glyph--play";
+    playBadge.appendChild(playGlyph);
 
     thumbWrap.appendChild(img);
     thumbWrap.appendChild(playBadge);
