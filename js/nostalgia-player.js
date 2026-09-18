@@ -13,6 +13,9 @@ const NOSTALGIA_TRACKS = [
   { id: "CU1c3fZ7dSM", title: "Intro do TazerCraft — Tron!" },
   { id: "rQzSiiRe6YM", title: "RAP DO MINECRAFT — BngOficial" },
   { id: "9h1l5Z0mH0w", title: "COM MEUS AMIGOS — AuthenticGames" },
+  { id: "w4utAyKFrZY", title: "SOU STEVE (Paródia Believer) — jvnq" },
+  { id: "M2GYZhz7B34", title: "RAVINA (Paródia Havana) — jvnq" },
+  { id: "WwIvxSWR_B8", title: "Intro do Rezendeevil — Tron!" },
 ];
 
 (function () {
