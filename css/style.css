@@ -389,7 +389,10 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   100%{ transform: translateY(-140px); opacity: 0; }
 }
 
-/* borda de grama: capim irregular "crescendo" da faixa de terra pro céu */
+/* borda de grama: capim irregular "crescendo" da faixa de terra pro céu.
+   Um clip-path percentual só dá 5 dentes esticados na largura toda da tela
+   (feio e ainda pior em telas largas); um mask-image SVG repetido em tile
+   de tamanho fixo em px mantém os dentes pequenos e consistentes. */
 .grass-edge{
   position: relative;
   z-index: 2;
@@ -397,11 +400,12 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   background-color: var(--grass);
   background-image: var(--tex-grass);
   background-size: 256px 128px;
-  clip-path: polygon(
-    0% 0%, 10% 0%, 10% 35%, 20% 35%, 20% 15%, 30% 15%, 30% 45%, 40% 45%,
-    40% 0%, 50% 0%, 50% 35%, 60% 35%, 60% 15%, 70% 15%, 70% 45%, 80% 45%,
-    80% 0%, 90% 0%, 90% 35%, 100% 35%, 100% 100%, 0% 100%
-  );
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='26'%3E%3Cpath d='M0 22H3L6 6L9 22H11L14 14L17 22H20V26H0Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='26'%3E%3Cpath d='M0 22H3L6 6L9 22H11L14 14L17 22H20V26H0Z'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 20px 26px;
+  mask-size: 20px 26px;
 }
 
 /* ==========================================================================
@@ -434,6 +438,9 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   font-size: 10px;
   color: var(--cream);
   text-shadow: 2px 2px 0 var(--shadow-soft);
+  background: rgba(0,0,0,.4);
+  border: 2px solid rgba(0,0,0,.5);
+  padding: 8px 10px;
   margin-bottom: 10px;
 }
 .device-notice__tag{
@@ -478,6 +485,9 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   line-height: 1.55;
   margin: 0 0 14px;
   color: var(--cream);
+  background: rgba(0,0,0,.4);
+  border: 2px solid rgba(0,0,0,.5);
+  padding: 10px 12px;
 }
 .device-notice__ok{ width: 100%; text-align: center; }
 
