@@ -793,9 +793,10 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   gap: 14px;
 }
 .mod-card{
-  display: flex;
+  display: grid;
+  grid-template-columns: 38px 1fr;
   align-items: center;
-  gap: 12px;
+  gap: 10px 12px;
   background: var(--stone-light);
   color: var(--ink);
   border: 3px solid var(--ink);
@@ -815,27 +816,30 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
   box-shadow: inset -2px -2px 0 0 rgba(0,0,0,.3), inset 2px 2px 0 0 rgba(255,255,255,.25);
 }
 .mod-icon--light{ color: var(--ink); }
-.mod-info{ flex: 1; min-width: 0; }
+.mod-info{ min-width: 0; overflow-wrap: anywhere; }
 .mod-name{ font-weight: 700; font-size: 15px; line-height: 1.3; }
 .mod-author{ font-size: 13px; color: #5a5a5a; }
+/* Modrinth sempre na coluna da esquerda e CurseForge na da direita, mesmo quando
+   o mod só existe em uma das duas plataformas — os botões ficam alinhados. */
 .mod-links{
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
 }
 .mod-link{
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
   color: var(--cream);
-  background: #1a8f4c;
-  padding: 5px 8px;
+  background: #137a3c;
+  padding: 7px 8px;
   white-space: nowrap;
 }
 .mod-link:hover{ filter: brightness(1.15); }
-.mod-link--cf{ background: #d5652b; }
+.mod-link--mr{ grid-column: 1; }
+.mod-link--cf{ grid-column: 2; background: #b04d1a; }
 .mod-link--gh{ background: #333; }
 
 .step-content h3{
