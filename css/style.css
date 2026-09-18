@@ -572,9 +572,13 @@ code{ font-family: var(--font-body); background: rgba(0,0,0,.35); padding: .1em 
 .field-box--pending{ color: var(--yellow); justify-content: space-between; }
 .status-dot{
   width: 10px; height: 10px;
-  background: #e0b23c;
+  background: var(--grass);
   border: 2px solid #000;
   flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(93,156,63,.35);
+}
+.field-box--pending .status-dot{
+  background: #e0b23c;
   box-shadow: 0 0 0 2px rgba(224,178,60,.35);
 }
 
