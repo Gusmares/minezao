@@ -8,7 +8,7 @@ const CONFIG = {
   serverIP: "enx-cirion-97.enx.host:10073",
   version: "1.21.1",
   modpackName: "Personalizado",
-  modpackLink: null, // ex: "https://exemplo.com/modpack.zip"
+  modpackLink: "https://github.com/Gusmares/minezao/releases/download/modpack-v1/mods.rar",
 };
 
 function applyConfig() {

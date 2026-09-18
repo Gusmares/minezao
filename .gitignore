@@ -5,3 +5,8 @@
 # Clipes brutos do Medal.tv (alta taxa de bits, ~250MB) — as versões
 # recomprimidas pro site ficam em assets/video/clipes/
 /clipes/
+
+# Modpack (400-500MB) — grande demais pro git. Sobe como anexo de uma
+# GitHub Release e liga o link em js/script.js (CONFIG.modpackLink).
+/mods.rar
+/modpack-wgusmares.zip
